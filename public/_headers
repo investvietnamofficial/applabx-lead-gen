@@ -1,19 +1,14 @@
 # Cloudflare Pages custom headers
 # https://developers.cloudflare.com/pages/platform/headers/
 #
-# IMPORTANT: These headers are applied by Cloudflare's edge network.
-# next.config.ts async headers() is NOT used — it requires a Node.js server.
-# All headers must be defined here for static Cloudflare Pages deploys.
-
-# ─── Security headers — all routes ───────────────────────────────────────────
-/*
-  X-Content-Type-Options: nosniff
-  X-Frame-Options: DENY
-  X-XSS-Protection: 1; mode=block
-  Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
-  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net blob; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://images.unsplash.com https://picsum.photos; connect-src 'self' https://api.resend.com https://www.google-analytics.com; frame-src 'self' https://calendly.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+# Cloudflare Pages automatically adds security headers (X-Content-Type-Options,
+# X-Frame-Options, HSTS, Referrer-Policy) for all deployments.
+# We add only the cache and content-type headers below.
+#
+# NOTE: Do NOT add a Content-Security-Policy here — it can block Next.js 16's
+# React Server Component streaming, causing a blank page. Let Cloudflare's
+# built-in security headers handle CSP. You can add CSP later via the
+# Cloudflare Pages dashboard → Security → WAF → Custom Rules if needed.
 
 # ─── Cache control — immutable static assets ───────────────────────────────────
 /_next/static/*
@@ -36,13 +31,10 @@
 # Cloudflare defaults to no-cache for .html. We explicitly set no-store.
 *.html
   Cache-Control: no-store, must-revalidate
-  X-Content-Type-Options: nosniff
 
 /index.html
   Cache-Control: no-store, must-revalidate
-  X-Content-Type-Options: nosniff
 
 # ─── API routes (Cloudflare Pages Functions) ───────────────────────────────────
 /api/*
-  X-Content-Type-Options: nosniff
   Content-Type: application/json; charset=utf-8
