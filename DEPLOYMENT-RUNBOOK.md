@@ -38,7 +38,7 @@ git remote -v
 cd "/Users/gilbertneo/Desktop/My Apps/applabx-lead-gen"
 npm run build
 
-# Expected output: 43 routes generated, /out directory created
+# Expected output: 63 routes generated, /out directory created
 # Check: ls out/ | head -20
 ```
 
