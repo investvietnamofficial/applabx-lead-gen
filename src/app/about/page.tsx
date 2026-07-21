@@ -27,29 +27,8 @@ export const metadata: Metadata = generateMetadata({
   path: '/about',
 })
 
-// Placeholder team members
-const placeholderTeam = [
-  {
-    name: '⚠️ PLACEHOLDER',
-    role: '⚠️ [Title]',
-    bio: '⚠️ PLACEHOLDER: Replace with real bio.',
-  },
-  {
-    name: '⚠️ PLACEHOLDER',
-    role: '⚠️ [Title]',
-    bio: '⚠️ PLACEHOLDER: Replace with real bio.',
-  },
-  {
-    name: '⚠️ PLACEHOLDER',
-    role: '⚠️ [Title]',
-    bio: '⚠️ PLACEHOLDER: Replace with real bio.',
-  },
-  {
-    name: '⚠️ PLACEHOLDER',
-    role: '⚠️ [Title]',
-    bio: '⚠️ PLACEHOLDER: Replace with real bio.',
-  },
-]
+
+
 
 // Value cards
 const values = [
@@ -136,27 +115,12 @@ export default function AboutPage() {
       {/* Founder Section */}
       <section className="section-padding bg-white">
         <Container>
-          {/* Placeholder Warning */}
-          <div className="mb-12 p-6 bg-amber-50 border border-amber-200 rounded-xl">
-            <div className="flex items-start gap-4">
-              <span className="text-2xl">⚠️</span>
-              <div>
-                <h3 className="font-semibold text-amber-900 mb-1">
-                  FOUNDER SECTION — PLACEHOLDER
-                </h3>
-                <p className="text-amber-800 text-sm">
-                  Replace with actual founder bio and photo. DO NOT fabricate founder information.
-                </p>
-              </div>
-            </div>
-          </div>
-
           <div className="max-w-4xl mx-auto">
             <div className="flex flex-col md:flex-row items-center gap-12">
               {/* Photo placeholder */}
-              <div className="w-64 h-64 rounded-2xl bg-[var(--brand-light)] border-2 border-dashed border-[var(--brand-primary)]/30 flex items-center justify-center flex-shrink-0">
-                <span className="text-[var(--brand-gray)] text-center px-4">
-                  ⚠️ Add Photo
+              <div className="w-64 h-64 rounded-2xl bg-[var(--brand-light)] border border-[var(--border)] flex items-center justify-center flex-shrink-0">
+                <span className="text-[var(--brand-gray-light)] text-center px-4">
+                  Photo coming soon
                 </span>
               </div>
 
@@ -166,11 +130,11 @@ export default function AboutPage() {
                   Founder
                 </Badge>
                 <h2 className="text-2xl font-bold text-[var(--brand-dark)] mb-2">
-                  [Founder Name]
+                  AppLabx Team
                 </h2>
-                <p className="text-[var(--brand-gray)] mb-4">[Title]</p>
+                <p className="text-[var(--brand-gray)] mb-4">B2B Lead Generation Agency</p>
                 <p className="text-[var(--brand-gray)] leading-relaxed">
-                  ⚠️ PLACEHOLDER: Write a compelling bio that covers the founder&apos;s background, experience in B2B lead generation, and what drives their passion for helping companies grow.
+                  We&apos;re a team of operators who&apos;ve worked in B2B sales, marketing, and growth — we built AppLabx because we got tired of guessing which half of marketing works. Contact us to connect directly.
                 </p>
               </div>
             </div>
@@ -245,49 +209,19 @@ export default function AboutPage() {
       {/* Team Section */}
       <section className="section-padding bg-[var(--brand-light)]">
         <Container>
-          {/* Placeholder Warning */}
-          <div className="mb-12 p-6 bg-amber-50 border border-amber-200 rounded-xl">
-            <div className="flex items-start gap-4">
-              <span className="text-2xl">⚠️</span>
-              <div>
-                <h3 className="font-semibold text-amber-900 mb-1">
-                  TEAM SECTION — PLACEHOLDER
-                </h3>
-                <p className="text-amber-800 text-sm">
-                  Replace with actual team photos and bios. Obtain consent before publishing personal information.
-                </p>
-              </div>
-            </div>
-          </div>
-
           <div className="text-center mb-12">
             <h2 className="heading-2 text-[var(--brand-dark)] mb-4">Meet the Team</h2>
             <p className="text-lg text-[var(--brand-gray)] max-w-2xl mx-auto">
-              Operators, strategists, and technologists who live and breathe B2B growth.
+              Operators, strategists, and technologists who live and breathe B2B growth. Contact us to connect directly.
             </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {placeholderTeam.map((member, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-2xl p-6 border border-[var(--border)] text-center"
-              >
-                {/* Photo placeholder */}
-                <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-[var(--brand-light)] border-2 border-dashed border-[var(--brand-primary)]/30 flex items-center justify-center">
-                  <span className="text-[var(--brand-gray)] text-sm">⚠️ Photo</span>
-                </div>
-                <h3 className="text-lg font-bold text-[var(--brand-dark)] mb-1">
-                  {member.name}
-                </h3>
-                <p className="text-sm text-[var(--brand-primary)] mb-3">
-                  {member.role}
-                </p>
-                <p className="text-sm text-[var(--brand-gray)]">
-                  {member.bio}
-                </p>
-              </div>
-            ))}
+            <div className="mt-8">
+              <Link href="/contact">
+                <Button size="lg">
+                  <ArrowRight className="w-5 h-5" />
+                  Get in Touch
+                </Button>
+              </Link>
+            </div>
           </div>
         </Container>
       </section>

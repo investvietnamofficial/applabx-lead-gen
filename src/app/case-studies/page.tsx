@@ -3,10 +3,8 @@ import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
-import { SectionHeading } from '@/components/ui/SectionHeading'
 import { generateMetadata } from '@/lib/seo'
-import { industries } from '@/lib/constants'
-import { ArrowRight, ExternalLink } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = generateMetadata({
   title: 'Case Studies',
@@ -15,63 +13,6 @@ export const metadata: Metadata = generateMetadata({
   path: '/case-studies',
 })
 
-// Placeholder case studies data - clearly marked as placeholders
-const caseStudies = [
-  {
-    id: '1',
-    client: '⚠️ PLACEHOLDER',
-    industry: 'SaaS',
-    country: 'Singapore',
-    challenge: '⚠️ PLACEHOLDER: Describe the client\'s challenge in 1-2 sentences.',
-    solution: '⚠️ PLACEHOLDER: Describe the solution implemented in 1-2 sentences.',
-    results: '⚠️ PLACEHOLDER: ⚠️ DO NOT FABRICATE — Replace with real metrics.',
-  },
-  {
-    id: '2',
-    client: '⚠️ PLACEHOLDER',
-    industry: 'AI',
-    country: 'Vietnam',
-    challenge: '⚠️ PLACEHOLDER: Describe the client\'s challenge in 1-2 sentences.',
-    solution: '⚠️ PLACEHOLDER: Describe the solution implemented in 1-2 sentences.',
-    results: '⚠️ PLACEHOLDER: ⚠️ DO NOT FABRICATE — Replace with real metrics.',
-  },
-  {
-    id: '3',
-    client: '⚠️ PLACEHOLDER',
-    industry: 'FinTech',
-    country: 'UAE',
-    challenge: '⚠️ PLACEHOLDER: Describe the client\'s challenge in 1-2 sentences.',
-    solution: '⚠️ PLACEHOLDER: Describe the solution implemented in 1-2 sentences.',
-    results: '⚠️ PLACEHOLDER: ⚠️ DO NOT FABRICATE — Replace with real metrics.',
-  },
-  {
-    id: '4',
-    client: '⚠️ PLACEHOLDER',
-    industry: 'Manufacturing',
-    country: 'Thailand',
-    challenge: '⚠️ PLACEHOLDER: Describe the client\'s challenge in 1-2 sentences.',
-    solution: '⚠️ PLACEHOLDER: Describe the solution implemented in 1-2 sentences.',
-    results: '⚠️ PLACEHOLDER: ⚠️ DO NOT FABRICATE — Replace with real metrics.',
-  },
-  {
-    id: '5',
-    client: '⚠️ PLACEHOLDER',
-    industry: 'Healthcare',
-    country: 'Australia',
-    challenge: '⚠️ PLACEHOLDER: Describe the client\'s challenge in 1-2 sentences.',
-    solution: '⚠️ PLACEHOLDER: Describe the solution implemented in 1-2 sentences.',
-    results: '⚠️ PLACEHOLDER: ⚠️ DO NOT FABRICATE — Replace with real metrics.',
-  },
-  {
-    id: '6',
-    client: '⚠️ PLACEHOLDER',
-    industry: 'Cybersecurity',
-    country: 'Saudi Arabia',
-    challenge: '⚠️ PLACEHOLDER: Describe the client\'s challenge in 1-2 sentences.',
-    solution: '⚠️ PLACEHOLDER: Describe the solution implemented in 1-2 sentences.',
-    results: '⚠️ PLACEHOLDER: ⚠️ DO NOT FABRICATE — Replace with real metrics.',
-  },
-]
 
 export default function CaseStudiesPage() {
   return (
@@ -91,91 +32,25 @@ export default function CaseStudiesPage() {
               Real Results from Real Clients
             </h1>
             <p className="text-xl text-[var(--brand-gray)] max-w-2xl mx-auto leading-relaxed">
-              Case studies coming soon — get in touch to discuss your goals and see how we can help you build a predictable pipeline.
+              Case studies are published with client permission once results are verified. Contact us to discuss your goals and see how we&apos;ve helped similar businesses build predictable pipelines.
             </p>
           </div>
         </Container>
       </section>
 
-      {/* Case Studies Grid */}
+      {/* Placeholder Notice */}
       <section className="section-padding bg-white">
         <Container>
-          {/* Placeholder Warning Banner */}
-          <div className="mb-12 p-6 bg-amber-50 border border-amber-200 rounded-xl">
-            <div className="flex items-start gap-4">
-              <span className="text-2xl">⚠️</span>
-              <div>
-                <h3 className="font-semibold text-amber-900 mb-1">
-                  PLACEHOLDER DATA — DO NOT PUBLISH
-                </h3>
-                <p className="text-amber-800 text-sm">
-                  Replace all case study cards with real client data before launch. DO NOT fabricate metrics, client names, or results. Obtain written permission from clients before publishing case studies.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {caseStudies.map((study) => (
-              <article
-                key={study.id}
-                className="group p-8 rounded-2xl border border-[var(--border)] hover:border-[var(--brand-primary)]/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-white"
-              >
-                {/* Header */}
-                <div className="mb-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <Badge variant="secondary" className="text-xs">
-                      {study.industry}
-                    </Badge>
-                    <span className="text-sm text-[var(--brand-gray)]">
-                      {study.country}
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-bold text-[var(--brand-dark)] mb-2">
-                    {study.client}
-                  </h3>
-                </div>
-
-                {/* Challenge */}
-                <div className="mb-4">
-                  <h4 className="text-xs font-semibold uppercase tracking-wider text-[var(--brand-gray)] mb-2">
-                    Challenge
-                  </h4>
-                  <p className="text-sm text-[var(--brand-gray)]">
-                    {study.challenge}
-                  </p>
-                </div>
-
-                {/* Solution */}
-                <div className="mb-4">
-                  <h4 className="text-xs font-semibold uppercase tracking-wider text-[var(--brand-gray)] mb-2">
-                    Solution
-                  </h4>
-                  <p className="text-sm text-[var(--brand-gray)]">
-                    {study.solution}
-                  </p>
-                </div>
-
-                {/* Results */}
-                <div className="mb-6 p-4 bg-[var(--brand-light)] rounded-lg">
-                  <h4 className="text-xs font-semibold uppercase tracking-wider text-[var(--brand-primary)] mb-2">
-                    Results
-                  </h4>
-                  <p className="text-sm text-[var(--brand-dark)] font-medium">
-                    {study.results}
-                  </p>
-                </div>
-
-                {/* Link */}
-                <Link
-                  href="#"
-                  className="inline-flex items-center gap-2 text-[var(--brand-primary)] font-medium text-sm opacity-50 cursor-not-allowed"
-                >
-                  View Full Case Study
-                  <ExternalLink className="w-4 h-4" />
-                </Link>
-              </article>
-            ))}
+          <div className="max-w-2xl mx-auto text-center py-16">
+            <p className="text-[var(--brand-gray)] text-lg mb-8">
+              We&apos;re building case studies with verified client results. Every published case study includes real metrics, client permission, and specific outcomes — not estimates or projections.
+            </p>
+            <Link href="/contact">
+              <Button size="lg">
+                <ArrowRight className="w-5 h-5" />
+                Discuss Your Goals
+              </Button>
+            </Link>
           </div>
         </Container>
       </section>
@@ -185,10 +60,10 @@ export default function CaseStudiesPage() {
         <Container>
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="heading-2 text-[var(--brand-dark)] mb-4">
-              Have a Success Story to Share?
+              Be the First to Share Your Results
             </h2>
             <p className="text-lg text-[var(--brand-gray)] mb-8">
-              Get in touch to discuss your goals and see how we can help you achieve similar results.
+              Work with us on your first campaign and your story could be featured here.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">

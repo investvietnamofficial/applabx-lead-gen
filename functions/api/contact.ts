@@ -121,24 +121,23 @@ export async function onRequestPost(context: { request: Request; env: Record<str
       if (!resendRes.ok) {
         const errBody = await resendRes.text()
         console.error('Resend API error:', errBody)
-        // Do not expose internal errors to client
         return jsonResponse({ success: false, error: 'Failed to send message. Please try again.' }, 500)
       }
+
+      return jsonResponse(
+        { success: true, message: 'Thank you! We will be in touch within 24 hours.' },
+        200
+      )
     } catch (err) {
       console.error('Contact form fetch error:', err)
       return jsonResponse({ success: false, error: 'Failed to send message. Please try again.' }, 500)
     }
   } else {
-    // Graceful degradation: log submission, no email sent
-    console.log('Contact form submission (no RESEND_API_KEY configured):', {
-      name, email, company, phone, service, budget, message,
-    })
+    return jsonResponse(
+      { success: false, error: 'Email service is not configured. Please contact us directly at hello@applabx.com.' },
+      503
+    )
   }
-
-  return jsonResponse(
-    { success: true, message: 'Thank you! We will be in touch within 24 hours.' },
-    200
-  )
 }
 
 // Allow GET — returns 405

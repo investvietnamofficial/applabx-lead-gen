@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import ToolPageTemplate from '@/components/sections/ToolPageTemplate'
@@ -11,28 +11,29 @@ export default function CACCalculatorPage() {
   const [totalSpend, setTotalSpend] = useState<number>(10000)
   const [customersAcquired, setCustomersAcquired] = useState<number>(20)
 
-  const [cac, setCac] = useState<number>(0)
-  const [lifetimeValue, setLifetimeValue] = useState<number>(0)
-  const [ltvCacRatio, setLtvCacRatio] = useState<number>(0)
-  const [isGoodRatio, setIsGoodRatio] = useState<boolean>(false)
+
 
   // Optional LTV input
   const [monthlyRevenue, setMonthlyRevenue] = useState<number>(0)
   const [customerChurn, setCustomerChurn] = useState<number>(5)
   const [showAdvanced, setShowAdvanced] = useState<boolean>(false)
 
-  useEffect(() => {
-    const cacValue = customersAcquired > 0 ? totalSpend / customersAcquired : 0
-    setCac(cacValue)
+  const cacValue = useMemo(
+    () => (customersAcquired > 0 ? totalSpend / customersAcquired : 0),
+    [totalSpend, customersAcquired],
+  )
 
-    // Calculate LTV if monthly revenue and churn are provided
-    if (monthlyRevenue > 0 && customerChurn > 0) {
-      const ltv = monthlyRevenue / (customerChurn / 100)
-      setLifetimeValue(ltv)
-      setLtvCacRatio(cacValue > 0 ? ltv / cacValue : 0)
-      setIsGoodRatio(ltv / cacValue >= 3)
-    }
-  }, [totalSpend, customersAcquired, monthlyRevenue, customerChurn])
+  const ltvValue = useMemo(
+    () => (monthlyRevenue > 0 && customerChurn > 0 ? monthlyRevenue / (customerChurn / 100) : 0),
+    [monthlyRevenue, customerChurn],
+  )
+
+  const computedLtvCacRatio = useMemo(
+    () => (cacValue > 0 && ltvValue > 0 ? ltvValue / cacValue : 0),
+    [cacValue, ltvValue],
+  )
+
+  const computedIsGoodRatio = useMemo(() => ltvValue > 0 && cacValue > 0 && ltvValue / cacValue >= 3, [ltvValue, cacValue])
 
   return (
     <ToolPageTemplate
@@ -162,13 +163,13 @@ export default function CACCalculatorPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* CAC */}
             <motion.div
-              key={cac}
+              key={cacValue}
               initial={{ scale: 0.95 }}
               animate={{ scale: 1 }}
               className="text-center"
             >
               <div className="text-4xl font-bold mb-1">
-                ${cac.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+                ${cacValue.toLocaleString(undefined, { maximumFractionDigits: 0 })}
               </div>
               <div className="text-sm text-white/70">Customer Acquisition Cost</div>
             </motion.div>
@@ -177,37 +178,37 @@ export default function CACCalculatorPage() {
             {showAdvanced && monthlyRevenue > 0 && (
               <>
                 <motion.div
-                  key={lifetimeValue}
+                  key={ltvValue}
                   initial={{ scale: 0.95 }}
                   animate={{ scale: 1 }}
                   className="text-center"
                 >
                   <div className="text-4xl font-bold mb-1">
-                    ${lifetimeValue.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+                    ${ltvValue.toLocaleString(undefined, { maximumFractionDigits: 0 })}
                   </div>
                   <div className="text-sm text-white/70">Customer Lifetime Value</div>
                 </motion.div>
 
                 {/* LTV:CAC Ratio */}
                 <motion.div
-                  key={ltvCacRatio}
+                  key={computedLtvCacRatio}
                   initial={{ scale: 0.95 }}
                   animate={{ scale: 1 }}
                   className="text-center"
                 >
-                  <div className={`text-4xl font-bold mb-1 ${isGoodRatio ? 'text-emerald-300' : 'text-amber-300'}`}>
-                    {ltvCacRatio.toFixed(1)}:1
+                  <div className={`text-4xl font-bold mb-1 ${computedIsGoodRatio ? 'text-emerald-300' : 'text-amber-300'}`}>
+                    {computedLtvCacRatio.toFixed(1)}:1
                   </div>
                   <div className="text-sm text-white/70">LTV:CAC Ratio</div>
                 </motion.div>
 
                 {/* Health Status */}
                 <div className="text-center">
-                  <div className={`text-4xl font-bold mb-2 ${isGoodRatio ? 'text-emerald-300' : 'text-amber-300'}`}>
-                    {isGoodRatio ? '✓' : '⚠'}
+                  <div className={`text-4xl font-bold mb-2 ${computedIsGoodRatio ? 'text-emerald-300' : 'text-amber-300'}`}>
+                    {computedIsGoodRatio ? '✓' : '⚠'}
                   </div>
                   <div className="text-sm text-white/70">
-                    {isGoodRatio ? 'Healthy' : 'Needs Attention'}
+                    {computedIsGoodRatio ? 'Healthy' : 'Needs Attention'}
                   </div>
                 </div>
               </>
@@ -219,17 +220,17 @@ export default function CACCalculatorPage() {
             <div className="mt-8 pt-6 border-t border-white/20">
               <div className="bg-white/10 rounded-lg p-4">
                 <div className="flex items-start gap-3">
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${isGoodRatio ? 'bg-emerald-500' : 'bg-amber-500'}`}>
-                    {isGoodRatio ? '✓' : '!'}
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${computedIsGoodRatio ? 'bg-emerald-500' : 'bg-amber-500'}`}>
+                    {computedIsGoodRatio ? '✓' : '!'}
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">
-                      {isGoodRatio ? 'Healthy Unit Economics' : 'Unit Economics Need Improvement'}
+                      {computedIsGoodRatio ? 'Healthy Unit Economics' : 'Unit Economics Need Improvement'}
                     </h4>
                     <p className="text-sm text-white/70">
-                      {isGoodRatio
-                        ? `Your LTV:CAC ratio of ${ltvCacRatio.toFixed(1)}:1 indicates sustainable growth. For every $1 spent on acquisition, you generate $${ltvCacRatio.toFixed(1)} in lifetime value.`
-                        : `Your LTV:CAC ratio of ${ltvCacRatio.toFixed(1)}:1 is below the healthy threshold of 3:1. Consider reducing CAC or increasing customer value through upsells, pricing adjustments, or reducing churn.`
+                      {computedIsGoodRatio
+                        ? `Your LTV:CAC ratio of ${computedLtvCacRatio.toFixed(1)}:1 indicates sustainable growth. For every $1 spent on acquisition, you generate $${computedLtvCacRatio.toFixed(1)} in lifetime value.`
+                        : `Your LTV:CAC ratio of ${computedLtvCacRatio.toFixed(1)}:1 is below the healthy threshold of 3:1. Consider reducing CAC or increasing customer value through upsells, pricing adjustments, or reducing churn.`
                       }
                     </p>
                   </div>

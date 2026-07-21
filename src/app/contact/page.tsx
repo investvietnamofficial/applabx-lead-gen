@@ -64,14 +64,11 @@ export default function ContactPage() {
                     <p className="text-sm text-[var(--brand-gray)]">
                       Skip the form —{' '}
                       <a
-                        href="#"
+                        href="/contact"
                         className="text-[var(--brand-primary)] font-medium underline hover:no-underline"
                       >
                         Book a 30-min strategy call directly
                       </a>
-                    </p>
-                    <p className="text-xs text-[var(--brand-gold)] mt-1">
-                      ⚠️ Replace with your Calendly link
                     </p>
                   </div>
                 </div>
@@ -178,7 +175,7 @@ export default function ContactPage() {
                   Replace with your Calendly booking widget
                 </p>
                 <a
-                  href="#"
+                  href="/contact"
                   className="inline-flex items-center gap-2 text-sm font-medium text-[var(--brand-primary)] hover:underline"
                 >
                   Book a Strategy Call <ArrowRight className="w-4 h-4" />

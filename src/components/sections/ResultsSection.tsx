@@ -22,6 +22,34 @@ function useCounter(target: number, duration = 2000, start = false) {
   return count
 }
 
+// Sub-component so hooks are called at top level
+function OutcomeMetric({
+  metric,
+  index,
+  countersStarted,
+}: {
+  metric: (typeof outcomeMetrics)[0]
+  index: number
+  countersStarted: boolean
+}) {
+  const count = useCounter(metric.value, 2000, countersStarted)
+  return (
+    <m.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="text-center p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+    >
+      <div className="text-3xl lg:text-4xl font-bold text-white mb-1">
+        {metric.prefix}{count}{metric.suffix}
+      </div>
+      <div className="text-sm font-semibold text-[#10B981] mb-2">{metric.label}</div>
+      <div className="text-xs text-[#94A3B8]">{metric.description}</div>
+    </m.div>
+  )
+}
+
 // Pipeline stages — the Clay-style interactive pipeline
 const pipelineStages = [
   {
@@ -284,25 +312,14 @@ export function ResultsSection() {
 
         {/* Outcome Metrics */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-          {outcomeMetrics.map((metric, index) => {
-            const count = useCounter(metric.value, 2000, countersStarted)
-            return (
-              <m.div
-                key={metric.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
-              >
-                <div className="text-3xl lg:text-4xl font-bold text-white mb-1">
-                  {metric.prefix}{count}{metric.suffix}
-                </div>
-                <div className="text-sm font-semibold text-[#10B981] mb-2">{metric.label}</div>
-                <div className="text-xs text-[#94A3B8]">{metric.description}</div>
-              </m.div>
-            )
-          })}
+          {outcomeMetrics.map((metric, index) => (
+            <OutcomeMetric
+              key={metric.label}
+              metric={metric}
+              index={index}
+              countersStarted={countersStarted}
+            />
+          ))}
         </div>
       </Container>
     </section>

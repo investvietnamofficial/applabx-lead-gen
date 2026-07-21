@@ -54,7 +54,7 @@ const faqs = [
       },
       {
         q: 'Do you guarantee lead volume?',
-        a: 'We set clear volume commitments upfront based on your ICP and target market. Our programs are structured with minimum lead SLAs. If we don\'t hit the targets, we adjust the strategy — not just report on it.',
+        a: 'No reputable lead generation agency can guarantee specific lead volumes — market conditions, list quality, and your product-market fit all affect results. What we do: set realistic targets based on your ICP and market, provide full transparency on campaign performance, and adjust strategy when results underperform. Our goal is a positive ROI, not just lead delivery.',
       },
       {
         q: 'What does appointment setting include?',

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { Metadata } from 'next'
@@ -14,25 +14,11 @@ export default function ROICalculatorPage() {
   const [avgDealValue, setAvgDealValue] = useState<number>(5000)
   const [campaignCost, setCampaignCost] = useState<number>(5000)
 
-  const [closedDeals, setClosedDeals] = useState<number>(0)
-  const [revenue, setRevenue] = useState<number>(0)
-  const [roi, setRoi] = useState<number>(0)
-  const [costPerLead, setCostPerLead] = useState<number>(0)
-  const [costPerCustomer, setCostPerCustomer] = useState<number>(0)
-
-  useEffect(() => {
-    const deals = Math.round(monthlyLeads * (closeRate / 100))
-    const rev = deals * avgDealValue
-    const roiValue = campaignCost > 0 ? ((rev - campaignCost) / campaignCost) * 100 : 0
-    const cpl = monthlyLeads > 0 ? campaignCost / monthlyLeads : 0
-    const cpc = deals > 0 ? campaignCost / deals : 0
-
-    setClosedDeals(deals)
-    setRevenue(rev)
-    setRoi(roiValue)
-    setCostPerLead(cpl)
-    setCostPerCustomer(cpc)
-  }, [monthlyLeads, closeRate, avgDealValue, campaignCost])
+  const closedDeals = useMemo(() => Math.round(monthlyLeads * (closeRate / 100)), [monthlyLeads, closeRate])
+  const revenue = useMemo(() => closedDeals * avgDealValue, [closedDeals, avgDealValue])
+  const roi = useMemo(() => campaignCost > 0 ? ((revenue - campaignCost) / campaignCost) * 100 : 0, [revenue, campaignCost])
+  const costPerLead = useMemo(() => monthlyLeads > 0 ? campaignCost / monthlyLeads : 0, [monthlyLeads, campaignCost])
+  const costPerCustomer = useMemo(() => closedDeals > 0 ? campaignCost / closedDeals : 0, [campaignCost, closedDeals])
 
   return (
     <ToolPageTemplate

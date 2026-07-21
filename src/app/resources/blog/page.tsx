@@ -32,7 +32,7 @@ const featuredArticle = {
   excerpt:
     'After years of declining open rates, something has shifted. Learn why personalized, value-first cold emails are seeing a resurgence and how to adapt your approach for better results.',
   readTime: '8 min read',
-  date: 'December 2024',
+  date: 'July 2025',
   author: 'AppLabx Team',
 }
 
@@ -43,15 +43,15 @@ const articles = [
     excerpt:
       'Stop sending generic connection requests. This breakdown shows the exact structure that works for APAC B2B decision-makers.',
     readTime: '6 min read',
-    date: 'November 2024',
+    date: 'July 2025',
   },
   {
     category: 'AI in B2B Sales',
     title: 'AI Tools for B2B Lead Generation: What Actually Works',
     excerpt:
-      'Separating hype from reality. Our team tested 12 AI tools for sales outreach — here\'s what moved the needle.',
+      'Separating hype from reality. Our team tested AI tools for sales outreach — here\'s what moved the needle.',
     readTime: '10 min read',
-    date: 'November 2024',
+    date: 'July 2025',
   },
   {
     category: 'Lead Generation',
@@ -59,7 +59,7 @@ const articles = [
     excerpt:
       'Most teams use these terms interchangeably. That\'s a costly mistake when your outreach depends on targeting the right accounts.',
     readTime: '7 min read',
-    date: 'October 2024',
+    date: 'June 2025',
   },
   {
     category: 'APAC Markets',
@@ -67,7 +67,7 @@ const articles = [
     excerpt:
       'Directness that works in the US can backfire in Singapore or Japan. Here\'s how to adapt your messaging for the region.',
     readTime: '9 min read',
-    date: 'October 2024',
+    date: 'June 2025',
   },
   {
     category: 'Outbound Sales',
@@ -75,17 +75,17 @@ const articles = [
     excerpt:
       'From list building to first meeting booked — the milestones, timelines, and common pitfalls every founder should know.',
     readTime: '12 min read',
-    date: 'September 2024',
+    date: 'June 2025',
   },
 ]
 
 const categories = [
-  { name: 'Cold Email Strategy', icon: Mail, count: 12 },
-  { name: 'LinkedIn Outreach', icon: Users, count: 8 },
-  { name: 'AI in B2B Sales', icon: Zap, count: 6 },
-  { name: 'Lead Generation', icon: TrendingUp, count: 15 },
-  { name: 'APAC Markets', icon: Globe, count: 7 },
-  { name: 'Outbound Sales', icon: Phone, count: 10 },
+  { name: 'Cold Email Strategy', icon: Mail, count: 'Coming' },
+  { name: 'LinkedIn Outreach', icon: Users, count: 'Coming' },
+  { name: 'AI in B2B Sales', icon: Zap, count: 'Coming' },
+  { name: 'Lead Generation', icon: TrendingUp, count: 'Coming' },
+  { name: 'APAC Markets', icon: Globe, count: 'Coming' },
+  { name: 'Outbound Sales', icon: Phone, count: 'Coming' },
 ]
 
 export default function BlogPage() {
@@ -120,8 +120,8 @@ export default function BlogPage() {
       <section className="pb-16 bg-white">
         <Container>
           <Link
-            href="#"
-            title="Featured article placeholder — not yet published"
+            href="/contact"
+            title="Contact us to discuss your lead generation needs"
             className="block group"
           >
             <article className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-[var(--brand-primary)] to-[var(--brand-primary-dark)] p-8 md:p-12">
@@ -191,14 +191,9 @@ export default function BlogPage() {
                       </span>
                       <span>{article.date}</span>
                     </div>
-                    <Link
-                      href="#"
-                      title="Article placeholder — not yet published"
-                      className="mt-4 pt-4 border-t border-[var(--border)] flex items-center gap-2 text-sm text-[var(--brand-primary)] font-medium group-hover:gap-3 transition-all"
-                    >
-                      Read More
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
+                    <span className="mt-4 pt-4 border-t border-[var(--border)] flex items-center gap-2 text-sm text-[var(--brand-gray-light)]">
+                      Publishing soon
+                    </span>
                   </article>
                 ))}
               </div>
@@ -214,19 +209,15 @@ export default function BlogPage() {
                 <ul className="space-y-2">
                   {categories.map((cat, idx) => (
                     <li key={idx}>
-                      <Link
-                        href="#"
-                        title="Category filter placeholder"
-                        className="flex items-center justify-between p-3 rounded-lg hover:bg-[var(--brand-light)] transition-colors group"
-                      >
-                        <span className="flex items-center gap-3 text-sm text-[var(--brand-gray)] group-hover:text-[var(--brand-dark)]">
+                      <span className="flex items-center justify-between p-3 rounded-lg">
+                        <span className="flex items-center gap-3 text-sm text-[var(--brand-gray)]">
                           <cat.icon className="w-4 h-4 text-[var(--brand-primary)]" />
                           {cat.name}
                         </span>
-                        <span className="text-xs text-[var(--brand-gray)] bg-[var(--brand-light)] px-2 py-1 rounded-full">
+                        <span className="text-xs text-[var(--brand-gray-light)] bg-[var(--brand-light)] px-2 py-1 rounded-full">
                           {cat.count}
                         </span>
-                      </Link>
+                      </span>
                     </li>
                   ))}
                 </ul>

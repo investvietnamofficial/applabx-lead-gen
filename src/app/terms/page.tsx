@@ -43,7 +43,7 @@ export default function TermsPage() {
           </p>
           <h2 className="text-xl font-semibold text-[var(--brand-dark)]">Limitation of Liability</h2>
           <p>
-            AppLabx's total liability for any claim arising from our services shall not exceed the fees
+            AppLabx&apos;s total liability for any claim arising from our services shall not exceed the fees
             paid by the client for the specific service giving rise to the claim. AppLabx is not
             liable for indirect, incidental, or consequential damages.
           </p>

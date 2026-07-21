@@ -498,7 +498,7 @@ export default function ComparisonPageTemplate({ comparison }: ComparisonPageTem
                 </div>
 
                 <div className="mt-6 p-4 bg-white rounded-xl border border-[var(--border)]">
-                  <h4 className="text-sm font-semibold text-[var(--brand-dark)] mb-2">What's Included:</h4>
+                  <h4 className="text-sm font-semibold text-[var(--brand-dark)] mb-2">{"What's"} Included:</h4>
                   <ul className="space-y-2">
                     <li className="flex items-start gap-2 text-sm text-[var(--brand-gray)]">
                       <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
@@ -550,7 +550,7 @@ export default function ComparisonPageTemplate({ comparison }: ComparisonPageTem
                 </div>
 
                 <div className="mt-6 p-4 bg-white rounded-xl border border-[var(--border)]">
-                  <h4 className="text-sm font-semibold text-[var(--brand-dark)] mb-2">What's Included:</h4>
+                  <h4 className="text-sm font-semibold text-[var(--brand-dark)] mb-2">{"What's"} Included:</h4>
                   <ul className="space-y-2">
                     <li className="flex items-start gap-2 text-sm text-[var(--brand-gray)]">
                       <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />

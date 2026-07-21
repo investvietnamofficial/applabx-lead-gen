@@ -59,18 +59,21 @@ export async function onRequestPost(context: {
         console.error('Resend newsletter error:', await res.text())
         return jsonResponse({ success: false, error: 'Failed to subscribe. Please try again.' }, 500)
       }
+
+      return jsonResponse(
+        { success: true, message: "You're subscribed! We'll keep you updated." },
+        200
+      )
     } catch (err) {
       console.error('Newsletter error:', err)
       return jsonResponse({ success: false, error: 'Failed to subscribe. Please try again.' }, 500)
     }
   } else {
-    console.log('Newsletter signup (no RESEND_API_KEY):', email)
+    return jsonResponse(
+      { success: false, error: 'Email service is not configured. Please try again later.' },
+      503
+    )
   }
-
-  return jsonResponse(
-    { success: true, message: "You're subscribed! We'll keep you updated." },
-    200
-  )
 }
 
 export async function onRequestGet(): Promise<Response> {

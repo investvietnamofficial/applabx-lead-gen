@@ -1,8 +1,9 @@
 'use client'
 
+import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
-import { AlertTriangle, Home } from 'lucide-react'
+import { AlertTriangle } from 'lucide-react'
 
 export default function ErrorPage({
   error,
@@ -33,12 +34,11 @@ export default function ErrorPage({
             <Button onClick={reset} variant="primary">
               Try Again
             </Button>
-            <a href="/">
+            <Link href="/">
               <Button variant="outline">
-                <Home className="w-4 h-4 mr-2" />
                 Back to Home
               </Button>
-            </a>
+            </Link>
           </div>
         </div>
       </Container>
