@@ -24,6 +24,7 @@ export const metadata: Metadata = generateMetadata({
   title: 'About Us',
   description:
     'We build pipelines, not just leads. Founded by operators who got tired of guessing which half of marketing works.',
+  path: '/about',
 })
 
 // Placeholder team members

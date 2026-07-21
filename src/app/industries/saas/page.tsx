@@ -12,6 +12,14 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   return {
     title: `${industry.title} Lead Generation | AppLabx`,
     description: industry.description,
+    alternates: {
+      canonical: `https://lead-gen-agency.applabx.com/industries/${params.slug}`,
+    },
+    openGraph: {
+      title: `${industry.title} Lead Generation | AppLabx`,
+      description: industry.description,
+      url: `https://lead-gen-agency.applabx.com/industries/${params.slug}`,
+    },
   }
 }
 

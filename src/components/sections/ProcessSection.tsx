@@ -40,7 +40,7 @@ const processSteps = [
 
 export function ProcessSection() {
   return (
-    <section className="section-padding bg-white">
+    <section id="how-it-works" className="section-padding bg-white">
       <Container>
         <SectionHeading
           eyebrow="Our Process"

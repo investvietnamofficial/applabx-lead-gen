@@ -3,6 +3,14 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Terms of Service | AppLabx',
   description: 'Terms and conditions governing the use of AppLabx services.',
+  alternates: {
+    canonical: 'https://lead-gen-agency.applabx.com/terms',
+  },
+  openGraph: {
+    title: 'Terms of Service | AppLabx',
+    description: 'Terms and conditions governing the use of AppLabx services.',
+    url: 'https://lead-gen-agency.applabx.com/terms',
+  },
 }
 
 export default function TermsPage() {

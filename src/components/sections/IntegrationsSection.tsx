@@ -65,7 +65,7 @@ export function IntegrationsSection() {
                   variants={itemVariants}
                   className="p-5 rounded-xl border border-[var(--border)] hover:border-[var(--brand-primary)] hover:shadow-md transition-all"
                 >
-                  <div className="text-xs uppercase tracking-wider text-[var(--brand-gray-light)] font-medium mb-3">
+                  <div className="text-xs uppercase tracking-wider text-[var(--brand-gray)] font-medium mb-3">
                     {cat.category}
                   </div>
                   <div className="space-y-2">
@@ -82,10 +82,6 @@ export function IntegrationsSection() {
 
             <p className="mt-8 text-center text-[var(--brand-gray)] text-sm">
               Plus 50+ more integrations available via Zapier, native APIs, and webhooks.
-              {' '}
-              <span className="text-[var(--brand-gray-light)] italic">
-                Integration logos will be added before launch.
-              </span>
             </p>
           </>
         ) : (

@@ -634,7 +634,7 @@ export default function IndustryPageTemplate({
 
           <div className="max-w-3xl mx-auto mt-12">
             <Accordion.Root type="single" collapsible className="space-y-4">
-              {industry.faqs.map((faq, idx) => (
+              {(industry.expandedFaqs ?? industry.faqs).map((faq, idx) => (
                 <m.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
@@ -679,6 +679,185 @@ export default function IndustryPageTemplate({
           .animate-slideUp { animation: slideUp 0.3s ease-out; }
         `}</style>
       </section>
+
+      {/* ──────────────────────────────────────────────── */}
+      {/* SECTION 10b: Market Overview */}
+      {/* ──────────────────────────────────────────────── */}
+      {industry.marketOverview && (
+        <section className="py-16 bg-[var(--brand-light)]">
+          <Container>
+            <SectionHeading
+              eyebrow="Market Intelligence"
+              title={`The ${industry.title} Market — What You Need to Know`}
+              subtitle="Deep market context to help you understand the landscape your buyers operate in"
+            />
+            <div className="max-w-4xl mx-auto mt-10">
+              <div className="prose prose-lg max-w-none">
+                {industry.marketOverview.split('\n\n').map((para, idx) => (
+                  <m.p
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                    className="text-[var(--brand-gray)] leading-relaxed mb-6 text-base"
+                  >
+                    {para}
+                  </m.p>
+                ))}
+              </div>
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* ──────────────────────────────────────────────── */}
+      {/* SECTION 10c: Buying Triggers + Red Flags */}
+      {/* ──────────────────────────────────────────────── */}
+      {(industry.buyingTriggers?.length || industry.redFlags?.length) && (
+        <section className="py-16 bg-white">
+          <Container>
+            <div className="grid md:grid-cols-2 gap-12 mt-4">
+              {/* Buying Triggers */}
+              {industry.buyingTriggers?.length > 0 && (
+                <div>
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center">
+                      <TrendingUp className="w-5 h-5 text-green-600" />
+                    </div>
+                    <h3 className="text-xl font-bold text-[var(--brand-dark)]">Buying Triggers</h3>
+                  </div>
+                  <p className="text-sm text-[var(--brand-gray)] mb-4">
+                    Events that signal a company is actively in-market for a solution like yours.
+                  </p>
+                  <ul className="space-y-3">
+                    {industry.buyingTriggers.map((trigger, idx) => (
+                      <m.li
+                        key={idx}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: idx * 0.05 }}
+                        className="flex items-start gap-3"
+                      >
+                        <div className="w-2 h-2 rounded-full bg-green-500 mt-2 flex-shrink-0" />
+                        <span className="text-[var(--brand-gray)] text-sm leading-relaxed">{trigger}</span>
+                      </m.li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Red Flags */}
+              {industry.redFlags?.length > 0 && (
+                <div>
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 rounded-xl bg-red-100 flex items-center justify-center">
+                      <AlertTriangle className="w-5 h-5 text-red-600" />
+                    </div>
+                    <h3 className="text-xl font-bold text-[var(--brand-dark)]">Red Flags</h3>
+                  </div>
+                  <p className="text-sm text-[var(--brand-gray)] mb-4">
+                    Warning signs that a prospect is not ready or not a good fit.
+                  </p>
+                  <ul className="space-y-3">
+                    {industry.redFlags.map((flag, idx) => (
+                      <m.li
+                        key={idx}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: idx * 0.05 }}
+                        className="flex items-start gap-3"
+                      >
+                        <div className="w-2 h-2 rounded-full bg-red-500 mt-2 flex-shrink-0" />
+                        <span className="text-[var(--brand-gray)] text-sm leading-relaxed">{flag}</span>
+                      </m.li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* ──────────────────────────────────────────────── */}
+      {/* SECTION 10d: Pricing Benchmark + Competitive Landscape */}
+      {/* ──────────────────────────────────────────────── */}
+      {(industry.pricingBenchmark || industry.competitiveLandscape) && (
+        <section className="py-16 bg-[var(--brand-light)]">
+          <Container>
+            <SectionHeading
+              eyebrow="Market Context"
+              title="Pricing & Competitive Landscape"
+              subtitle="Honest context about what you're competing against and what buyers expect to pay"
+            />
+            <div className="grid md:grid-cols-2 gap-8 mt-10 max-w-5xl mx-auto">
+              {industry.pricingBenchmark && (
+                <m.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="bg-white rounded-2xl border border-[var(--border)] p-8"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-[var(--brand-accent)]/10 flex items-center justify-center mb-4">
+                    <BarChart3 className="w-6 h-6 text-[var(--brand-accent)]" />
+                  </div>
+                  <h3 className="text-lg font-bold text-[var(--brand-dark)] mb-3">Pricing Benchmark</h3>
+                  <p className="text-[var(--brand-gray)] text-sm leading-relaxed">{industry.pricingBenchmark}</p>
+                </m.div>
+              )}
+              {industry.competitiveLandscape && (
+                <m.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="bg-white rounded-2xl border border-[var(--border)] p-8"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-[var(--brand-primary)]/10 flex items-center justify-center mb-4">
+                    <Globe className="w-6 h-6 text-[var(--brand-primary)]" />
+                  </div>
+                  <h3 className="text-lg font-bold text-[var(--brand-dark)] mb-3">Competitive Landscape</h3>
+                  <p className="text-[var(--brand-gray)] text-sm leading-relaxed">{industry.competitiveLandscape}</p>
+                </m.div>
+              )}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* ──────────────────────────────────────────────── */}
+      {/* SECTION 10e: Internal Links */}
+      {/* ──────────────────────────────────────────────── */}
+      {industry.internalLinks?.length > 0 && (
+        <section className="py-12 bg-white border-t border-[var(--border)]">
+          <Container>
+            <h3 className="text-lg font-bold text-[var(--brand-dark)] mb-6">Explore Related Services</h3>
+            <div className="flex flex-wrap gap-3">
+              {industry.internalLinks.map((link, idx) => (
+                <m.div
+                  key={idx}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: idx * 0.05 }}
+                >
+                  <Link
+                    href={link.href}
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border)] text-sm font-medium text-[var(--brand-gray)] hover:border-[var(--brand-primary)] hover:text-[var(--brand-primary)] transition-all bg-white"
+                  >
+                    <Link2 className="w-4 h-4" />
+                    {link.label}
+                  </Link>
+                </m.div>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
 
       {/* ──────────────────────────────────────────────── */}
       {/* SECTION 11: CTA */}

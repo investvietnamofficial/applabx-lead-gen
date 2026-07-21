@@ -92,7 +92,7 @@ export function Navigation() {
       <nav className="container" aria-label="Main navigation">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5" aria-label="AppLabx home">
+          <Link href="/" className="flex items-center gap-2.5" aria-label="AppLabx">
             <div className="w-10 h-10 rounded-lg bg-[var(--brand-primary)] flex items-center justify-center" aria-hidden="true">
               <span className="text-white font-bold text-xl">A</span>
             </div>

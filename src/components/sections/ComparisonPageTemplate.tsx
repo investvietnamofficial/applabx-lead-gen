@@ -2,10 +2,11 @@
 
 import { m } from 'framer-motion'
 import Link from 'next/link'
+import * as Accordion from '@radix-ui/react-accordion'
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
 import { Badge } from '@/components/ui/Badge'
-import { ComparisonData, ComparisonFeature } from '@/lib/comparisons'
+import { ComparisonData, ComparisonFeature, comparisons } from '@/lib/comparisons'
 import {
   ArrowRight,
   Calendar,
@@ -15,11 +16,54 @@ import {
   TrendingUp,
   XCircle,
   Minus,
+  ChevronDown,
+  ThumbsUp,
+  AlertTriangle,
+  Link2,
+  Star,
 } from 'lucide-react'
 
 interface ComparisonPageTemplateProps {
   comparison: ComparisonData
 }
+
+interface PricingTier {
+  label: string
+  price?: string
+  annualPrice?: string
+  features: string[]
+  highlight?: boolean
+}
+
+interface OptionStrengthsWeaknesses {
+  strengths: string[]
+  weaknesses: string[]
+}
+
+interface ComparisonFaq {
+  q: string
+  a: string
+}
+
+// Default comparison FAQs
+const defaultComparisonFaqs: ComparisonFaq[] = [
+  {
+    q: 'Which platform has better data quality?',
+    a: 'Data quality varies by provider and use case. Enterprise platforms like ZoomInfo typically offer higher accuracy through human verification, while platforms like Apollo balance quality with accessibility. We recommend testing with a sample list before committing.',
+  },
+  {
+    q: 'Can I use both platforms together?',
+    a: 'Yes, many teams use multiple data providers to maximize coverage and cross-reference information. Using Apollo for enrichment alongside ZoomInfo for premium contacts is a common strategy.',
+  },
+  {
+    q: 'Which is better for small teams?',
+    a: 'Smaller teams typically benefit from all-in-one platforms that combine data, enrichment, and outreach in a single tool. Apollo and similar integrated platforms offer better value and require less tool-switching.',
+  },
+  {
+    q: 'How long does it take to get started?',
+    a: 'Most platforms can be set up in 1-2 hours. Full optimization, including proper warm-up, list building, and sequence creation, typically takes 1-2 weeks.',
+  },
+]
 
 function WinnerBadge({ winner }: { winner: 'left' | 'right' | 'tie' }) {
   if (winner === 'tie') {
@@ -395,6 +439,431 @@ export default function ComparisonPageTemplate({ comparison }: ComparisonPageTem
                   </div>
                 </div>
               </div>
+            </div>
+          </m.div>
+        </Container>
+      </section>
+
+      {/* Pricing Comparison Section */}
+      <section className="py-16 bg-white">
+        <Container>
+          <m.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-5xl mx-auto"
+          >
+            <div className="text-center mb-12">
+              <h2 className="heading-2 text-[var(--brand-dark)] mb-4">
+                Pricing Comparison
+              </h2>
+              <p className="text-lg text-[var(--brand-gray)]">
+                Understand the investment required for each platform
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Left Option Pricing */}
+              <div className="bg-gradient-to-br from-[var(--brand-light)] to-white rounded-2xl p-8 border border-[var(--border)]">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-[var(--brand-primary)]/10 flex items-center justify-center">
+                    <Target className="w-6 h-6 text-[var(--brand-primary)]" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-[var(--brand-dark)]">
+                      {comparison.leftOption.name}
+                    </h3>
+                    <p className="text-sm text-[var(--brand-gray)]">Pricing Plans</p>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center py-3 border-b border-[var(--border)]">
+                    <span className="text-[var(--brand-gray)]">Free Trial</span>
+                    <Badge variant="accent">Available</Badge>
+                  </div>
+                  <div className="flex justify-between items-center py-3 border-b border-[var(--border)]">
+                    <span className="text-[var(--brand-gray)]">Starting Price</span>
+                    <span className="font-semibold text-[var(--brand-dark)]">$49/month</span>
+                  </div>
+                  <div className="flex justify-between items-center py-3 border-b border-[var(--border)]">
+                    <span className="text-[var(--brand-gray)]">Annual Discount</span>
+                    <span className="font-semibold text-[var(--brand-accent)]">Up to 30% off</span>
+                  </div>
+                  <div className="flex justify-between items-center py-3">
+                    <span className="text-[var(--brand-gray)]">Enterprise</span>
+                    <Badge variant="outline">Contact Sales</Badge>
+                  </div>
+                </div>
+
+                <div className="mt-6 p-4 bg-white rounded-xl border border-[var(--border)]">
+                  <h4 className="text-sm font-semibold text-[var(--brand-dark)] mb-2">What's Included:</h4>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-2 text-sm text-[var(--brand-gray)]">
+                      <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                      <span>Database access</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-[var(--brand-gray)]">
+                      <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                      <span>Email verification</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-[var(--brand-gray)]">
+                      <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                      <span>Basic sequences</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Right Option Pricing */}
+              <div className="bg-gradient-to-br from-[var(--brand-light)]/50 to-white rounded-2xl p-8 border border-[var(--border)]">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-[var(--brand-accent)]/10 flex items-center justify-center">
+                    <Target className="w-6 h-6 text-[var(--brand-accent)]" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-[var(--brand-dark)]">
+                      {comparison.rightOption.name}
+                    </h3>
+                    <p className="text-sm text-[var(--brand-gray)]">Pricing Plans</p>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center py-3 border-b border-[var(--border)]">
+                    <span className="text-[var(--brand-gray)]">Free Trial</span>
+                    <Badge variant="outline">Not Available</Badge>
+                  </div>
+                  <div className="flex justify-between items-center py-3 border-b border-[var(--border)]">
+                    <span className="text-[var(--brand-gray)]">Starting Price</span>
+                    <span className="font-semibold text-[var(--brand-dark)]">$10K+/year</span>
+                  </div>
+                  <div className="flex justify-between items-center py-3 border-b border-[var(--border)]">
+                    <span className="text-[var(--brand-gray)]">Annual Discount</span>
+                    <span className="font-semibold text-[var(--brand-gray)]">Varies</span>
+                  </div>
+                  <div className="flex justify-between items-center py-3">
+                    <span className="text-[var(--brand-gray)]">Enterprise</span>
+                    <Badge variant="primary">Recommended</Badge>
+                  </div>
+                </div>
+
+                <div className="mt-6 p-4 bg-white rounded-xl border border-[var(--border)]">
+                  <h4 className="text-sm font-semibold text-[var(--brand-dark)] mb-2">What's Included:</h4>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-2 text-sm text-[var(--brand-gray)]">
+                      <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                      <span>Premium data accuracy</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-[var(--brand-gray)]">
+                      <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                      <span>Human verification</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-[var(--brand-gray)]">
+                      <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                      <span>Dedicated support</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </m.div>
+        </Container>
+      </section>
+
+      {/* Strengths and Weaknesses Section */}
+      <section className="py-16 bg-[var(--brand-light-secondary)]">
+        <Container>
+          <m.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-5xl mx-auto"
+          >
+            <div className="text-center mb-12">
+              <h2 className="heading-2 text-[var(--brand-dark)] mb-4">
+                Strengths & Weaknesses
+              </h2>
+              <p className="text-lg text-[var(--brand-gray)]">
+                A balanced look at each platform&apos;s advantages and limitations
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Left Option Strengths/Weaknesses */}
+              <div className="bg-white rounded-2xl p-8 border border-[var(--border)]">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-[var(--brand-primary)]/10 flex items-center justify-center">
+                    <Target className="w-6 h-6 text-[var(--brand-primary)]" />
+                  </div>
+                  <h3 className="text-xl font-bold text-[var(--brand-dark)]">
+                    {comparison.leftOption.name}
+                  </h3>
+                </div>
+
+                {/* Strengths */}
+                <div className="mb-6">
+                  <h4 className="text-sm font-semibold text-emerald-600 uppercase tracking-wide mb-3 flex items-center gap-2">
+                    <ThumbsUp className="w-4 h-4" />
+                    Strengths
+                  </h4>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-[var(--brand-gray)]">Integrated all-in-one platform</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-[var(--brand-gray)]">Budget-friendly for SMBs</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-[var(--brand-gray)]">Built-in email sequences</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Weaknesses */}
+                <div>
+                  <h4 className="text-sm font-semibold text-amber-600 uppercase tracking-wide mb-3 flex items-center gap-2">
+                    <AlertTriangle className="w-4 h-4" />
+                    Weaknesses
+                  </h4>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3">
+                      <AlertTriangle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-[var(--brand-gray)]">Data accuracy may vary</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <AlertTriangle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-[var(--brand-gray)]">Limited enterprise features</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Right Option Strengths/Weaknesses */}
+              <div className="bg-white rounded-2xl p-8 border border-[var(--border)]">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-[var(--brand-accent)]/10 flex items-center justify-center">
+                    <Target className="w-6 h-6 text-[var(--brand-accent)]" />
+                  </div>
+                  <h3 className="text-xl font-bold text-[var(--brand-dark)]">
+                    {comparison.rightOption.name}
+                  </h3>
+                </div>
+
+                {/* Strengths */}
+                <div className="mb-6">
+                  <h4 className="text-sm font-semibold text-emerald-600 uppercase tracking-wide mb-3 flex items-center gap-2">
+                    <ThumbsUp className="w-4 h-4" />
+                    Strengths
+                  </h4>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-[var(--brand-gray)]">Industry-leading data accuracy</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-[var(--brand-gray)]">Enterprise-grade intelligence</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-[var(--brand-gray)]">Deep LinkedIn integration</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Weaknesses */}
+                <div>
+                  <h4 className="text-sm font-semibold text-amber-600 uppercase tracking-wide mb-3 flex items-center gap-2">
+                    <AlertTriangle className="w-4 h-4" />
+                    Weaknesses
+                  </h4>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3">
+                      <AlertTriangle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-[var(--brand-gray)]">Higher price point</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <AlertTriangle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-[var(--brand-gray)]">No built-in outreach tools</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </m.div>
+        </Container>
+      </section>
+
+      {/* Social Proof Placeholder */}
+      <section className="py-16 bg-white">
+        <Container>
+          <m.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="text-center mb-12">
+              <h2 className="heading-2 text-[var(--brand-dark)] mb-4">
+                What Our Clients Say
+              </h2>
+              <p className="text-lg text-[var(--brand-gray)]">
+                Real feedback from businesses using these platforms
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-[var(--brand-light)] to-white rounded-2xl p-8 md:p-12 border border-dashed border-[var(--brand-primary)]/30">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 rounded-full bg-[var(--brand-primary)]/10 flex items-center justify-center mb-6">
+                  <Star className="w-8 h-8 text-[var(--brand-primary)]" />
+                </div>
+                <h3 className="text-xl font-semibold text-[var(--brand-dark)] mb-3">
+                  Real Testimonials Coming Soon
+                </h3>
+                <p className="text-[var(--brand-gray)] max-w-md leading-relaxed">
+                  We&apos;re collecting verified client feedback to share authentic experiences with these platforms. Check back for detailed case studies and success stories.
+                </p>
+              </div>
+            </div>
+          </m.div>
+        </Container>
+      </section>
+
+      {/* FAQs Section */}
+      <section className="py-16 bg-[var(--brand-light-secondary)]">
+        <Container>
+          <m.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="text-center mb-12">
+              <h2 className="heading-2 text-[var(--brand-dark)] mb-4">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-lg text-[var(--brand-gray)]">
+                Common questions about choosing between these platforms
+              </p>
+            </div>
+
+            <Accordion.Root
+              type="single"
+              collapsible
+              className="space-y-4"
+            >
+              {defaultComparisonFaqs.map((faq, index) => (
+                <m.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                >
+                  <Accordion.Item
+                    value={`faq-${index}`}
+                    className="bg-white rounded-xl border border-[var(--border)] overflow-hidden"
+                  >
+                    <Accordion.Header>
+                      <Accordion.Trigger className="group flex w-full items-center justify-between p-6 text-left hover:bg-[var(--brand-light)] transition-colors">
+                        <span className="font-semibold text-[var(--brand-dark)] pr-4">
+                          {faq.q}
+                        </span>
+                        <ChevronDown className="w-5 h-5 text-[var(--brand-gray)] group-data-[state=open]:rotate-180 transition-transform flex-shrink-0" />
+                      </Accordion.Trigger>
+                    </Accordion.Header>
+                    <Accordion.Content className="overflow-hidden data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp">
+                      <div className="px-6 pb-6 text-[var(--brand-gray)] leading-relaxed">
+                        {faq.a}
+                      </div>
+                    </Accordion.Content>
+                  </Accordion.Item>
+                </m.div>
+              ))}
+            </Accordion.Root>
+          </m.div>
+        </Container>
+
+        <style jsx>{`
+          @keyframes slideDown {
+            from {
+              height: 0;
+            }
+            to {
+              height: var(--radix-accordion-content-height);
+            }
+          }
+          @keyframes slideUp {
+            from {
+              height: var(--radix-accordion-content-height);
+            }
+            to {
+              height: 0;
+            }
+          }
+          .animate-slideDown {
+            animation: slideDown 0.3s ease-out;
+          }
+          .animate-slideUp {
+            animation: slideUp 0.3s ease-out;
+          }
+        `}</style>
+      </section>
+
+      {/* Comparison Navigation */}
+      <section className="py-16 bg-white">
+        <Container>
+          <m.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="text-center mb-8">
+              <h2 className="text-xl font-bold text-[var(--brand-dark)] mb-2 flex items-center justify-center gap-2">
+                <Link2 className="w-5 h-5" />
+                Compare Other Options
+              </h2>
+              <p className="text-[var(--brand-gray)]">
+                Explore more comparison guides
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {comparisons
+                .filter((c) => c.id !== comparison.id)
+                .slice(0, 5)
+                .map((comp) => (
+                  <Link
+                    key={comp.id}
+                    href={`/compare/${comp.slug}`}
+                    className="group flex items-center gap-3 p-4 bg-[var(--brand-light)]/50 hover:bg-[var(--brand-light)] rounded-xl border border-[var(--border)] hover:border-[var(--brand-primary)]/30 transition-all"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-[var(--brand-primary)]/10 flex items-center justify-center group-hover:bg-[var(--brand-primary)]/20 transition-colors">
+                      <Target className="w-5 h-5 text-[var(--brand-primary)]" />
+                    </div>
+                    <span className="font-medium text-[var(--brand-dark)] group-hover:text-[var(--brand-primary)] transition-colors text-sm">
+                      {comp.leftOption.name} vs {comp.rightOption.name}
+                    </span>
+                    <ArrowRight className="w-4 h-4 text-[var(--brand-gray)] ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </Link>
+                ))}
+            </div>
+
+            <div className="mt-8 text-center">
+              <Link href="/compare" className="text-[var(--brand-primary)] hover:text-[var(--brand-accent)] font-medium inline-flex items-center gap-2 transition-colors">
+                View All Comparisons
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </m.div>
         </Container>

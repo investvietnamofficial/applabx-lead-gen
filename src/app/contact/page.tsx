@@ -16,6 +16,14 @@ export const metadata: Metadata = {
   title: 'Contact Us | AppLabx',
   description:
     'Get in touch with AppLabx. Book a free strategy call or send us a message — we respond within 24 hours.',
+  alternates: {
+    canonical: 'https://lead-gen-agency.applabx.com/contact',
+  },
+  openGraph: {
+    title: 'Contact Us | AppLabx',
+    description: 'Get in touch with AppLabx. Book a free strategy call or send us a message.',
+    url: 'https://lead-gen-agency.applabx.com/contact',
+  },
 }
 
 export default function ContactPage() {

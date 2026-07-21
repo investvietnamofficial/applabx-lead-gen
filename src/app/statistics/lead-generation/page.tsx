@@ -70,6 +70,15 @@ export default function LeadGenerationStatisticsPage() {
     },
   ]
 
+  const keyTakeaways = [
+    'Inbound lead generation is significantly more cost-effective than outbound, offering 61% lower costs per lead over time.',
+    'B2B buyers research extensively before engaging—57% of their journey is complete before talking to sales.',
+    'Successful lead generation requires sustained multi-touch nurture—plan for 4-6 touchpoints per converted lead.',
+    'Strong digital presence is non-negotiable—68% of buyers prefer self-service research over direct sales contact.',
+  ]
+
+  const methodology = 'These statistics are aggregated from industry-leading research reports including HubSpot\'s State of Marketing Report, Demand Gen Report, Gartner Research, and Forrester B2B Buyer Survey. Data represents averages across B2B industries and company sizes. Individual results may vary based on market, product, and execution quality. Statistics are updated annually or when significant market shifts occur.'
+
   const sources = [
     'HubSpot State of Marketing Report',
     'Demand Gen Report',
@@ -83,15 +92,24 @@ export default function LeadGenerationStatisticsPage() {
     { label: 'B2B Marketing Statistics', href: '/statistics/b2b-marketing' },
   ]
 
+  const relatedReading = [
+    { label: 'Lead Generation Services', href: '/services/lead-generation', description: 'Full-service B2B lead generation programs tailored to your ICP' },
+    { label: 'Inbound Marketing', href: '/services/inbound-marketing', description: 'Attract and convert leads through content and SEO strategies' },
+    { label: 'Outbound Sales', href: '/services/outbound-sales', description: 'Proactive outreach to target accounts and decision-makers' },
+  ]
+
   return (
     <StatisticsPageTemplate
       title="Lead Generation Statistics: Key Metrics for B2B Success"
       description="Data-driven insights into lead generation effectiveness, costs, and best practices for B2B companies."
       intro="Understanding lead generation benchmarks helps businesses set realistic goals and allocate resources effectively. These statistics represent verified industry averages from B2B lead generation programs. Whether you're optimizing an existing strategy or building a new one, these metrics provide a baseline for measuring success."
       stats={stats}
+      keyTakeaways={keyTakeaways}
+      methodology={methodology}
       sources={sources}
       canonical="https://lead-gen-agency.applabx.com/statistics/lead-generation"
       relatedPages={relatedPages}
+      relatedReading={relatedReading}
     />
   )
 }

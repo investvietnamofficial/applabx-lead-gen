@@ -12,6 +12,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   return {
     title: `${service.title} | AppLabx`,
     description: service.shortDescription,
+    alternates: {
+      canonical: `https://lead-gen-agency.applabx.com/services/${service.slug}`,
+    },
     openGraph: {
       title: `${service.title} | AppLabx`,
       description: service.shortDescription,

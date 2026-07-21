@@ -8,17 +8,19 @@ export function generateMetadata({
   title,
   description,
   canonical,
+  path,
   ogImage,
   noIndex = false,
 }: {
   title: string
   description: string
   canonical?: string
+  path?: string
   ogImage?: string
   noIndex?: boolean
 }): Metadata {
   const fullTitle = title === SITE_NAME ? title : `${title} | ${SITE_NAME}`
-  const url = canonical || SITE_URL
+  const url = canonical || (path ? `${SITE_URL}${path}` : SITE_URL)
   const ogImageUrl = ogImage || `${SITE_URL}/og-default.svg`
 
   return {
@@ -75,7 +77,7 @@ export function organizationSchema() {
     url: SITE_URL,
     logo: {
       '@type': 'ImageObject',
-      url: `${SITE_URL}/logo.png`,
+      url: `${SITE_URL}/favicon.svg`,
     },
     description: SITE_DESCRIPTION,
     sameAs: [
@@ -153,7 +155,7 @@ export function localBusinessSchema() {
     '@type': 'LocalBusiness',
     '@id': SITE_URL,
     name: SITE_NAME,
-    image: `${SITE_URL}/logo.png`,
+    image: `${SITE_URL}/favicon.svg`,
     url: SITE_URL,
     description: SITE_DESCRIPTION,
     priceRange: '$$',

@@ -23,6 +23,16 @@ export interface ServiceProcessStep {
   description: string
 }
 
+export interface ServicePainPoint {
+  title: string
+  description: string
+}
+
+export interface ServiceInternalLink {
+  label: string
+  href: string
+}
+
 export interface Service {
   id: string
   title: string
@@ -39,6 +49,11 @@ export interface Service {
   deliverables: string[]
   pricingFactors: string[]
   faqs: { q: string; a: string }[]
+  painPoints: ServicePainPoint[]
+  whenToUse: string[]
+  successMetrics: string[]
+  relatedServices: string[]
+  internalLinks: ServiceInternalLink[]
 }
 
 export const services: Service[] = [
@@ -75,6 +90,34 @@ export const services: Service[] = [
       { q: 'Do you work with specific industries or company sizes?', a: 'We have deep expertise in SaaS, AI, FinTech, cybersecurity, professional services, and manufacturing. However, we work with B2B companies across all industries targeting SMB through enterprise accounts. Our methodology adapts to your specific market and buyer journey.' },
       { q: 'How do you ensure data accuracy?', a: 'We use multi-source verification for all contact data, combining AI-powered enrichment with human verification for key decision-makers. Every email address is validated before outreach, and we continuously clean our databases to remove bounces and outdated records.' },
     ],
+    painPoints: [
+      { title: 'Feast-or-Famine Pipeline Cycles', description: 'Your pipeline swings wildly between overloaded weeks and barren stretches. This unpredictability makes hiring decisions impossible, creates stress during dry spells, and leaves revenue on the table during peak periods.' },
+      { title: 'Sales Team Burnout from Manual Prospecting', description: 'Your reps spend 40% of their time on research and outreach instead of selling. They\'re exhausted, frustrated, and your top performers are considering leaving for companies where they can focus on closing deals.' },
+      { title: 'High Cost Per Lead from Inefficient Marketing', description: 'Your marketing spend generates volume but not quality. Cost per qualified lead keeps climbing while conversion rates stagnate. The math doesn\'t work at scale.' },
+      { title: 'Competitors Capturing Your Market', description: 'While you\'re struggling to fill the pipeline, competitors with better lead generation are booking demos with your target prospects. Every week without a structured lead gen program is a week your competitors build relationships with your future customers.' },
+      { title: 'Inability to Scale Without Proportional Headcount', description: 'Growing revenue feels like it requires proportional growth in sales and marketing headcount. You want leverage, but prospecting work doesn\'t compress or multiply without systematic processes.' },
+    ],
+    whenToUse: [
+      'Launching a new product or entering a new market and need to build pipeline quickly',
+      'Experiencing inconsistent or declining lead flow from existing channels',
+      'Scaling a sales team but lacking enough qualified prospects to keep them busy',
+      'Transitioning from founder-led sales to a repeatable, scalable process',
+      'Entering enterprise segment where decision-maker access requires specialized outreach',
+    ],
+    successMetrics: [
+      'Qualified leads per month meeting BANT criteria (Budget, Authority, Need, Timeline)',
+      'Cost per qualified lead (CPL) trending downward over time',
+      'Lead-to-opportunity conversion rate at or above 25%',
+      'Average lead response time under 24 hours',
+      'Pipeline coverage ratio of 3x+ quota for sales team stability',
+    ],
+    relatedServices: ['cold-email-outreach', 'linkedin-outreach', 'appointment-setting'],
+    internalLinks: [
+      { label: 'Lead Generation Statistics', href: '/statistics/lead-generation' },
+      { label: 'ICP Generator Tool', href: '/tools/icp-generator' },
+      { label: 'ROI Calculator', href: '/tools/roi-calculator' },
+      { label: 'Our Case Studies', href: '/case-studies' },
+    ],
   },
   {
     id: '2',
@@ -108,6 +151,34 @@ export const services: Service[] = [
       { q: 'How do you handle gatekeepers and voicemail?', a: 'Our approach focuses on providing value and building genuine interest, which naturally bypasses gatekeepers. For executive targets, we use multiple channels (LinkedIn, email, phone) and highly personalized messages that appeal directly to decision-makers\' interests and pain points.' },
       { q: 'What happens if a meeting needs to be rescheduled?', a: 'We include rescheduling links and follow confirmation sequences for all booked meetings. If a prospect needs to reschedule, we make it easy to do so rather than losing the opportunity entirely. Rescheduled meetings often have higher show rates than original bookings.' },
       { q: 'Can you integrate with our existing calendar system?', a: 'Yes. We integrate with all major calendar and scheduling tools including Calendly, HubSpot Meetings, Calendly, Chili Piper, and native Google/Outlook calendars. We also support custom scheduling links and direct calendar booking for more complex arrangements.' },
+    ],
+    painPoints: [
+      { title: 'Calendar Black Holes', description: 'Your sales reps block off hours for booked meetings, only to have half the prospects no-show. The time investment in preparation is wasted, and rescheduling attempts often fail. Your team\'s schedule becomes unreliable and inefficient.' },
+      { title: 'Reps Walking Into Meetings Blind', description: 'Without proper research and preparation notes, your team starts meetings with generic introductions instead of informed conversations. Prospects notice the lack of preparation and it undermines credibility from the first minute.' },
+      { title: 'Lost Pipeline from Slow Follow-Up', description: 'When a prospect expresses interest but can\'t get a meeting on the calendar for weeks, they\'ve moved on by the time you connect. Speed to meeting is often the difference between winning and losing deals.' },
+      { title: 'Enterprise Buyers Who Won\'t Return Calls', description: 'Your A-players are too busy to chase executive calendars. Meanwhile, junior team members who can reach these contacts lack the authority and messaging to book meetings that actually convert.' },
+      { title: 'Inconsistent Meeting Quality Across the Team', description: 'Some reps convert at high rates, others struggle. The difference is often preparation quality and qualification rigor — factors that appointment setting can standardize across your entire team.' },
+    ],
+    whenToUse: [
+      'Launching a new product and need to build awareness through demos and consultations',
+      'Scaling a sales team that\'s capable of closing but not generating their own pipeline',
+      'Entering enterprise segment where executive access requires specialized approaches',
+      'Transitioning from inbound-heavy to balanced outbound pipeline',
+      'Hosting events or webinars and need qualified attendees to convert to meetings',
+    ],
+    successMetrics: [
+      'Show rate at or above 75% (our average is 80%+)',
+      'Meetings booked per week meeting agreed volume targets',
+      'Meeting-to-opportunity conversion rate at or above 30%',
+      'Average time from initial interest to booked meeting under 7 days',
+      'Average meeting duration and depth (are prospects engaged or going through the motions?)',
+    ],
+    relatedServices: ['cold-email-outreach', 'linkedin-outreach', 'b2b-lead-generation'],
+    internalLinks: [
+      { label: 'CAC Calculator', href: '/tools/cac-calculator' },
+      { label: 'B2B Lead Generation Stats', href: '/statistics/lead-generation' },
+      { label: 'Cold Email vs LinkedIn Comparison', href: '/compare/cold-email-vs-linkedin' },
+      { label: 'Book a Strategy Call', href: '/contact' },
     ],
   },
   {
@@ -143,6 +214,34 @@ export const services: Service[] = [
       { q: 'What email platform do you use?', a: 'We work with all major email platforms including Apollo, Instantly, Smartlead, and Lemlist. We also support custom SMTP setups for enterprise clients who want more control over their sending infrastructure.' },
       { q: 'How long before I see results?', a: 'Most clients see first responses within 2–3 weeks of campaign launch. However, meaningful reply rates and meeting bookings typically build over 6–8 weeks as warming improves and we optimize based on early data. Cold email is a marathon, not a sprint.' },
     ],
+    painPoints: [
+      { title: 'Emails Vanishing into Spam', description: 'Your carefully crafted messages never reach the inbox. They\'re filtered to spam, promotions, or blocked entirely by email security gateways. This happens when sending infrastructure isn\'t properly configured and domain reputation is weak or nonexistent.' },
+      { title: 'Low Reply Rates Killing Momentum', description: 'Opens are decent but replies are rare. Your email copy might be fine, but the problem is targeting and personalization. Generic outreach to unsegmented lists gets ignored — prospects can spot mass emails instantly.' },
+      { title: 'Bounced Emails Damaging Sender Reputation', description: 'Bad data means you\'re sending to addresses that no longer exist or never did. Each bounce tells email providers your infrastructure is questionable, which tanks deliverability for all your emails — even valid ones.' },
+      { title: 'Reply-to Emails Getting Mixed Responses', description: 'When you do get replies, they\'re a mix of genuine interest, "not interested" responses that poison your list, and auto-replies that create noise. Without proper reply handling, you miss the real opportunities hiding in your inbox.' },
+      { title: 'Campaigns That Work Then Stop Working', description: 'One campaign performs well, then the next flops. Without understanding why performance changes and continuous optimization, you\'re stuck in a pattern of inconsistent results and unpredictable pipeline.' },
+    ],
+    whenToUse: [
+      'Launching into a new geographic or vertical market and need to build initial awareness',
+      'Running product launches and need to reach large numbers of potential buyers quickly',
+      'Entering competitive markets where prospects need multiple touches before they\'ll engage',
+      'Building pipeline for long-cycle sales where volume of touches matters',
+      'Supplementing inbound lead flow with outbound prospecting to hit growth targets',
+    ],
+    successMetrics: [
+      'Inbox placement rate above 95% (verified via Glock Apps or similar)',
+      'Reply rate at or above 5% (industry average is 1-3%)',
+      'Positive reply rate (Interested/Let\'s Talk) above 40% of all replies',
+      'Meeting conversion from reply rate above 25%',
+      'Cost per meeting booked under $50 for SMB, under $150 for enterprise',
+    ],
+    relatedServices: ['linkedin-outreach', 'b2b-lead-generation', 'appointment-setting'],
+    internalLinks: [
+      { label: 'Cold Email Statistics', href: '/statistics/cold-email' },
+      { label: 'Cold Email vs LinkedIn', href: '/compare/cold-email-vs-linkedin' },
+      { label: 'Inbound vs Outbound Comparison', href: '/compare/inbound-vs-outbound' },
+      { label: 'Email Templates', href: '/resources/templates' },
+    ],
   },
   {
     id: '4',
@@ -176,6 +275,34 @@ export const services: Service[] = [
       { q: 'Do you handle InMail messages as well?', a: 'Yes. InMail messages allow you to reach prospects you\'re not connected to directly. We create targeted InMail campaigns with the same personalization and compliance standards as our connection campaigns.' },
       { q: 'What\'s the difference between LinkedIn outreach and LinkedIn ads?', a: 'LinkedIn outreach (also called social selling) involves direct 1-to-1 communication with specific prospects via connection requests and InMail. LinkedIn ads are paid advertising shown to broad audiences. Outreach typically has higher conversion rates for high-value B2B targets, while ads are better for brand awareness and lead magnet distribution.' },
       { q: 'Can you manage multiple LinkedIn profiles?', a: 'Yes. We can manage outreach campaigns across multiple LinkedIn accounts simultaneously, ensuring each follows its own engagement patterns to maintain account health and avoid cross-contamination of data.' },
+    ],
+    painPoints: [
+      { title: 'Generic Connection Requests Get Ignored', description: 'Your "I\'d like to connect" requests disappear into LinkedIn\'s notification noise. Prospects receive dozens of similar requests daily and have no reason to accept yours. The problem isn\'t your product — it\'s the lack of compelling reason to connect.' },
+      { title: 'LinkedIn Profile Doesn\'t Sell Your Value', description: 'When prospects check your profile before accepting, they see generic corporate language. Your headline is your job title, your summary is vague, and there\'s nothing that communicates why connecting with you would benefit them.' },
+      { title: 'Connections Go Cold and Never Convert', description: 'You build your network but connections never respond to messages. Without a systematic engagement strategy, your expanded network becomes just numbers — not relationships, not pipeline, not revenue.' },
+      { title: 'Account Restrictions from Aggressive Outreach', description: 'Using the wrong tools or tactics gets your account restricted or banned. LinkedIn\'s detection systems are sophisticated, and violations can permanently damage your ability to use the platform for business development.' },
+      { title: 'Unable to Reach Decision-Makers', description: 'Your outreach reaches operational staff who can\'t buy. The actual decision-makers are hidden behind their own network of connections and are much harder to reach without a warm introduction or highly compelling outreach.' },
+    ],
+    whenToUse: [
+      'Selling to enterprise or mid-market where LinkedIn is where professionals build relationships',
+      'Building brand presence and credibility in your market simultaneously',
+      'Running ABM programs targeting specific named accounts',
+      'Supplementing email outreach with a second channel that improves deliverability',
+      'When your target buyers are active LinkedIn users (tech, finance, consulting, SaaS)',
+    ],
+    successMetrics: [
+      'Connection acceptance rate above 25% (our average is 30-40%)',
+      'Monthly new relevant connections meeting volume targets',
+      'Response rate to messages after connection above 15%',
+      'Profile visit increase from optimized presence',
+      'Meeting conversion rate from LinkedIn conversations',
+    ],
+    relatedServices: ['cold-email-outreach', 'appointment-setting', 'account-based-marketing'],
+    internalLinks: [
+      { label: 'LinkedIn vs Email Comparison', href: '/compare/linkedin-vs-email' },
+      { label: 'B2B Marketing Statistics', href: '/statistics/b2b-marketing' },
+      { label: 'Social Selling Guide', href: '/resources/guides' },
+      { label: 'Book a Strategy Call', href: '/contact' },
     ],
   },
   {
@@ -211,6 +338,34 @@ export const services: Service[] = [
       { q: 'Do I need to change my website to implement SEO?', a: 'It depends on your current site\'s technical health. We\'ll identify necessary changes in our audit. Some fixes are simple (meta tags, content updates), others may require development resources (site speed, architecture). We provide clear recommendations and can implement changes directly or guide your team.' },
       { q: 'What\'s the difference between SEO and paid search?', a: 'SEO (organic search) involves optimizing your website to rank in unpaid search results. It takes time but provides lasting results and compounding traffic. Paid search involves paying for ad placement in search results. It provides immediate visibility but stops when you stop paying. Most B2B strategies include both for maximum coverage.' },
     ],
+    painPoints: [
+      { title: 'Invisible to Searchers', description: 'Your website doesn\'t rank for the keywords your prospects are searching. When someone Googles a problem you solve, your competitors appear — not you. You exist online but are essentially invisible to people actively looking for your solution.' },
+      { title: 'Traffic Without Leads', description: 'You get visitors from branded searches and some organic traffic, but nobody converts. The disconnect between content that attracts and landing pages that convert is costing you the pipeline your traffic should be generating.' },
+      { title: 'Technical Barriers You Don\'t Know About', description: 'Your site has crawl errors, slow page speeds, mobile issues, or structured data problems that prevent search engines from properly indexing your content. No amount of great content will overcome these technical barriers.' },
+      { title: 'Content That Competes But Never Wins', description: 'You create content that\'s as good as the top-ranking pages, but it doesn\'t outrank them. Without a systematic approach to content promotion and authority building, you\'re stuck on page 2 forever — invisible to 90% of searchers.' },
+      { title: 'Algorithm Changes Destroying Rankings', description: 'One Google update tanks your traffic overnight. Without understanding what changed and how to adapt, you\'re left watching your pipeline evaporate while competitors who stayed current thrive.' },
+    ],
+    whenToUse: [
+      'Building a long-term, compounding pipeline that reduces paid acquisition dependency',
+      'Entering markets where prospects research solutions via Google before engaging vendors',
+      'Launching new service offerings that need organic visibility to support sales',
+      'Competitors ranking for valuable keywords you should own',
+      'Building domain authority as foundation for broader content marketing',
+    ],
+    successMetrics: [
+      'Rankings improvement for target keywords (top 10 positions for 50%+ of targeted terms)',
+      'Organic traffic growth of 30%+ quarter-over-quarter in growth phase',
+      'Organic lead volume meeting agreed targets',
+      'Conversion rate from organic visitors at or above 2%',
+      'Domain Authority or Domain Rating improvement over baseline',
+    ],
+    relatedServices: ['content-marketing', 'demand-generation', 'b2b-lead-generation'],
+    internalLinks: [
+      { label: 'Lead Generation Statistics', href: '/statistics/lead-generation' },
+      { label: 'Inbound vs Outbound', href: '/compare/inbound-vs-outbound' },
+      { label: 'Content Marketing Guide', href: '/resources/guides' },
+      { label: 'SEO Audit Tool', href: '/tools/roi-calculator' },
+    ],
   },
   {
     id: '6',
@@ -244,6 +399,34 @@ export const services: Service[] = [
       { q: 'Who writes the content?', a: 'Your content is written by specialists matched to your industry and content type. Blog articles are written by experienced writers with SEO expertise. Technical content goes to subject matter experts. Case studies are crafted by writers skilled in narrative and persuasion. Every piece is edited for quality before publication.' },
       { q: 'Can you create content in multiple languages?', a: 'Yes. We have writers and editors for multiple languages including English, Mandarin, Vietnamese, Malay, Thai, and Arabic. For markets like Southeast Asia and Middle East, bilingual content strategies often perform best.' },
       { q: 'How do you measure content ROI?', a: 'We track content performance at each funnel stage — traffic, engagement, lead captures, MQLs, and revenue attribution. You receive monthly reports showing which content drives results, informing ongoing optimization and future content decisions.' },
+    ],
+    painPoints: [
+      { title: 'Content That Nobody Reads', description: 'You publish articles, whitepapers, and case studies but get minimal traffic and engagement. The content exists but is invisible — either not optimized for search or not compelling enough for social sharing. Resources go to waste on content that fails to reach anyone.' },
+      { title: 'Content Production That\'s Impossible to Scale', description: 'As your marketing needs grow, content requirements multiply faster than your team can produce. Creating enough to support SEO, social media, email nurturing, and sales enablement becomes a bottleneck that limits every other marketing initiative.' },
+      { title: 'Content That Attracts But Doesn\'t Convert', description: 'Your content gets traffic and shares, but nobody fills out your lead form. The gap between engagement and conversion is a funnel leak that\'s costing you pipeline. Every visitor who leaves without converting is a lost opportunity.' },
+      { title: 'Inconsistent Publishing Damaging Credibility', description: 'You publish in bursts followed by silence. Your audience loses faith in your reliability, search algorithms devalue your freshness signals, and prospects who were considering you forget you exist during your quiet periods.' },
+      { title: 'Difficulty Demonstrating Content ROI', description: 'Leadership wants proof that content investment is working. But your analytics show vanity metrics — views, time on page — without clear connections to revenue. You can\'t justify budget increases without better attribution.' },
+    ],
+    whenToUse: [
+      'Building organic pipeline foundation that compounds over time',
+      'Supporting SEO strategy with high-quality, search-optimized content',
+      'Nurturing leads through long sales cycles with educational content',
+      'Establishing thought leadership in a new market or service category',
+      'Equipping sales team with battle cards, case studies, and enablement content',
+    ],
+    successMetrics: [
+      'Organic traffic growth from content-attributed sources',
+      'Lead conversion rate from content downloads and form submissions',
+      'MQL attribution to content touchpoints in buyer journey',
+      'Content engagement metrics (time on page, scroll depth, social shares)',
+      'Pipeline influenced by content across the buyer journey',
+    ],
+    relatedServices: ['seo-lead-generation', 'demand-generation', 'crm-automation'],
+    internalLinks: [
+      { label: 'B2B Marketing Statistics', href: '/statistics/b2b-marketing' },
+      { label: 'Content Templates', href: '/resources/templates' },
+      { label: 'ICP Generator Tool', href: '/tools/icp-generator' },
+      { label: 'Content Strategy Guide', href: '/resources/guides' },
     ],
   },
   {
@@ -279,6 +462,34 @@ export const services: Service[] = [
       { q: 'Will AI outreach feel robotic to prospects?', a: 'Modern AI personalization is sophisticated enough to feel human. Our AI agents use advanced personalization techniques, natural language processing, and contextual awareness to create genuine-feeling conversations. We test all AI-generated content before deployment to ensure quality.' },
       { q: 'How do you handle AI errors or inappropriate responses?', a: 'All AI implementations include human oversight and guardrails. AI responses are monitored, especially initially, and feedback loops continuously improve quality. For sensitive interactions or high-stakes scenarios, AI flags for human review rather than proceeding autonomously.' },
     ],
+    painPoints: [
+      { title: 'Sales Team Drowning in Administrative Work', description: 'Your reps spend more time on data entry, research, and follow-up emails than on actual selling. This inefficiency limits their capacity, frustrates high performers, and creates inconsistent customer experiences. Every administrative task is time stolen from revenue-generating activities.' },
+      { title: 'Slow Response Times Losing Deals', description: 'When a lead comes in, response time is inconsistent — sometimes 5 minutes, sometimes 5 days. Studies consistently show that faster responders win more deals. Your team\'s bandwidth limits how quickly they can engage, and by the time they\'re free, the prospect has moved on.' },
+      { title: 'Lead Qualification Inconsistency', description: 'Your team qualifies leads differently — some reps are thorough, others are quick to qualify out or over-commit prospects. Without systematic qualification applied consistently, pipeline quality varies wildly, and good prospects slip through the cracks.' },
+      { title: 'Scalability Ceiling', description: 'Growing revenue requires growing headcount. Your team can only handle so many prospects, so many follow-ups, so many research tasks. The moment you add more leads, quality drops. You want leverage, but human-only operations don\'t provide it.' },
+      { title: 'Data Quality Degrading Over Time', description: 'Your CRM data gets messy — incomplete records, missing activities, outdated information. Reps stop trusting the data, stop using the system, and start maintaining their own spreadsheets. The "single source of truth" becomes a liability instead of an asset.' },
+    ],
+    whenToUse: [
+      'Growing sales team but quality declining as volume increases',
+      'High-performing reps leaving because they\'re buried in administrative work',
+      'Lead volume outpacing team capacity to follow up quickly',
+      'Expanding into new markets requiring prospecting at scale',
+      'Long sales cycles where manual follow-up becomes impossible to maintain',
+    ],
+    successMetrics: [
+      'Sales cycle time reduction of 20-30%',
+      'Lead response time under 5 minutes (compared to industry average of 47+ hours)',
+      'Administrative time reduced by 50%+ for sales reps',
+      'Lead-to-opportunity conversion rate improvement',
+      'CRM data completeness and accuracy above 90%',
+    ],
+    relatedServices: ['crm-automation', 'cold-email-outreach', 'linkedin-outreach'],
+    internalLinks: [
+      { label: 'ROI Calculator', href: '/tools/roi-calculator' },
+      { label: 'Sales Automation Guide', href: '/resources/guides' },
+      { label: 'CRM Automation', href: '/services/crm-automation' },
+      { label: 'Book a Demo', href: '/contact' },
+    ],
   },
   {
     id: '8',
@@ -306,6 +517,34 @@ export const services: Service[] = [
     benefits: ['Clean, reliable data', 'Eliminate manual data entry', 'Full pipeline visibility', 'Faster deal cycles'],
     deliverables: ['Configured CRM system', 'Automated workflows', 'Cleaned & enriched database', 'Training documentation'],
     pricingFactors: ['CRM platform (Salesforce, HubSpot, Pipedrive, etc.)', 'Data volume and migration complexity', 'Number of automated workflows required', 'Custom field and object configuration', 'Integration requirements', 'Training scope and ongoing support'],
+    painPoints: [
+      { title: 'CRM That Nobody Uses Consistently', description: 'Your CRM became a graveyard of abandoned records and outdated data. Reps hate logging activities because it takes too long, captures too little, and they don\'t see the value. Management can\'t get reliable data, so they give up on the system and trust gut feelings instead.' },
+      { title: 'Forecast Chaos and Pipeline Surprises', description: 'Your pipeline reports don\'t reflect reality. Deals appear and disappear, close dates slip without explanation, and forecasts are always wrong. By the time you discover a problem, it\'s too late to fix it. You\'re flying blind in a plane you can\'t see out of.' },
+      { title: 'Data Entry Eating Sales Time', description: 'Your reps spend hours every week on data entry — logging calls, updating records, creating follow-up tasks. This administrative burden limits how many prospects they can handle and causes burnout. Every minute in the CRM is a minute not talking to customers.' },
+      { title: 'Leads Falling Through the Cracks', description: 'Promising leads go cold because nobody remembered to follow up. Tasks get created but never completed. Follow-up sequences start but never finish. Without automated reminders and workflow enforcement, your team\'s memory becomes the only tracking system.' },
+      { title: 'Reporting That Requires a Data Scientist', description: 'Getting basic reports requires IT involvement, custom development, or manual Excel manipulation. Your team can\'t self-serve insights. The people closest to the data can\'t access it. You\'re data-rich but insight-poor.' },
+    ],
+    whenToUse: [
+      'Scaling sales team and processes need to support more reps efficiently',
+      'Migrating from legacy CRM or spreadsheets to modern sales stack',
+      'Forecast accuracy has become critical as you raise capital or commit to growth targets',
+      'Data quality has degraded to the point of being unusable for decision-making',
+      'Implementing new sales methodology and need CRM to enforce the process',
+    ],
+    successMetrics: [
+      'CRM adoption rate above 90% of sales team',
+      'Pipeline data completeness above 95%',
+      'Forecast accuracy within 10% of actual',
+      'Average deal cycle time reduction',
+      'Sales rep time spent on administrative tasks under 20%',
+    ],
+    relatedServices: ['ai-sales-automation', 'appointment-setting', 'b2b-lead-generation'],
+    internalLinks: [
+      { label: 'ROI Calculator', href: '/tools/roi-calculator' },
+      { label: 'Sales Process Guide', href: '/resources/guides' },
+      { label: 'ICP Generator', href: '/tools/icp-generator' },
+      { label: 'Book a Strategy Call', href: '/contact' },
+    ],
     faqs: [
       { q: 'Which CRM do you support?', a: 'All major CRMs — HubSpot, Salesforce, Pipedrive, Zoho, and Microsoft Dynamics. We also build custom CRM setups for companies with unique requirements. Our methodology applies regardless of platform — we focus on your sales process, then configure the CRM to support it.' },
       { q: 'Can you migrate data from our old CRM?', a: 'Yes. We handle full data migration including contacts, deals, activities, and historical records. We ensure zero data loss, proper field mapping, and duplicate handling. Migration includes a validation phase where you verify data integrity before going live.' },
@@ -340,6 +579,34 @@ export const services: Service[] = [
     benefits: ['Higher win rates on target accounts', 'Shorter sales cycles', 'Cross-sell and expansion opportunities', 'Executive-level engagement'],
     deliverables: ['Named account list', 'Personalized campaigns per account', 'Executive outreach sequences', 'ROI and attribution reporting'],
     pricingFactors: ['Number of target accounts', 'Account complexity and buying committee size', 'Number of channels and campaign types', 'Content personalization requirements', 'Technology platform (ABM tools)', 'Reporting and attribution complexity'],
+    painPoints: [
+      { title: 'Marketing Generating Mismatched Leads', description: 'Your marketing team pours budget into campaigns that generate leads, but these leads are the wrong companies. Marketing and sales have different definitions of "good," and prospects who do convert often don\'t match your ideal customer profile. Resources are wasted on companies that will never close.' },
+      { title: 'Sales and Marketing Working Against Each Other', description: 'Marketing blames sales for not following up on leads. Sales blames marketing for sending unqualified prospects. The two teams operate in silos with no shared targets, no coordinated outreach, and no common definition of success. The friction between them is costing you deals.' },
+      { title: 'Long Enterprise Cycles with No Visibility', description: 'Enterprise deals take 6–18 months. Without systematic engagement tracking, you lose sight of account activity between conversations. By the time you reconnect, the buying window has passed, champions have left, or competitors have already locked in the deal.' },
+      { title: 'Unable to Personalize at Scale', description: 'You know personalized outreach works. But manually personalizing for hundreds of target accounts is impossible. The result is generic campaigns that feel mass-produced and get ignored. You\'re stuck choosing between personalized (but limited) and scalable (but ineffective).' },
+      { title: 'Competitive Losses You Never See Coming', description: 'You\'re not winning deals you should win, and you don\'t know why. Competitors are building relationships in accounts you thought were safe. Without account-level intelligence and engagement tracking, you\'re reactive instead of proactive.' },
+    ],
+    whenToUse: [
+      'Pursuing enterprise or strategic accounts where each deal represents significant revenue',
+      'Sales cycle exceeds 6 months and requires sustained, multi-touch engagement',
+      'Multiple stakeholders involved in each buying decision',
+      'Entering new markets where you need to build awareness with specific target companies',
+      'Competitors have established relationships in your target accounts',
+    ],
+    successMetrics: [
+      'Account engagement score improvement across target accounts',
+      'Win rate on ABM-targeted accounts versus non-ABM',
+      'Average sales cycle缩短 for ABM accounts',
+      'Pipeline generated from ABM accounts meeting targets',
+      'Account coverage (number of stakeholders engaged per account)',
+    ],
+    relatedServices: ['linkedin-outreach', 'cold-email-outreach', 'demand-generation'],
+    internalLinks: [
+      { label: 'ABM vs Traditional B2B', href: '/compare/abm-vs-traditional-b2b' },
+      { label: 'Lead Generation Stats', href: '/statistics/lead-generation' },
+      { label: 'Case Studies', href: '/case-studies' },
+      { label: 'Book a Strategy Call', href: '/contact' },
+    ],
     faqs: [
       { q: 'How many accounts should we target?', a: 'Most ABM programs start with 20–100 named accounts, scaling as the program matures. The right number depends on your average deal size, sales cycle length, and available resources. We help define the right scope that balances impact with operational feasibility.' },
       { q: 'What channels do you use for ABM?', a: 'Typically LinkedIn, email, direct mail, and paid media — all personalized to each account. We also leverage events, executive outreach, and content marketing. The channel mix depends on where your target buyers are most receptive and what\'s feasible given your account list.' },
@@ -374,6 +641,34 @@ export const services: Service[] = [
     benefits: ['Create new market demand', 'Build brand authority', 'Predictable lead flow', 'Scale as you grow'],
     deliverables: ['Brand positioning framework', 'Multi-channel campaigns', 'Lead generation reports', 'Market intelligence insights'],
     pricingFactors: ['Market scope and geographic reach', 'Number of channels and campaign types', 'Brand and creative development needs', 'Media buying budget', 'Event and webinar production', 'Attribution modeling complexity'],
+    painPoints: [
+      { title: 'Unknown in Your Market', description: 'Your solution exists and solves real problems, but your market doesn\'t know you exist. When prospects begin their buying journey, they discover your competitors first. You\'re always playing catch-up, always fighting for attention in a market you haven\'t shaped.' },
+      { title: 'Reliance on Inbound Alone is Risky', description: 'Your pipeline depends entirely on inbound leads — content downloads, organic search, and referrals. When inbound slows (seasonally, during market shifts, or as competition increases), your pipeline dries up. You have no control over when or how prospects find you.' },
+      { title: 'Hard to Differentiate from Competitors', description: 'Your market sees you as similar to everyone else offering similar solutions. Without a distinctive voice and market position, prospects default to familiar names, lower prices, or whoever has the slickest marketing. You compete on everything except what matters.' },
+      { title: 'Marketing That Generates Activity but Not Revenue', description: 'Your metrics look good — website visits, content downloads, webinar attendees. But none of these activities convert to revenue. You\'re collecting people who are already interested, not creating new interest in people who didn\'t know they needed you.' },
+      { title: 'Unable to Scale Without Proportional Marketing Spend', description: 'Growing pipeline requires growing marketing spend. There\'s no leverage, no compounding effect. Double your budget, get roughly double the leads. The economics don\'t improve at scale — they just get more expensive to maintain.' },
+    ],
+    whenToUse: [
+      'Launching a new product, service, or market category and need to create awareness',
+      'Entering competitive markets where differentiation is essential to win',
+      'Building brand authority as foundation for all other marketing activities',
+      'Reducing dependency on paid acquisition that\'s becoming too expensive',
+      'Creating pull demand so prospects seek you out rather than you chasing them',
+    ],
+    successMetrics: [
+      'Brand awareness metrics (aided and unaided recall) in target markets',
+      'Share of voice relative to competitors in target categories',
+      'Pipeline influenced by demand generation activities',
+      'Organic inbound lead growth attributable to brand building',
+      'Cost per qualified lead trending downward as brand equity compounds',
+    ],
+    relatedServices: ['content-marketing', 'seo-lead-generation', 'account-based-marketing'],
+    internalLinks: [
+      { label: 'B2B Marketing Statistics', href: '/statistics/b2b-marketing' },
+      { label: 'Inbound vs Outbound', href: '/compare/inbound-vs-outbound' },
+      { label: 'Brand Strategy Guide', href: '/resources/guides' },
+      { label: 'Case Studies', href: '/case-studies' },
+    ],
     faqs: [
       { q: 'How is demand generation different from lead generation?', a: 'Lead generation targets existing demand — people already looking for a solution like yours. Demand generation creates new demand by educating the market about problems they didn\'t know they had or positioning your solution as the category leader. Both are essential; demand gen creates the market that lead gen captures.' },
       { q: 'What channels do you use?', a: 'A combination of content, events, paid media, social, email, and PR — customized to your market. We identify where your buyers get their information and meet them there. For B2B, this typically includes LinkedIn, industry publications, webinars, conferences, and strategic partnerships.' },
@@ -391,6 +686,11 @@ export interface DecisionMaker {
   background: string
 }
 
+export interface InternalLink {
+  label: string
+  href: string
+}
+
 export interface Industry {
   id: string
   title: string
@@ -398,14 +698,22 @@ export interface Industry {
   description: string
   icon: string
   overview: string           // 2–3 paragraph intro
-  challenges: string[]      // the 3–4 challenges, expanded in template
-  buyingJourney: string[]   // steps in the B2B buying process
+  marketOverview: string      // 3-paragraph deep market context
+  challenges: string[]       // the 3–4 challenges, expanded in template
+  buyingJourney: string[]    // steps in the B2B buying process
+  buyingTriggers: string[]   // events signaling active buying intent
+  redFlags: string[]         // warning signs of poor fit
   decisionMakers: DecisionMaker[]
   channels: string[]
   aiOpportunities: string[]
+  pricingBenchmark: string    // honest pricing range context
+  competitiveLandscape: string // alternatives to hiring an agency
   idealStrategy: string
   process: string[]
+  relatedIndustries: string[] // slugs of related industry pages
+  internalLinks: InternalLink[]
   faqs: { q: string; a: string }[]
+  expandedFaqs: { q: string; a: string }[] // 7–8 industry-specific FAQs
 }
 
 export const industries: Industry[] = [
@@ -416,6 +724,7 @@ export const industries: Industry[] = [
     description: 'Generate leads for B2B SaaS companies targeting SMB to enterprise buyers.',
     icon: 'Code',
     overview: 'B2B SaaS companies face a unique lead generation challenge: they must fill a leaky pipeline. Unlike one-time purchases, SaaS revenue depends on retaining customers while continuously acquiring new ones to fuel MRR growth. This means lead generation for SaaS is not a campaign — it\'s a compounding engine.\n\nThe buyers you\'re targeting today have been burned by overpromised features and underdelivered value. They conduct extensive peer reviews, run rigorous trials, and involve multiple stakeholders before committing. Your lead generation must meet this skepticism with credible proof — social proof, data, and genuine relevance.\n\nWhat separates winning SaaS companies is their ability to generate leads at the top while also identifying expansion opportunities within existing accounts. A holistic approach that covers both new-logo acquisition and land-and-expand motion delivers the compound growth that defines category leaders.',
+    marketOverview: 'The B2B SaaS market is valued at approximately $220B globally and continues to grow at 15–20% annually, driven by digital transformation and cloud adoption across all verticals. The market is saturated at the surface level — there are thousands of SaaS tools for nearly every business function — but genuine category leaders still emerge by solving specific problems better than incumbents.\n\nThe competitive landscape is brutal at the SMB level, where buyers have unlimited options and can switch with a month\'s notice. Enterprise SaaS is different: once deployed, tools become embedded in workflows and switching costs are enormous. This means enterprise lead generation focuses on being in the evaluation at the right moment, while SMB lead gen must drive urgency and capture demand before competitors do.\n\nFor lead generation agencies, SaaS is uniquely demanding because the product evolves rapidly and the ICP shifts as the product matures. A SaaS company at Series A has a very different buyer profile than the same company at Series C. Effective SaaS lead gen requires constant ICP refinement and close alignment with product development.',
     challenges: ['Long sales cycles with multiple stakeholders', 'High customer acquisition costs', 'High churn requiring continuous pipeline', 'Product-led vs. sales-led fit ambiguity'],
     buyingJourney: [
       'Problem recognition & initial research — the buyer identifies a pain point and begins Googling solutions and reading reviews.',
@@ -425,6 +734,20 @@ export const industries: Industry[] = [
       'Proof of concept & commercial negotiation — final evaluation with proof of concept, security review, and contract terms.',
       'Purchase decision & onboarding — contract signed, team introduced, and the clock starts on time-to-value.',
     ],
+    buyingTriggers: [
+      'Funding announcement (Series A, B, or C) — companies typically scale sales and marketing after a funding round',
+      'Hiring a VP of Sales or Head of Growth — signals a shift from founder-led sales to structured growth',
+      'Switching from a competitor — churned customers from a competitor are actively evaluating alternatives',
+      'Merger or acquisition activity — post-M&A integration creates new tech stack needs',
+      'Announcing a new product line — expansion creates adjacent solution needs',
+    ],
+    redFlags: [
+      'No dedicated sales or marketing headcount — indicates the company may not be ready to convert leads',
+      'Very early stage (pre-seed or seed) with limited runway — budget for tools is uncertain',
+      'Heavy reliance on inbound only — if they\'re not investing in outbound, they may not value lead gen services',
+      'Expecting immediate pipeline from day one — good SaaS lead gen takes 6–8 weeks to show meaningful pipeline',
+      'Vague or constantly shifting ICP — signals internal misalignment on who the target customer actually is',
+    ],
     decisionMakers: [
       { title: 'VP of Sales / Chief Revenue Officer', responsibilities: 'Owns the budget and final vendor selection for revenue-enabling tools. Prioritizes ROI, integration with existing stack, and track record of success.', background: 'Typically 10–15 years in B2B sales, has managed teams through multiple software evaluations, data-driven but relationship-oriented.' },
       { title: 'CTO / VP Engineering', responsibilities: 'Evaluates technical fit, API quality, security posture, and integration complexity. Has veto power on infrastructure-heavy decisions.', background: 'Engineering background, skeptical of vendor lock-in, values clean architecture and developer experience.' },
@@ -433,14 +756,33 @@ export const industries: Industry[] = [
     ],
     channels: ['LinkedIn Outreach', 'Cold Email', 'SEO & Content', 'ABM', 'Paid Social (LinkedIn)'],
     aiOpportunities: ['Automated lead qualification scoring based on firmographic and behavioral signals', 'Usage-based scoring to identify trial accounts ready to convert', 'AI-driven churn prediction to prioritize proactive outreach', 'Personalized email sequences generated at scale using GPT-based copywriting', 'AI-powered meeting preparation — auto-generate talking points from CRM data'],
+    pricingBenchmark: 'B2B SaaS lead generation services typically range from $2,000–$5,000/month for focused outbound programs targeting SMB, and $8,000–$25,000/month for enterprise ABM programs with multi-channel sequencing. Performance-based models (CPL or appointment-based pricing) often range from $50–$300 per qualified lead or $300–$800 per booked meeting, depending on the ACV of the SaaS product being sold.',
+    competitiveLandscape: 'The main alternatives to hiring a lead gen agency are: building an in-house SDR team (expensive, takes 3–6 months to ramp), using a lead gen platform like Apollo or ZoomInfo (good data but no strategy or outreach execution), or relying on inbound-only strategies (slow and unpredictable). Agencies add strategy, personalization, and execution muscle that platforms alone cannot provide.',
     idealStrategy: 'Combine inbound SEO/content for top-of-funnel with targeted LinkedIn outreach and ABM for enterprise deals. Use AI to automate qualification and prioritize hot leads.',
     process: ['ICP definition & persona building', 'Multi-channel outreach sequencing', 'AI-powered lead scoring', 'Demo booking & qualification', 'CRM sync & pipeline reporting'],
+    relatedIndustries: ['ai', 'fintech', 'hr-tech'],
+    internalLinks: [
+      { label: 'B2B Lead Generation Services', href: '/services/b2b-lead-generation' },
+      { label: 'Appointment Setting', href: '/services/appointment-setting' },
+      { label: 'Account-Based Marketing', href: '/services/account-based-marketing' },
+      { label: 'AI Sales Automation', href: '/services/ai-sales-automation' },
+    ],
     faqs: [
       { q: 'What lead volume can a SaaS company expect?', a: 'Volume depends on ICP, market, and channel mix. A typical SMB-focused SaaS can expect 50–200 qualified leads/month. Enterprise programs are more targeted with 10–50 high-value leads/month.' },
       { q: 'How do you handle trial-to-paid conversion?', a: 'We build nurture sequences for trial users, scoring behavioral signals to identify upgrade-ready accounts.' },
       { q: 'Should we use PLG (product-led growth) or SLG (sales-led growth)?', a: 'Most B2B SaaS benefits from a hybrid. PLG handles self-serve onboarding and viral loops, while SLG engages high-value accounts. We help you identify the right balance based on your ACV, target market, and product complexity.' },
       { q: 'How do you handle enterprise ABM for SaaS?', a: 'We build a named account list from your ICP, research each buying committee thoroughly, and run hyper-personalized multi-channel campaigns targeting each stakeholder role simultaneously.' },
       { q: 'What KPIs should a SaaS company track for lead generation?', a: 'MQLs, SQLs, demo conversion rate, trial-to-paid rate, pipeline generated, and CAC payback period. We set up tracking for all of these from day one.' },
+    ],
+    expandedFaqs: [
+      { q: 'What lead volume can a SaaS company expect?', a: 'Volume depends on ICP, market, and channel mix. A typical SMB-focused SaaS can expect 50–200 qualified leads/month. Enterprise programs are more targeted with 10–50 high-value leads/month. We agree on conservative targets at the start and adjust based on market response data.' },
+      { q: 'How do you handle trial-to-paid conversion?', a: 'We build nurture sequences for trial users, scoring behavioral signals to identify upgrade-ready accounts. We track product usage patterns (feature adoption, session frequency, team expansion) and trigger sales outreach when a threshold is crossed that indicates genuine value realization.' },
+      { q: 'Should we use PLG (product-led growth) or SLG (sales-led growth)?', a: 'Most B2B SaaS benefits from a hybrid. PLG handles self-serve onboarding and viral loops, while SLG engages high-value accounts. We help you identify the right balance based on your ACV, target market, and product complexity.' },
+      { q: 'How do you handle enterprise ABM for SaaS?', a: 'We build a named account list from your ICP, research each buying committee thoroughly, and run hyper-personalized multi-channel campaigns targeting each stakeholder role simultaneously. Each buying committee member receives a tailored message addressing their specific concerns — the CFO gets ROI models, the CTO gets API docs, and the end user gets workflow demos.' },
+      { q: 'What KPIs should a SaaS company track for lead generation?', a: 'MQLs, SQLs, demo conversion rate, trial-to-paid rate, pipeline generated, and CAC payback period. We set up tracking for all of these from day one and build a dashboard so you can monitor performance in real time.' },
+      { q: "What's a healthy lead-to-MRR conversion rate?", a: "Most SaaS companies convert 10–20% of SQLs to paying customers. If your trial-to-paid rate is below 10%, the issue is usually product-market fit or onboarding friction — not lead quality. We help you distinguish between leads that aren't qualified and leads your sales process is losing." },
+      { q: 'How do you handle SaaS companies with narrow ICPs?', a: 'Narrow ICPs are actually an advantage for outbound. When you know exactly who you\'re targeting, personalization is easier and response rates are higher. We build precision-targeted lists even when the total addressable market is small — the quality of engagement more than compensates for volume.' },
+      { q: 'Do you integrate with our existing sales stack?', a: 'Yes. We integrate with HubSpot, Salesforce, Pipedrive, and other CRMs. We also connect with sales engagement tools like Outreach and Salesloft. The key is ensuring lead data flows automatically into your CRM so your team acts on hot leads immediately rather than losing them to manual data entry.' },
     ],
   },
   {
@@ -450,6 +792,7 @@ export const industries: Industry[] = [
     description: 'Navigate the fast-moving AI market to generate leads for AI tool and platform companies.',
     icon: 'Brain',
     overview: 'The AI market is evolving faster than any B2B category in history. New models, new capabilities, and new competitors emerge weekly. For AI companies, lead generation isn\'t just about reaching buyers — it\'s about establishing credibility in a market crowded with hype, overclaims, and skepticism.\n\nYour buyers are often the most technically sophisticated customers you\'ll encounter. They understand transformers, token limits, and eval frameworks. Generic marketing slides won\'t move them. They want to see benchmarks, architecture diagrams, and honest conversations about limitations.\n\nThe other challenge is trust. "AI washing" has made buyers deeply cautious. They\'ve seen vendors claim "AI-powered" for a basic if/else statement. Breaking through requires substantive proof — published research, open-source contributions, benchmark results, and genuine technical dialogue. This is a market where thought leadership isn\'t optional; it\'s the entire ballgame.',
+    marketOverview: 'The AI market for enterprise software is projected to reach $400B by 2027, driven by widespread deployment of LLMs, computer vision, and agentic AI systems across financial services, healthcare, manufacturing, and government. The landscape is bifurcated: foundational model providers (OpenAI, Anthropic, Google) compete at the infrastructure layer, while thousands of application-layer companies build domain-specific AI solutions on top.\n\nWhat makes AI B2B uniquely challenging is the pace of change. A product that was differentiated six months ago may be commoditized today as model providers release equivalent capabilities. This means lead generation cannot rely on static feature lists — it must communicate adaptive value and demonstrate staying power.\n\nEnterprise AI adoption follows a predictable pattern: companies begin with point solutions for specific use cases, then consolidate as they standardize on AI platforms. Lead generation for AI companies must position early in this adoption curve, establishing relationships before procurement processes formalize around incumbent vendors.',
     challenges: ['Highly technical audience', 'Rapid market changes', 'Trust and credibility building', 'Regulatory uncertainty in some verticals'],
     buyingJourney: [
       'Technical evaluation — CTOs, AI leads, and engineers assess the technology stack, model performance, and API quality before anything else.',
@@ -457,6 +800,20 @@ export const industries: Industry[] = [
       'Security and compliance review — legal, IT, and compliance teams assess data handling, SOC2, GDPR, and sector-specific regulations.',
       'ROI modeling — finance and business teams quantify the efficiency or revenue impact against current state.',
       'Multi-stakeholder sign-off — technical, business, and financial stakeholders must all be aligned before a contract is signed.',
+    ],
+    buyingTriggers: [
+      'Announcing an AI strategy or hiring a Chief AI Officer — signals executive-level commitment to AI adoption',
+      'Publishing research or benchmarks — a company investing in AI evaluation is actively comparing vendors',
+      'Hiring AI/ML engineers at scale — the company is building AI infrastructure and likely needs complementary tools',
+      'Releasing an API or developer platform — new technical surfaces create integration partnership opportunities',
+      'Post-funding PR highlighting AI capabilities — growth-stage AI companies often scale their go-to-market after raising',
+    ],
+    redFlags: [
+      'Claims of AGI or hyperbole about AI capabilities — signals a company that may overpromise and underdeliver',
+      'No published technical documentation or benchmark results — likely not a serious AI company',
+      'Targeting companies with no evidence of AI infrastructure — their "AI need" may be aspirational, not operational',
+      'Requesting aggressive pricing before any technical evaluation — usually indicates they\'re collecting quotes, not ready to buy',
+      'Contact is only at the marketing level with no engineering buy-in — AI decisions without technical champions rarely close',
     ],
     decisionMakers: [
       { title: 'CTO / Chief Technology Officer', responsibilities: 'Evaluates the technical foundation, API design, scalability, and long-term architectural fit. Often the first champion or the first blocker.', background: 'Deep engineering background, values clean code and architecture, skeptical of black-box solutions.' },
@@ -466,14 +823,33 @@ export const industries: Industry[] = [
     ],
     channels: ['LinkedIn Outreach', 'SEO & Content', 'Webinars & Events', 'Cold Email', 'Community-Led Growth'],
     aiOpportunities: ['AI-powered everything — your own lead gen is a proof point for prospects', 'Automated technical qualification scoring based on use case fit', 'Real-time market monitoring to identify AI adoption signals in target accounts', 'AI-generated personalized outreach at scale that references specific technical contexts', 'Competitive intelligence automation to track competitor mentions and shifts'],
+    pricingBenchmark: 'AI company lead generation typically runs $3,000–$8,000/month for outbound programs and $10,000–$30,000/month for enterprise ABM. Because AI ACVs are often high ($50K–$500K+ ARR), the cost per lead is justified by deal size. Appointment-based pricing ranges from $500–$1,500/meeting for enterprise AI targets, reflecting the technical complexity of reaching and qualifying AI buyers.',
+    competitiveLandscape: 'AI companies compete for budget against existing vendors already in the stack, DIY solutions built in-house, and the foundational model providers themselves. Lead gen must position AI vendors as complementary to existing infrastructure — not a replacement — while demonstrating unique domain expertise that foundational models lack. In-house alternatives include using AI SDR tools (Instantly, Outreach AI) which handle volume but lack strategic personalization.',
     idealStrategy: 'Lead with education and thought leadership. Use content marketing for inbound, combined with targeted LinkedIn outreach to technical decision-makers and C-suite AI adopters.',
     process: ['Technical persona research', 'Content strategy for AI audience', 'Multi-channel sequencing', 'Demo/technical consultation booking', 'ROI measurement'],
+    relatedIndustries: ['saas', 'fintech', 'healthcare'],
+    internalLinks: [
+      { label: 'B2B Lead Generation', href: '/services/b2b-lead-generation' },
+      { label: 'LinkedIn Outreach', href: '/services/linkedin-outreach' },
+      { label: 'Content Marketing', href: '/services/content-marketing' },
+      { label: 'AI Sales Automation', href: '/services/ai-sales-automation' },
+    ],
     faqs: [
       { q: 'How do you reach technical AI buyers?', a: 'We build profiles of technical evaluators (CTOs, Heads of AI, Data Science leads) and personalize outreach with relevant technical context and use cases.' },
       { q: 'Is cold outreach effective for AI companies?', a: 'Yes, especially when personalized. Our AI-personalized outreach achieves 3–5x response rates compared to generic campaigns.' },
       { q: 'How do you build trust with skeptical AI buyers?', a: 'By leading with substance — benchmark data, open-source contributions, published research, and honest limitations. We help you differentiate from the hype by showcasing genuine technical depth.' },
       { q: 'What regulatory considerations affect AI lead generation?', a: 'EU AI Act, GDPR, SOC2, and sector-specific rules (HIPAA for healthcare AI, financial regulations for fintech AI). We ensure all outreach materials are reviewed for compliance context.' },
       { q: 'How do you handle the fast-changing AI market in campaigns?', a: 'We build dynamic content frameworks that can be updated rapidly as the market shifts. Weekly review cycles keep messaging current without rebuilding entire campaigns.' },
+    ],
+    expandedFaqs: [
+      { q: 'How do you reach technical AI buyers?', a: 'We build profiles of technical evaluators (CTOs, Heads of AI, Data Science leads) and personalize outreach with relevant technical context and use cases. This means referencing their published research, GitHub activity, or technical blog posts — not just mentioning their company name.' },
+      { q: 'Is cold outreach effective for AI companies?', a: 'Yes, especially when personalized. Our AI-personalized outreach achieves 3–5x response rates compared to generic campaigns. The key is technical credibility — if your first message demonstrates you understand eval frameworks or RAG architectures, AI engineers will respond.' },
+      { q: 'How do you build trust with skeptical AI buyers?', a: 'By leading with substance — benchmark data, open-source contributions, published research, and honest limitations. We help you differentiate from the hype by showcasing genuine technical depth. The AI market rewards honesty; vendors who overclaim are quickly exposed by the technical community.' },
+      { q: 'What regulatory considerations affect AI lead generation?', a: 'EU AI Act, GDPR, SOC2, and sector-specific rules (HIPAA for healthcare AI, financial regulations for fintech AI). We ensure all outreach materials are reviewed for compliance context and avoid making claims that imply regulatory endorsement.' },
+      { q: 'How do you handle the fast-changing AI market in campaigns?', a: 'We build dynamic content frameworks that can be updated rapidly as the market shifts. Weekly review cycles keep messaging current without rebuilding entire campaigns. Instead of rewriting entire sequences, we swap out specific claims and benchmark data while keeping the core value proposition intact.' },
+      { q: 'How do you handle AI companies in stealth mode?', a: 'Stealth-mode AI companies face a unique challenge — limited public footprint makes traditional outbound harder. We focus on warm networks, conference introductions, and advisor relationships while the company builds public credibility. Once they\'re ready to go to market, we have the pipeline strategy ready to execute.' },
+      { q: 'What\'s the difference between AI company lead gen and regular SaaS?', a: 'AI buyers are significantly more technical and skeptical. They want to see code, benchmarks, and architecture diagrams — not marketing claims. Our AI campaigns lead with technical depth: research publications, benchmark datasets, and honest capability comparisons. We also account for the fact that AI companies evolve faster, requiring more frequent ICP refreshes.' },
+      { q: 'Do you help AI companies build developer community?', a: 'Yes. Developer community is a powerful lead gen channel for AI companies — OSS contributions, technical blog posts, and conference talks build credibility that no ad campaign can replicate. We help design community-led growth strategies that complement outbound efforts.' },
     ],
   },
   {
@@ -483,6 +859,7 @@ export const industries: Industry[] = [
     description: 'Connect HR tech vendors with HR leaders, talent acquisition teams, and CHROs.',
     icon: 'Users',
     overview: 'HR Tech is one of the most crowded B2B categories, which makes high-quality lead generation both critical and challenging. HR leaders are inundated with cold calls, vendor emails, and conference pitches. Cutting through the noise requires a fundamentally different approach — one that leads with insight rather than product.\n\nThe HR buying committee is broader than most. It spans the CHRO who owns the budget, the VP of HR who champions the tool internally, the Head of Talent Acquisition who will be the primary user, IT who must approve integrations, and the CFO who must sign off on the investment. Each has a different concern and a different language.\n\nWhat HR buyers consistently tell us: they don\'t want to be sold to. They want to be helped. The companies that win in HR Tech lead with workforce intelligence — industry benchmarks, research on hiring trends, compensation data — and let the product conversation emerge naturally from a relationship built on value.',
+    marketOverview: 'The HR tech market exceeds $25B globally and is fragmented across dozens of sub-categories: talent acquisition, learning and development, payroll, benefits administration, performance management, employee engagement, and HR analytics. Consolidation is accelerating as private equity buyers roll up adjacent categories into HR platform suites. This creates both opportunity and urgency — vendors need to establish themselves before the market consolidates around a few dominant platforms.\n\nThe buying cycle is lengthening because HR purchases are increasingly strategic. What was once a departmental software decision is now a boardroom conversation about workforce transformation. This shifts lead gen from selling features to selling outcomes: reduced turnover cost, faster time-to-productivity, improved engagement scores. The vendors winning in HR tech are those who can speak the language of the CHRO and the CFO simultaneously.\n\nRegional dynamics matter significantly in HR tech. Southeast Asian markets have different regulatory requirements (CPF in Singapore, Social Security in Malaysia, Vietnam labor law) that require local compliance rather than global feature sets. Enterprise HR tech buyers in the region often require regional or local data center presence, which becomes a gating requirement for international vendors.',
     challenges: ['Budget approval from multiple stakeholders', 'Long procurement cycles', 'HR teams overwhelmed by vendor noise', 'Demonstrating clear ROI to finance'],
     buyingJourney: [
       'HR pain identification — the CHRO or HR director recognizes a gap in hiring, retention, performance management, or HR operations.',
@@ -492,6 +869,20 @@ export const industries: Industry[] = [
       'Business case and finance approval — ROI modeling, budget allocation, and multi-year TCO analysis. Often the longest stage.',
       'IT and legal review — security assessment, DPA review, and integration compatibility check.',
     ],
+    buyingTriggers: [
+      'Mass resignation or "great resignation" event — turnover spikes trigger immediate need for retention and recruiting tools',
+      'New CHRO appointment — new HR leaders often bring their preferred vendor relationships and initiate evaluations',
+      'Merger or acquisition — M&A creates immediate HR tech consolidation needs and new budget for integration work',
+      'Rapid headcount growth — fast-growing companies need scalable HR processes that spreadsheets can\'t support',
+      'New hiring initiative (e.g., entering a new market) — signals expansion phase that typically triggers HR tech investment',
+    ],
+    redFlags: [
+      'Budget freeze announced or implied — HR is often first cut in cost reduction rounds',
+      'Recently signed a multi-year HR tech contract — locked into existing vendor for the contract duration',
+      'Contact is a HR coordinator or coordinator-level — no budget authority and not the real decision-maker',
+      'Company in serious financial distress — may not be able to pay invoices even if they sign',
+      'Heavy reliance on agency/part-time HR — signals they may not have the internal capability to implement enterprise software',
+    ],
     decisionMakers: [
       { title: 'Chief Human Resources Officer (CHRO)', responsibilities: 'Owns the budget and executive sponsorship. Decides whether a tool gets evaluated at all. Champions the business case to the C-suite.', background: 'Senior HR leader, often 15–20 years of experience, focused on workforce strategy and organizational design.' },
       { title: 'VP of HR / HR Director', responsibilities: 'Leads the internal evaluation, runs demos, coordinates stakeholder input, and manages the vendor shortlist day-to-day.', background: 'Operational HR leader, deeply familiar with HR tech landscape, user-centric in evaluation.' },
@@ -500,14 +891,33 @@ export const industries: Industry[] = [
     ],
     channels: ['Content Marketing', 'Cold Email', 'LinkedIn Outreach', 'ABM', 'Webinars'],
     aiOpportunities: ['Automated candidate matching and ranking using ML models', 'HR analytics dashboards that surface workforce trends and predict turnover risk', 'AI-powered job description optimization for diversity and engagement', 'Automated interview scheduling and candidate communication', 'Workforce planning AI that predicts hiring needs based on business growth signals'],
+    pricingBenchmark: 'HR tech vendor lead generation typically costs $2,000–$5,000/month for SMB-focused programs and $6,000–$15,000/month for enterprise ABM targeting CHRO-level buyers. Given that HR tech ACVs range from $5K–$200K+ annually, the ROI on quality lead generation is strong. Appointment-based pricing runs $300–$800/meeting for HR director-level buyers and $1,000–$2,500/meeting for CHRO-level C-suite conversations.',
+    competitiveLandscape: 'HR tech vendors compete against DIY approaches (spreadsheets, basic HRIS systems), incumbent enterprise vendors (Workday, SAP SuccessFactors, Oracle HCM), and a crowded mid-market of specialized tools. Many HR leaders also rely on peer recommendations and industry networks rather than outbound marketing. Lead gen must compete with this word-of-mouth advantage by building genuine peer-level relationships rather than product-focused campaigns.',
     idealStrategy: 'Use content-led inbound for HR professionals, combined with targeted email to HR directors and C-suite (CHRO, CFO). Account-based marketing works well for enterprise HR tech.',
     process: ['Stakeholder mapping within HR', 'Multi-message outreach by role', 'Case study-led engagement', 'Demo and trial booking', 'ROI tracking'],
+    relatedIndustries: ['saas', 'professional-services', 'healthcare'],
+    internalLinks: [
+      { label: 'B2B Lead Generation', href: '/services/b2b-lead-generation' },
+      { label: 'Appointment Setting', href: '/services/appointment-setting' },
+      { label: 'Content Marketing', href: '/services/content-marketing' },
+      { label: 'Demand Generation', href: '/services/demand-generation' },
+    ],
     faqs: [
       { q: 'Who is the primary decision-maker for HR tech?', a: 'Typically CHRO, VP of HR, or Head of Talent Acquisition. For larger platforms, CFO and IT also have input.' },
       { q: 'What content resonates with HR buyers?', a: 'Industry benchmarks, workforce trend reports, and case studies showing measurable impact on hiring and retention.' },
       { q: 'How do you handle the long HR tech procurement cycle?', a: 'We build sustained nurture programs that maintain engagement over 3–9 months, providing value at every stage — from early research through contract negotiation.' },
       { q: 'What ROI metrics do HR tech buyers care about most?', a: 'Cost per hire, time-to-fill, employee retention rate, HR team productivity (cases resolved per person), and HRIS integration efficiency. We help you build a compelling ROI story around these metrics.' },
       { q: 'How do you differentiate in a crowded HR tech market?', a: 'Through hyper-specific content for your niche (e.g., healthcare HR vs. tech startup HR), peer-level personalization, and thought leadership that HR leaders find genuinely useful rather than promotional.' },
+    ],
+    expandedFaqs: [
+      { q: 'Who is the primary decision-maker for HR tech?', a: 'Typically CHRO, VP of HR, or Head of Talent Acquisition. For larger platforms, CFO and IT also have input. The CHRO owns the budget, but the VP of HR runs the evaluation and the CFO approves the spend. We map all three stakeholders in every campaign.' },
+      { q: 'What content resonates with HR buyers?', a: 'Industry benchmarks, workforce trend reports, and case studies showing measurable impact on hiring and retention. HR leaders are practitioners — they want data and peer evidence, not feature lists. We produce content that positions you as a thought partner, not a vendor.' },
+      { q: 'How do you handle the long HR tech procurement cycle?', a: 'We build sustained nurture programs that maintain engagement over 3–9 months, providing value at every stage — from early research through contract negotiation. This means monthly touchpoints, quarterly benchmarking reports, and strategic check-ins timed to their budget cycle.' },
+      { q: 'What ROI metrics do HR tech buyers care about most?', a: 'Cost per hire, time-to-fill, employee retention rate, HR team productivity (cases resolved per person), and HRIS integration efficiency. We help you build a compelling ROI story around these metrics — not just for the CHRO, but translated into financial terms the CFO can evaluate.' },
+      { q: 'How do you differentiate in a crowded HR tech market?', a: 'Through hyper-specific content for your niche (e.g., healthcare HR vs. tech startup HR), peer-level personalization, and thought leadership that HR leaders find genuinely useful rather than promotional. The more specific your positioning, the less competition you face.' },
+      { q: 'How do you handle regional HR tech markets like Southeast Asia?', a: 'SEA HR tech requires local language capabilities, regional compliance knowledge (CPF, social security, labor law variations), and often local data residency. We build region-specific campaigns that account for these requirements and position your solution as regionally literate, not a global product awkwardly localized.' },
+      { q: 'What\'s the role of HR conferences in lead generation?', a: 'Events like SHRM, HR Tech Conference, and regional HR summits are where HR leaders research and compare vendors. We run pre-event outreach to book meetings with attendees from target companies, and post-event nurture to convert connections made at shows. The ROI on conference-sourced leads is typically 2–3x higher than cold outbound.' },
+      { q: 'How do you handle HR tech vendors targeting very large enterprises vs. SMB?', a: 'Enterprise HR tech lead gen requires ABM with CHRO-level personalization and multi-stakeholder coordination. SMB HR tech works better with high-volume inbound content strategies and automated nurture. We calibrate targeting, messaging, and channel mix to match your market segment.' },
     ],
   },
   {
@@ -517,6 +927,7 @@ export const industries: Industry[] = [
     description: 'Generate B2B leads for industrial manufacturers and B2B suppliers.',
     icon: 'Factory',
     overview: 'Manufacturing is a relationship-first, trust-intensive B2B category. When a plant manager is evaluating a new supplier or industrial technology, they\'re not just buying a product — they\'re making a commitment that affects production continuity, worker safety, and operational performance. The sales cycles reflect this gravity: 6–18 months from first conversation to purchase order is not unusual.\n\nThe manufacturing buying committee is unusually complex. Engineering evaluates technical specifications, procurement negotiates terms and pricing, operations assesses impact on production lines, and finance models the total cost of ownership. Each stakeholder has veto power from a different angle.\n\nWhat makes lead generation for manufacturing distinct is the role of physical presence and industry community. Trade shows like Hannover Messe, IMTS, and regional equivalents are not optional extras — they\'re where relationships are seeded and deals accelerate. Your digital lead generation must complement this physical world, maintaining engagement between shows and nurturing accounts that may not be ready to buy for 12 months.',
+    marketOverview: 'The global manufacturing sector is worth over $4 trillion annually, encompassing everything from precision electronics and automotive components to heavy industrial equipment and specialty chemicals. The market is being reshaped by Industry 4.0 — the integration of IoT sensors, predictive analytics, robotics, and AI into traditional manufacturing operations. This creates a two-speed market: legacy manufacturers still buying traditional equipment, and digital-native plants investing in smart manufacturing.\n\nSupply chain regionalization is creating new opportunities. Post-pandemic, manufacturers are actively diversifying supplier bases away from single-source dependency, creating in-market opportunities for new vendors. Companies that were previously locked into decade-long contracts with incumbent suppliers are now actively evaluating alternatives.\n\nThe ASEAN manufacturing corridor (Vietnam, Thailand, Malaysia, Indonesia) is one of the fastest-growing manufacturing regions globally, driven by supply chain relocation from China. This creates a unique window for industrial suppliers to establish relationships with new manufacturing facilities before incumbent relationships solidify.',
     challenges: ['Complex buying committees', 'Long sales cycles (6–18 months)', 'Relationship-driven purchasing', 'Regional and language diversity'],
     buyingJourney: [
       'Needs assessment & specification — plant managers and engineers define the technical requirements and performance criteria.',
@@ -526,6 +937,20 @@ export const industries: Industry[] = [
       'Supplier audit — site visits, facility tours, and quality management system reviews to validate production capability.',
       'Commercial negotiation — pricing, payment terms, volume commitments, and contract terms negotiated with procurement.',
     ],
+    buyingTriggers: [
+      'New factory or facility opening — a new plant is building its supplier list from scratch and is actively evaluating vendors',
+      'Incumbent supplier quality issue or contract expiry — a disruption to the existing supplier relationship opens evaluation windows',
+      'Regulatory change (e.g., emissions standards, safety requirements) — compliance deadlines create urgent purchasing needs',
+      'Major order wins that stretch production capacity — a new customer contract triggers capacity expansion decisions',
+      'Equipment reaching end-of-life — maintenance, repair, and operations (MRO) budget activates when equipment age signals replacement need',
+    ],
+    redFlags: [
+      'No technical contact available — if engineering or quality is unreachable, the company may not be genuinely evaluating',
+      'Extremely aggressive price-only messaging — signals the buyer is focused on cost reduction rather than value, which creates downstream issues',
+      'No clear budget cycle — manufacturing companies plan purchases well in advance; no budget timeline usually means no purchase',
+      'Supplier already pre-selected — some "evaluations" are rubber-stamp processes for decisions already made',
+      'Facility expansion on hold — a project pause can freeze vendor evaluations for 12+ months',
+    ],
     decisionMakers: [
       { title: 'Plant Manager / Site Director', responsibilities: 'The operational champion who feels the pain most directly. Advocates internally for change but needs to justify it to management.', background: 'Operations or engineering background, 15+ years in manufacturing, focused on OEE, throughput, and safety metrics.' },
       { title: 'Procurement Manager / VP of Procurement', responsibilities: 'Controls the RFQ process, evaluates commercial terms, and has final say on vendor selection within budget constraints.', background: 'Supply chain or procurement background, skilled negotiator, relationship-oriented with trusted suppliers.' },
@@ -534,14 +959,33 @@ export const industries: Industry[] = [
     ],
     channels: ['LinkedIn Outreach', 'Trade Show Follow-up', 'Cold Email', 'SEO (industry keywords)', 'Partner channel'],
     aiOpportunities: ['Predictive maintenance opportunity identification — find plants with aging equipment likely to need replacement', 'Supplier discovery automation using procurement databases and import/export data', 'AI-powered RFQ response generation for manufacturing quotes', 'Quality analytics leads — identifying plants with defect rate patterns that signal equipment or process issues', 'Production optimization signals from publicly available manufacturing output data'],
+    pricingBenchmark: 'Manufacturing lead generation programs typically range from $2,500–$6,000/month for regional targeting and $8,000–$20,000/month for global enterprise ABM. Because manufacturing deal sizes are often large ($50K–$500K+ per contract), the cost per lead is typically justified. Multi-language outreach (Vietnamese, Mandarin, Malay, Thai) adds a premium of 20–30% due to the specialized research and writing requirements.',
+    competitiveLandscape: 'Manufacturing buyers typically evaluate three alternatives: staying with incumbent suppliers (the default choice), buying from well-known global brands (preferred for risk-averse buyers), and new entrants who can demonstrate superior value. Lead gen must overcome the incumbent advantage by identifying the specific moments when switching becomes necessary — quality failures, contract renewals, or capacity changes — and positioning early.',
     idealStrategy: 'Combine trade show strategy, targeted LinkedIn outreach to plant managers and procurement, and account-based campaigns for enterprise manufacturers.',
     process: ['Target account identification', 'Multi-stakeholder outreach', 'Plant/facility-level targeting', 'Procurement engagement', 'Long-cycle pipeline management'],
+    relatedIndustries: ['logistics', 'saas', 'professional-services'],
+    internalLinks: [
+      { label: 'B2B Lead Generation', href: '/services/b2b-lead-generation' },
+      { label: 'LinkedIn Outreach', href: '/services/linkedin-outreach' },
+      { label: 'Account-Based Marketing', href: '/services/account-based-marketing' },
+      { label: 'Cold Email Outreach', href: '/services/cold-email-outreach' },
+    ],
     faqs: [
       { q: 'How do you handle long manufacturing sales cycles?', a: 'We build sustained nurture programs with multiple touchpoints over 6–18 months, tracking engagement signals to identify when prospects are ready to buy.' },
       { q: 'Do you handle multi-language outreach?', a: 'Yes. We support outreach in English, Mandarin, Vietnamese, Malay, Thai, Arabic, and more.' },
       { q: 'How do you identify the right manufacturing companies to target?', a: 'We use a combination of import/export data, manufacturing output indices, facility age data, and industry news to identify companies actively investing in new equipment or suppliers.' },
       { q: 'How do you handle the complex buying committee in manufacturing?', a: 'We build multi-threaded ABM campaigns that address each stakeholder role independently while maintaining account-level coordination. Each message is tailored to that role\'s specific concern.' },
       { q: 'What role do trade shows play in a manufacturing lead gen strategy?', a: 'Trade shows are where manufacturing relationships begin. We build pre-show outreach to book meetings and post-show nurture to convert show connections into pipeline. We treat every trade show as a campaign, not an event.' },
+    ],
+    expandedFaqs: [
+      { q: 'How do you handle long manufacturing sales cycles?', a: 'We build sustained nurture programs with multiple touchpoints over 6–18 months, tracking engagement signals to identify when prospects are ready to buy. We monitor public signals — new facility openings, contract expiries, production capacity changes — to know when to accelerate outreach. Between touches, we provide genuine value: industry benchmarks, regulatory updates, and peer insights.' },
+      { q: 'Do you handle multi-language outreach?', a: 'Yes. We support outreach in English, Mandarin, Vietnamese, Malay, Thai, Arabic, and more. Each language market requires native-level research, localization (not just translation), and cultural adaptation of messaging. We work with native-speaking researchers and writers for each language.' },
+      { q: 'How do you identify the right manufacturing companies to target?', a: 'We use a combination of import/export data (which reveals supply chain relationships), manufacturing output indices, facility age data (older facilities signal replacement needs), and industry news to identify companies actively investing in new equipment or suppliers. We don\'t just target all manufacturers — we target companies in active buying mode.' },
+      { q: 'How do you handle the complex buying committee in manufacturing?', a: 'We build multi-threaded ABM campaigns that address each stakeholder role independently while maintaining account-level coordination. The Plant Manager gets an operational value message, Procurement gets commercial terms and contract flexibility, Quality gets certification and compliance credentials, and Engineering gets technical specifications and integration data.' },
+      { q: 'What role do trade shows play in a manufacturing lead gen strategy?', a: 'Trade shows are where manufacturing relationships begin. We build pre-show outreach to book meetings and post-show nurture to convert show connections into pipeline. We treat every trade show as a campaign, not an event — with pre-show research on exhibiting companies, meeting booking targets, and a 90-day post-show nurture sequence.' },
+      { q: 'How do you handle long enterprise sales cycles in manufacturing?', a: 'Manufacturing enterprise deals require a fundamentally different pipeline management approach than typical B2B. We use a stage-gated pipeline model where each buying stage (specification, RFQ, evaluation, audit, negotiation) has specific engagement activities and success criteria. This prevents deals from going dark and keeps your relationship warm throughout.' },
+      { q: 'What signals indicate a manufacturing company is ready to switch suppliers?', a: 'Watch for: announced plant expansions (new facilities need new suppliers), published quality issues or recalls (they\'re reviewing their supply chain), new procurement leadership (new procurement heads often re-evaluate existing contracts), and contract renewal dates (typically the evaluation window). We monitor these signals and trigger outreach at exactly the right moment.' },
+      { q: 'Do you cover Southeast Asian manufacturing markets?', a: 'Yes. Southeast Asia — particularly Vietnam, Thailand, Malaysia, and Indonesia — is a major growth corridor for manufacturing. We have specific expertise in targeting manufacturing facilities in these markets, including local language capabilities, knowledge of regional industry associations, and familiarity with ASEAN trade compliance requirements.' },
     ],
   },
   {
@@ -551,6 +995,7 @@ export const industries: Industry[] = [
     description: 'Generate leads for logistics providers, freight forwarders, and supply chain solutions.',
     icon: 'Truck',
     overview: 'Logistics is among the most competitive B2B categories on the planet. Every freight forwarder, 3PL, and carrier is competing on the same shipping lanes with similar service levels and price points. In this environment, lead generation isn\'t about being louder — it\'s about being more relevant to the specific needs of each shipper.\n\nThe logistics buyer is typically a logistics manager, supply chain director, or procurement lead who is responsible for keeping goods moving efficiently. They have fixed budgets, established carrier relationships, and no time for generic sales pitches. They want someone who understands their specific lanes, their cargo types, and their pain points.\n\nThe opportunity for differentiation lies in specificity. A logistics company that knows exactly which shipping lanes are experiencing congestion, which ports have capacity issues, and which shippers are struggling with their current providers can build a far more compelling lead generation narrative than one that talks about "end-to-end supply chain solutions." Precision is credibility in logistics.',
+    marketOverview: 'The global logistics market exceeds $9 trillion, with freight forwarding, warehousing, and last-mile delivery representing the largest segments. The market is under structural pressure: freight rates have normalized after the pandemic-era spikes, shippers have more carrier options than ever, and digital freight platforms (Flexport, Freightos, InstaFreight) are commoditizing comparison shopping. Margins are thin and competitive intensity is brutal.\n\nThe competitive landscape has fundamentally shifted with digital freight platforms. Shippers can now compare real-time rates across hundreds of forwarders instantly. This means logistics lead generation cannot compete on price transparency alone — it must compete on lane expertise, service reliability, and relationship depth that digital platforms cannot replicate.\n\nRegional logistics corridors are creating new market opportunities. The Red Sea crisis has rerouted significant Asia-Europe trade through the Cape of Good Hope, extending transit times and increasing demand for alternative routing expertise. Southeast Asia cross-border trade is growing rapidly as regional supply chains deepen. And the Middle East is emerging as a major logistics hub with UAE and Saudi investments in ports and distribution infrastructure.',
     challenges: ['Price-sensitive market', 'Commoditized services', 'Complex routing and compliance', 'Regional market differences'],
     buyingJourney: [
       'Carrier review — logistics managers review current carrier performance, identifying pain points in cost, reliability, or coverage.',
@@ -560,6 +1005,20 @@ export const industries: Industry[] = [
       'Pilot shipment — a small initial shipment to validate service quality before committing volume.',
       'Contract negotiation — annual or multi-year contracts negotiated based on volume commitments and service guarantees.',
     ],
+    buyingTriggers: [
+      'Carrier service failure (delays, damage, loss) — a bad experience with an incumbent immediately opens the evaluation window',
+      'Annual contract renewal approaching — the 60–90 days before renewal is the critical engagement window',
+      'Shipping volume changes — a new large customer or major order win creates new logistics needs',
+      'Market disruptions (port congestion, carrier bankruptcy, geopolitical changes) — disruption creates urgency and forces action',
+      'Entering a new geographic market — new routes require new carrier relationships',
+    ],
+    redFlags: [
+      'Only responding to rate inquiries without relationship interest — indicates they\'re price-shopping, not relationship-building',
+      'Extremely thin margins or operating at cost — if they can barely afford their current carrier, they\'re unlikely to pay for premium service',
+      'No volume commitment — spot market only buyers are price-sensitive and unreliable for contract revenue',
+      'History of payment issues or disputes with carriers — a red flag for your own collections risk',
+      'Logistics managed entirely by procurement without operational input — decisions made purely on price will be hard to win on value',
+    ],
     decisionMakers: [
       { title: 'Logistics Manager / Freight Manager', responsibilities: 'Manages day-to-day shipping operations, selects carriers for specific lanes, and monitors performance metrics.', background: 'Operations or logistics background, deeply familiar with freight markets, focused on cost per lane and on-time performance.' },
       { title: 'Supply Chain Director', responsibilities: 'Owns the strategic supply chain architecture and carrier strategy. Makes or approves major carrier selection decisions.', background: 'Supply chain management, 10–15 years experience, strategic thinker focused on network optimization.' },
@@ -568,14 +1027,33 @@ export const industries: Industry[] = [
     ],
     channels: ['SEO & Content', 'LinkedIn Outreach', 'Cold Email', 'Marketplace & directory listings', 'Referral programs'],
     aiOpportunities: ['Route optimization leads — identifying shippers on inefficient or congested lanes', 'Freight market intelligence — using market data to identify companies in volatile lanes likely to switch', 'AI-powered rate quote personalization for inbound inquiries', 'Predictive demand modeling to reach shippers before peak season capacity crunches', 'Automated cargo matching between shippers and carriers using freight consolidation data'],
+    pricingBenchmark: 'Logistics lead generation programs typically range from $2,000–$5,000/month for SMB freight forwarders and $6,000–$15,000/month for enterprise 3PLs targeting major shippers. Given that freight forwarding contracts range from $50K–$5M+ annually, the ROI on quality pipeline generation is strong. Appointment-based pricing runs $300–$600/meeting for logistics manager level and $800–$1,500 for supply chain director C-suite conversations.',
+    competitiveLandscape: 'Logistics companies compete against digital freight platforms (Flexport, Freightos), established global forwarders (DHL, Kuehne+Nagel, DB Schenker), and direct carrier sales teams. The key competitive advantage is lane expertise and relationship depth — something the digital platforms and global giants struggle to provide at the local level. Lead gen should position the company as a lane expert, not a generic service provider.',
     idealStrategy: 'Focus on digital presence for inbound leads, combined with targeted LinkedIn and email campaigns to logistics managers, supply chain directors, and procurement leads.',
     process: ['Route and lane analysis', 'Target company identification', 'Decision-maker outreach', 'Rate quote and proposal stage', 'Relationship building'],
+    relatedIndustries: ['manufacturing', 'professional-services', 'saas'],
+    internalLinks: [
+      { label: 'SEO Lead Generation', href: '/services/seo-lead-generation' },
+      { label: 'LinkedIn Outreach', href: '/services/linkedin-outreach' },
+      { label: 'Cold Email Outreach', href: '/services/cold-email-outreach' },
+      { label: 'B2B Lead Generation', href: '/services/b2b-lead-generation' },
+    ],
     faqs: [
       { q: 'How do you differentiate logistics companies in a competitive market?', a: 'Through hyper-personalized outreach that references specific shipping lanes, volume patterns, and pain points — not generic logistics pitches.' },
       { q: 'Do you cover cross-border logistics?', a: 'Yes. We have specific expertise in Southeast Asia, Middle East, and Asia-Pacific cross-border logistics lead generation.' },
       { q: 'How do you find logistics prospects who are actually looking to switch providers?', a: 'We monitor publicly available signals — shipping volume changes, carrier contract renewals, port congestion data, and news about supply chain disruptions — to identify companies likely to be in-market for a new provider.' },
       { q: 'What channels work best for logistics B2B lead generation?', a: 'SEO targeting lane-specific keywords (e.g., "freight forwarding Shanghai to Rotterdam"), LinkedIn targeting supply chain titles, and referral programs leveraging existing shipper relationships. Directories like Freightos and Logistics.com also drive qualified inbound.' },
       { q: 'How do you handle regional differences in logistics markets?', a: 'We build region-specific targeting and messaging. Southeast Asia logistics requires different language capabilities, relationship frameworks, and lane expertise than Europe or Middle East.' },
+    ],
+    expandedFaqs: [
+      { q: 'How do you differentiate logistics companies in a competitive market?', a: 'Through hyper-personalized outreach that references specific shipping lanes, volume patterns, and pain points — not generic logistics pitches. A freight forwarder in Vietnam reaching out about "container shipping from Ho Chi Minh to Rotterdam with oversize cargo expertise" is far more compelling than "end-to-end supply chain solutions."' },
+      { q: 'Do you cover cross-border logistics?', a: 'Yes. We have specific expertise in Southeast Asia (Vietnam–China cross-border, ASEAN corridor), Middle East (UAE hub-and-spoke), and Asia-Pacific cross-border logistics lead generation. Each region requires different language capabilities, customs knowledge, and carrier relationships.' },
+      { q: 'How do you find logistics prospects who are actually looking to switch providers?', a: 'We monitor publicly available signals — shipping volume changes (via import/export databases), carrier contract renewal calendars, port congestion data (Port of Rotterdam, Singapore, LA/LB), and news about supply chain disruptions — to identify companies likely to be in-market for a new provider at exactly the right moment.' },
+      { q: 'What channels work best for logistics B2B lead generation?', a: 'SEO targeting lane-specific keywords (e.g., "freight forwarding Shanghai to Rotterdam"), LinkedIn targeting supply chain and procurement titles, and referral programs leveraging existing shipper relationships. Directories like Freightos and Logistics.com also drive qualified inbound. We use a channel mix tailored to your specific lanes.' },
+      { q: 'How do you handle regional differences in logistics markets?', a: 'We build region-specific targeting and messaging. Southeast Asia logistics requires different language capabilities, relationship frameworks, and lane expertise than Europe or Middle East. A Vietnam-based forwarder has different ICP and channel strategy than a global 3PL targeting European shippers.' },
+      { q: 'How do you handle seasonal demand in logistics lead generation?', a: 'Logistics has pronounced seasonality — peak season before Chinese New Year, before Christmas, and during agricultural harvest seasons. We build seasonal campaign calendars that anticipate demand spikes, accelerating outreach 60–90 days before peak season when shippers are actively planning their logistics needs.' },
+      { q: 'What\'s the role of freight marketplaces and directories?', a: 'Digital freight marketplaces (Freightos, uShip) and industry directories drive significant inbound lead flow for logistics companies. We optimize your marketplace profile, respond to RFQ requests in real time, and use marketplace data to identify which shippers are actively seeking quotes — then follow up directly with relationship-focused outreach.' },
+      { q: 'Do you help logistics companies build referral programs?', a: 'Yes. In logistics, referral programs are exceptionally powerful because the industry is relationship-driven. We design referral programs that incentivize existing shippers to introduce peer companies, including structured partner referral programs with major shippers who regularly recommend trusted carriers.' },
     ],
   },
   {
@@ -585,6 +1063,7 @@ export const industries: Industry[] = [
     description: 'Navigate strict healthcare compliance to generate leads for healthtech and medtech companies.',
     icon: 'Stethoscope',
     overview: 'Healthcare is arguably the most complex vertical for B2B lead generation. The stakes are extraordinarily high — a wrong decision can affect patient safety, regulatory compliance, and institutional reputation. Healthcare organizations move deliberately, involve extensive gatekeeping, and have deeply entrenched vendor relationships.\n\nThe healthcare buyer is not one person. In a hospital system, the clinical champion who loves your product can be overruled by IT security, procurement, legal, and a CFO looking at capital budget constraints. Each gatekeeper has a different concern: clinical effectiveness, data security, cost, and regulatory compliance. Your lead generation must speak to all of them.\n\nTrust is healthcare\'s currency. Healthcare professionals — from CMIOs to clinical directors — are deeply skeptical of vendor claims. They rely on peer recommendations, published clinical evidence, and referenceable institutions more than any marketing material. Your lead generation strategy must build credibility through clinical evidence and peer networks, not promotional claims.',
+    marketOverview: 'The global healthcare market exceeds $4 trillion in the US alone, with health IT and medical devices representing rapidly growing sub-segments. The sector is undergoing structural transformation: legacy EHR systems are being modernized, AI is being deployed for clinical decision support and administrative automation, and value-based care models are creating new technology needs. These forces create a constant stream of new buying decisions.\n\nThe regulatory environment creates both barriers and opportunities. HIPAA compliance requirements mean healthcare vendors must invest heavily in security, data governance, and compliance infrastructure — creating switching costs that benefit incumbents but also creating evaluation windows when compliance gaps emerge. FDA regulation of SaMD (Software as a Medical Device) adds another layer of complexity for AI-based health tools.\n\nHealthcare institutions are increasingly data-driven in their purchasing decisions. Value analysis committees — formal bodies that evaluate clinical and financial evidence before capital purchases — have become standard in hospital systems. This means health tech vendors need to build evidence packages, not just feature lists. Lead generation that positions vendors as collaborative evidence-builders, not product sellers, wins in this environment.',
     challenges: ['Strict compliance and regulations', 'Long procurement and approval cycles', 'Multiple gatekeepers', 'Trust and credibility requirements'],
     buyingJourney: [
       'Clinical need identification — clinical leaders identify a gap in care delivery, efficiency, or patient safety that technology could address.',
@@ -594,6 +1073,20 @@ export const industries: Industry[] = [
       'Clinical trial or pilot — hands-on evaluation in a controlled clinical setting. Clinical staff evaluate usability and effectiveness.',
       'Value analysis committee — formal committee reviews clinical evidence, cost-benefit analysis, and strategic fit before capital approval.',
     ],
+    buyingTriggers: [
+      'C-suite leadership change (new CEO, CMO, CIO) — new leadership often initiates technology evaluations and is open to new vendor relationships',
+      'EHR system migration or upgrade — when the clinical IT foundation changes, everything on top of it is fair game for evaluation',
+      'Regulatory or compliance audit findings — a failed audit creates immediate urgency for compliance-related technology purchases',
+      'Adverse clinical outcome or near-miss incident — safety events trigger technology reviews for clinical decision support',
+      'Value-based care contract wins — new value-based contracts change the ROI calculus for efficiency and outcome-improvement tools',
+    ],
+    redFlags: [
+      'Asking for PHI in outreach — any vendor that requests protected health information in a sales context is not HIPAA-aware',
+      'No clinical champion identified — healthcare deals without a clinical advocate almost never close',
+      'Budget not approved or capital allocation unclear — healthcare capital budgets are planned 12–18 months in advance; no budget means no deal',
+      'Multiple competing evaluations with no clear decision criteria — some "evaluations" are market research, not real purchasing processes',
+      'No peer reference institutions — a health tech company without referenceable customers is a significant credibility gap in healthcare',
+    ],
     decisionMakers: [
       { title: 'Chief Medical Information Officer (CMIO)', responsibilities: 'The clinical champion for health IT decisions. Evaluates clinical workflow fit, evidence quality, and interoperability with existing clinical systems.', background: 'Physician or clinical informaticist, 10+ years in healthcare, understands both clinical practice and health IT.' },
       { title: 'CTO / CIO of Health System', responsibilities: 'Evaluates technical infrastructure fit, security posture, data architecture, and integration with existing EHR systems.', background: 'IT or healthcare IT background, responsible for HIPAA compliance and data governance at the institutional level.' },
@@ -602,14 +1095,33 @@ export const industries: Industry[] = [
     ],
     channels: ['LinkedIn Outreach', 'Medical conferences', 'Content Marketing', 'Email (HIPAA-conscious)', 'Referrals & KOL engagement'],
     aiOpportunities: ['Patient flow optimization leads — identifying hospitals with ER crowding or bed management issues', 'Clinical trial matching automation for research hospitals seeking technology partners', 'AI-powered differential diagnosis support tools for specialist referral patterns', 'Population health management leads — identifying health systems with at-risk patient populations', 'Revenue cycle automation for health systems under margin pressure'],
+    pricingBenchmark: 'Healthcare/health tech lead generation typically runs $3,000–$7,000/month for targeted programs and $10,000–$25,000/month for hospital system ABM programs. Given that health IT contracts often exceed $100K–$1M+ annually, the investment is justified. Appointment-based pricing runs $500–$1,000/meeting for clinical and IT buyers, and $1,500–$3,000/meeting for C-suite healthcare executives.',
+    competitiveLandscape: 'Health tech vendors compete against legacy EHR vendors (Epic, Cerner/Oracle), global med-tech corporations, and DIY solutions built by hospital IT teams. The competitive advantage is clinical credibility — peer-reviewed evidence, KOL endorsements, and referenceable institutions in the same specialty. Lead gen must build credibility before asking for a meeting, because clinical buyers don\'t take introductory calls without knowing others like them have used the product successfully.',
     idealStrategy: 'Compliance-first approach with content marketing targeting healthcare administrators and clinical leaders. Use ABM for hospital systems and targeted LinkedIn for healthtech buyers.',
     process: ['Compliance review of all materials', 'Healthcare persona mapping', 'Multi-stakeholder ABM campaigns', 'Clinical champion identification', 'Procurement navigation'],
+    relatedIndustries: ['ai', 'saas', 'fintech'],
+    internalLinks: [
+      { label: 'B2B Lead Generation', href: '/services/b2b-lead-generation' },
+      { label: 'Account-Based Marketing', href: '/services/account-based-marketing' },
+      { label: 'Content Marketing', href: '/services/content-marketing' },
+      { label: 'CRM Automation', href: '/services/crm-automation' },
+    ],
     faqs: [
       { q: 'How do you handle HIPAA compliance in outreach?', a: 'All outreach materials are reviewed for compliance. We never ask for or handle protected health information (PHI). Our campaigns target business decision-makers.' },
       { q: 'Who are the decision-makers in healthcare organizations?', a: 'CMIOs, CTOs, Clinical Directors, Procurement, and C-suite (CEO, CFO) — depending on the purchase type and value.' },
       { q: 'How do you reach Key Opinion Leaders (KOLs) in healthcare?', a: 'KOL engagement requires a different approach — clinical evidence sharing, conference co-presentations, advisory board participation, and peer-level content collaboration. We build relationship-based engagement strategies for KOLs.' },
       { q: 'What content builds credibility with healthcare buyers?', a: 'Peer-reviewed clinical evidence, case studies from referenceable institutions, clinical workflow documentation, and health system executive testimonials. Promotional content is discounted immediately.' },
       { q: 'How do you navigate the healthcare procurement cycle?', a: 'Healthcare procurement follows formal value analysis committee processes. We help you build the clinical and financial evidence package needed to pass committee review — not just the initial champion conversation.' },
+    ],
+    expandedFaqs: [
+      { q: 'How do you handle HIPAA compliance in outreach?', a: 'All outreach materials are reviewed for compliance by our team before deployment. We never ask for, handle, or store protected health information (PHI). Our campaigns target business decision-makers (CMIOs, CIOs, clinical directors) on business-relevant topics — not clinical use of PHI.' },
+      { q: 'Who are the decision-makers in healthcare organizations?', a: 'CMIOs, CTOs, Clinical Directors, Procurement, and C-suite (CEO, CFO) — depending on the purchase type and value. For clinical technology, the CMIO and clinical department heads are essential champions. For administrative technology, the CIO and CFO have more authority. We map all relevant stakeholders for each account.' },
+      { q: 'How do you reach Key Opinion Leaders (KOLs) in healthcare?', a: 'KOL engagement requires a fundamentally different approach — clinical evidence sharing, conference co-presentations, advisory board participation, and peer-level content collaboration. We build relationship-based engagement strategies for KOLs that lead with scientific substance and respect their professional standing, not vendor pitches.' },
+      { q: 'What content builds credibility with healthcare buyers?', a: 'Peer-reviewed clinical evidence, case studies from referenceable institutions in the same specialty, clinical workflow documentation, and health system executive testimonials. Promotional content is discounted immediately. Clinical buyers want to see the same evidence they would present to their own value analysis committee.' },
+      { q: 'How do you navigate the healthcare procurement cycle?', a: 'Healthcare procurement follows formal value analysis committee processes. We help you build the clinical and financial evidence package needed to pass committee review — not just the initial champion conversation. This means producing ROI calculators, clinical outcome summaries, and security compliance documentation as part of the lead nurturing process.' },
+      { q: 'What are HIPAA considerations for B2B outreach in healthcare?', a: 'All outreach must be HIPAA-aware: no PHI in emails, no discussion of patient cases, no requests for patient data. Our team is trained in HIPAA business associate concepts and reviews all materials for compliance. We also ensure data handling for any healthcare lead data meets HIPAA requirements — this means secure data storage and transmission protocols for all prospect information.' },
+      { q: 'How do you handle health tech companies selling to payers vs. providers?', a: 'Payers (insurance companies, health plans) and providers (hospitals, clinics) have very different buying processes. Payers are typically more centralized decisions with pharmacy and medical directors as key evaluators. Providers have more distributed decision-making through clinical and administrative stakeholders. We tailor targeting and messaging for each healthcare sub-sector.' },
+      { q: 'What role do medical conferences play in healthcare lead generation?', a: 'Conferences like HIMSS, HLTH, and specialty-specific events are where healthcare leaders research vendors, compare solutions, and build peer relationships. We run pre-conference outreach to target accounts attending the same show, book meetings in advance, and execute post-conference nurture sequences within 48 hours of the event — the window when conference connections are warmest.' },
     ],
   },
   {
@@ -619,6 +1131,7 @@ export const industries: Industry[] = [
     description: 'Generate leads for financial technology companies across payments, banking, and investing.',
     icon: 'DollarSign',
     overview: 'FinTech operates at the intersection of money, technology, and trust — three things that don\'t combine easily. Financial institutions are among the most risk-averse buyers in B2B. A wrong technology choice can expose them to regulatory penalties, financial loss, and reputational damage. Their procurement processes reflect this gravity.\n\nThe FinTech buyer\'s journey is characterized by trust verification at every stage. They\'re not just evaluating your product — they\'re evaluating your regulatory standing, your financial stability, your security certifications, and your track record with similar institutions. This makes the sales cycle longer and the qualification bar higher.\n\nWhat FinTech vendors consistently underestimate is the compliance stakeholder. In any financial institution, the compliance officer, legal team, and risk manager have significant blocking power. Your lead generation must address their concerns — regulatory compliance, audit trails, data residency, and financial crime prevention — not just the CTO\'s interest in your technology.',
+    marketOverview: 'The global fintech market exceeds $300B and is growing rapidly as traditional financial institutions accelerate digital transformation. Banks are investing heavily in API-first infrastructure, AI-powered credit decisioning, embedded finance, and RegTech solutions. This creates a two-sided dynamic: fintech vendors selling to banks (B2B2C) and fintech vendors replacing traditional financial services (B2C) both need sophisticated B2B lead generation.\n\nRegulatory complexity is the defining feature of fintech lead generation. The regulatory landscape varies dramatically by market — MAS in Singapore, SCA/PSD2 in Europe, FinCEN requirements in the US — and compliance teams are intimately involved in all vendor evaluations. A fintech vendor that cannot speak the regulatory language of their prospect will be eliminated early in the evaluation process, regardless of product quality.\n\nThe financial services industry is undergoing a generational shift toward open banking and API-based architectures. Banks that have historically been locked into legacy core banking systems are now building API layers that enable fintech integrations. This creates an unprecedented window for fintech vendors — the bank\'s API investment signals they\'re open to external technology partnerships in a way that was impossible five years ago.',
     challenges: ['Regulatory complexity', 'High trust requirements', 'Long compliance cycles', 'Technical and business stakeholder alignment'],
     buyingJourney: [
       'Digital transformation need identified — CTO or Head of Innovation recognizes a gap in payments, lending, wealth management, or banking infrastructure.',
@@ -628,6 +1141,20 @@ export const industries: Industry[] = [
       'Proof of concept — a pilot deployment to validate technical and operational fit in a controlled environment.',
       'Multi-stakeholder approval — technology, business, compliance, legal, and finance all sign off. Often requires board or executive committee approval for large contracts.',
     ],
+    buyingTriggers: [
+      'Open banking regulation enforcement — new regulatory requirements trigger technology investments to achieve compliance',
+      'Major fraud incident or financial crime event — a breach or fraud loss creates urgency for security and monitoring solutions',
+      'New leadership appointment (CEO, CTO, Head of Innovation) — new leaders often bring new vendor relationships and technology strategies',
+      'Legacy system failure or core banking migration — when the foundation changes, every layer above is open for evaluation',
+      'New license acquisition (e.g., digital bank license, payment institution license) — newly licensed fintechs are actively building their technology stack',
+    ],
+    redFlags: [
+      'No regulatory license or registration — operating without required financial licenses is both illegal and a massive red flag for any financial institution',
+      'No SOC2, ISO 27001, or equivalent security certification — financial institutions require these as minimum gate requirements',
+      'Unable to provide a vendor risk questionnaire response — financial institutions have standard questionnaires; refusing or delaying completion signals problems',
+      'Targeting banks without any peer financial institution references — financial buyers heavily weight reference checks from similar institutions',
+      'Overly aggressive claims about regulatory approval — no vendor should imply regulatory endorsement they don\'t have',
+    ],
     decisionMakers: [
       { title: 'CTO / Head of Technology', responsibilities: 'Evaluates technical architecture, API quality, security posture, and integration complexity. Primary technical champion.', background: 'Engineering or technology leadership, fintech or banking IT background, values clean architecture and security-first design.' },
       { title: 'Head of Innovation / CDO', responsibilities: 'Identifies and evaluates emerging technologies that could improve financial services delivery. Often the internal champion for new vendor relationships.', background: 'Innovation, digital transformation, or fintech background, focused on competitive advantage and market differentiation.' },
@@ -636,14 +1163,33 @@ export const industries: Industry[] = [
     ],
     channels: ['LinkedIn Outreach', 'ABM', 'Content Marketing', 'Conference & event marketing', 'Referral & partner channels'],
     aiOpportunities: ['Fraud detection leads — identifying banks with increasing fraud losses likely to need advanced solutions', 'Compliance automation — AI-powered AML and KYC solutions for under-pressure compliance teams', 'Regulatory reporting automation for financial institutions drowning in reporting requirements', 'AI-powered credit scoring for lenders seeking better underwriting models', 'Payment reconciliation automation for financial institutions with complex transaction volumes'],
+    pricingBenchmark: 'Fintech lead generation programs range from $3,000–$8,000/month for challenger fintech programs and $10,000–$30,000/month for enterprise financial institution ABM. Given that financial institution contracts often exceed $100K–$2M+ annually, the investment is justified. Appointment-based pricing runs $500–$1,500/meeting for innovation/tech buyers and $1,500–$3,000/meeting for C-suite financial executives.',
+    competitiveLandscape: 'Fintech vendors compete against global technology corporations (Oracle, Temenos, Finastra for banking; Fiserv, FIS for payments), in-house built solutions (large banks build their own), and well-funded startup competitors. Lead gen must differentiate through regulatory expertise, relevant financial institution references, and demonstrated understanding of the specific regulatory framework the prospect operates under.',
     idealStrategy: 'Use thought leadership content to build trust, combined with ABM for financial institutions and targeted LinkedIn outreach to heads of innovation, digital transformation, and finance.',
     process: ['Regulatory landscape mapping', 'Target institution identification', 'Multi-stakeholder engagement', 'Compliance-aware content', 'Pilot and proof-of-concept booking'],
+    relatedIndustries: ['ai', 'cybersecurity', 'saas'],
+    internalLinks: [
+      { label: 'Account-Based Marketing', href: '/services/account-based-marketing' },
+      { label: 'B2B Lead Generation', href: '/services/b2b-lead-generation' },
+      { label: 'LinkedIn Outreach', href: '/services/linkedin-outreach' },
+      { label: 'Content Marketing', href: '/services/content-marketing' },
+    ],
     faqs: [
       { q: 'How do you reach financial institution decision-makers?', a: 'Through LinkedIn with personalized content referencing their digital transformation initiatives, and through industry events where compliance-friendly conversations happen.' },
       { q: 'Do you handle regulatory considerations in outreach?', a: 'We ensure all materials are reviewed for regulatory appropriateness and never make claims that would require regulatory approval.' },
       { q: 'What certifications do financial institutions look for in vendors?', a: 'SOC2 Type II, ISO 27001, PCI DSS, and relevant financial regulatory registrations. We help you build a certification-focused messaging strategy that addresses institutional requirements.' },
       { q: 'How do you navigate the long FinTech procurement cycle?', a: 'We build multi-stage nurture programs that maintain engagement through 6–18 month cycles, providing compliance-ready documentation, security questionnaires, and reference customer connections at each stage.' },
       { q: 'What role do fintech events play in lead generation?', a: 'Events like Money20/20, Singapore FinTech Festival, and regional banking summits are where trust relationships with financial institution leaders are seeded. We run pre-event outreach to book meetings and post-event nurture to convert connections into pipeline.' },
+    ],
+    expandedFaqs: [
+      { q: 'How do you reach financial institution decision-makers?', a: 'Through LinkedIn with personalized content referencing their digital transformation initiatives, and through industry events where compliance-friendly conversations happen. Financial institution buyers are notoriously hard to reach — we use a combination of deep research on their specific regulatory context and peer-level messaging that demonstrates we understand their world.' },
+      { q: 'Do you handle regulatory considerations in outreach?', a: 'We ensure all materials are reviewed for regulatory appropriateness and never make claims that would require regulatory approval. We understand MAS, SCA/PSD2, FinCEN, and other key regulatory frameworks and ensure our messaging aligns with — not oversteps — regulatory boundaries.' },
+      { q: 'What certifications do financial institutions look for in vendors?', a: 'SOC2 Type II, ISO 27001, PCI DSS, and relevant financial regulatory registrations. We help you build a certification-focused messaging strategy that positions your existing certifications as trust-builders rather than compliance checkboxes.' },
+      { q: 'How do you navigate the long FinTech procurement cycle?', a: 'We build multi-stage nurture programs that maintain engagement through 6–18 month cycles, providing compliance-ready documentation, security questionnaires, and reference customer connections at each stage. We map the evaluation milestones (technical review, compliance review, pilot, committee approval) and time our engagement to each stage.' },
+      { q: 'What role do fintech events play in lead generation?', a: 'Events like Money20/20, Singapore FinTech Festival, and regional banking summits are where trust relationships with financial institution leaders are seeded. We run pre-event outreach to book meetings with target accounts attending the same show, and post-event nurture within 48 hours to convert warm connections into pipeline conversations.' },
+      { q: 'How do you handle the compliance stakeholder in fintech sales?', a: 'The compliance officer and risk manager are often the most important — and most overlooked — stakeholders in financial institution sales. We create compliance-specific messaging that addresses their concerns: audit trails, data residency, AML/KYC capabilities, and regulatory reporting. This isn\'t just about passing their review — it\'s about making compliance a reason to choose you.' },
+      { q: 'What\'s the difference between selling to a bank vs. a fintech?', a: 'Banks are slow, risk-averse, and committee-driven. Fintechs move faster but are more volatile (many fail). We calibrate our approach: enterprise ABM for banks, rapid outbound for well-funded growth-stage fintechs. The key difference is that banks want peer references and compliance evidence; fintechs want product demos and integration speed.' },
+      { q: 'Do you help fintech companies targeting ASEAN financial institutions?', a: 'Yes. We have specific expertise in ASEAN financial markets — MAS in Singapore, BNM in Malaysia, BOT in Thailand, and SBV in Vietnam. Each has different regulatory frameworks and procurement norms that affect how fintech vendors should approach lead generation in those markets.' },
     ],
   },
   {
@@ -653,6 +1199,7 @@ export const industries: Industry[] = [
     description: 'Generate leads for cybersecurity vendors targeting CISOs, IT security teams, and enterprise buyers.',
     icon: 'Shield',
     overview: 'Cybersecurity is a market where urgency is constant but trust is elusive. Every organization is under active threat, which creates perpetual demand — but also perpetual skepticism. Security leaders have been burned by vendors who overpromised and underdelivered, leaving them exposed when an incident occurred. They buy differently than almost any other B2B buyer.\n\nThe CISO is the primary strategic buyer, but the security evaluation is conducted by technically sophisticated practitioners who will probe every claim. They\'ll run your product through its paces, challenge your architecture, and demand evidence — not marketing collateral. Your lead generation must pre-qualify this technical scrutiny, not skip over it.\n\nWhat the best cybersecurity lead generation programs understand: security buyers respond to risk intelligence, not product features. They want to see that you understand their threat landscape, that you\'ve done the research on their industry\'s specific adversaries, and that your solution addresses real attack vectors — not theoretical ones. This shifts the entire sales narrative from "our product is great" to "we understand your risk."',
+    marketOverview: 'The global cybersecurity market exceeds $200B and is projected to grow at 12–15% annually through 2030. The market is fragmented across dozens of categories: endpoint security, network security, cloud security, identity and access management, security operations, application security, and more. Consolidation is accelerating as major platform vendors (Palo Alto, Microsoft, CrowdStrike) build integrated security suites.\n\nThe threat landscape has fundamentally changed the sales dynamic. Ransomware attacks, supply chain compromises, and nation-state intrusions are front-page news. Boards and executives now ask CISOs about cyber risk, which means cybersecurity purchasing is increasingly a boardroom conversation — not just an IT department decision. This elevates the strategic importance of security vendors but also increases the scrutiny they face.\n\nMid-market companies — historically underserved by security vendors focused on enterprise — are now a growth market. These organizations have mature security needs but limited internal expertise, making managed detection and response (MDR), cloud security posture management (CSPM), and integrated platform approaches particularly compelling.',
     challenges: ['Highly technical audience', 'Long enterprise sales cycles', 'Procurement complexity', 'Trust and credential requirements'],
     buyingJourney: [
       'Threat landscape assessment — the CISO or security team identifies a gap in their current security posture based on threat intelligence and incident analysis.',
@@ -662,6 +1209,20 @@ export const industries: Industry[] = [
       'Risk and compliance review — legal, compliance, and risk teams assess vendor risk, data handling, and regulatory implications.',
       'Enterprise procurement — RFP, security questionnaire, legal review, and contract negotiation. Enterprise security deals can involve 6+ internal stakeholders.',
     ],
+    buyingTriggers: [
+      'Active breach or security incident — a ransomware attack, data breach, or security incident creates immediate urgency for incident response and prevention tools',
+      'SEC cybersecurity disclosure rule — public companies must now disclose material cybersecurity incidents, increasing board-level focus and budget allocation',
+      'New CISO appointment — new CISOs bring their own vendor preferences and are more open to evaluating alternatives than their predecessors',
+      'Failed security audit or penetration test — audit findings create documented gaps that require remediation funding',
+      'Major vendor acquisition of their existing security stack — integration concerns after M&A drive evaluation of alternatives',
+    ],
+    redFlags: [
+      'No published threat research or security expertise — a security vendor without a public security research team is a significant credibility gap',
+      'No customer case studies in the prospect\'s industry — security buyers want to see evidence from similar organizations, not generic enterprise testimonials',
+      'Vague claims about detection rates or efficacy — security buyers will verify every claim; overstating capabilities destroys trust',
+      'No SOC2 or equivalent security certification — enterprise security buyers require third-party security attestations',
+      'Unable to provide a realistic technical evaluation timeline — security deals need 30–90 days for proper technical evaluation; compressed timelines suggest a rubber-stamp process',
+    ],
     decisionMakers: [
       { title: 'Chief Information Security Officer (CISO)', responsibilities: 'Strategic decision-maker who owns the security budget and vendor relationships. Evaluates risk reduction, strategic fit, and organizational impact.', background: 'Senior security leadership, often 15+ years in security, comes from a blend of technical, risk, and executive leadership background.' },
       { title: 'CTO / VP Infrastructure', responsibilities: 'Evaluates technical architecture, integration with existing security stack, deployment complexity, and operational overhead.', background: 'Infrastructure or security engineering, deep knowledge of network security, cloud architecture, and security operations.' },
@@ -670,14 +1231,33 @@ export const industries: Industry[] = [
     ],
     channels: ['LinkedIn Outreach', 'ABM', 'Content Marketing (threat intel)', 'Webinars & podcasts', 'Partner & analyst channel'],
     aiOpportunities: ['Threat intelligence leads — identifying organizations experiencing active breach indicators likely to need incident response', 'Automated security posture scoring to identify organizations with gaps in their security coverage', 'AI-powered vulnerability prioritization to find organizations with unpatched critical vulnerabilities', 'Phishing simulation leads — identifying organizations with poor phishing awareness likely to need training', 'Supply chain risk monitoring to find companies whose third-party vendors have been breached'],
+    pricingBenchmark: 'Cybersecurity lead generation ranges from $3,000–$8,000/month for SMB-focused programs and $10,000–$30,000/month for enterprise CISO-level ABM. Given that enterprise security contracts frequently exceed $100K–$1M+ annually, this is a high-ROI investment. Appointment-based pricing runs $500–$1,200/meeting for security director level and $1,500–$3,000/meeting for CISO-level conversations.',
+    competitiveLandscape: 'Security buyers compare security vendors against: incumbent vendors (their existing security stack), MSSPs (managed security service providers who bundle multiple tools), in-house built solutions, and the "do nothing" option (which many CISOs prefer if the risk case isn\'t compelling). Lead gen must build a risk-reduction narrative, not a feature comparison, because security buyers are inherently loss-averse.',
     idealStrategy: 'Lead with thought leadership and threat intelligence content. Use ABM for enterprise CISOs, targeted LinkedIn outreach to security leaders, and conference-led engagement.',
     process: ['Security persona research', 'Threat landscape personalization', 'Multi-stakeholder CISO engagement', 'Proof-of-concept and trial booking', 'ROI and risk quantification'],
+    relatedIndustries: ['ai', 'fintech', 'saas'],
+    internalLinks: [
+      { label: 'Account-Based Marketing', href: '/services/account-based-marketing' },
+      { label: 'B2B Lead Generation', href: '/services/b2b-lead-generation' },
+      { label: 'Content Marketing', href: '/services/content-marketing' },
+      { label: 'Demand Generation', href: '/services/demand-generation' },
+    ],
     faqs: [
       { q: 'Who is the primary buyer for cybersecurity tools?', a: 'CISOs, CTOs, IT Security Directors, and increasingly, CFOs for risk and compliance purchases. Procurement and legal also involved in enterprise deals.' },
       { q: 'How do you personalize at scale for security buyers?', a: 'We analyze public breach data, SEC filings, and company announcements to personalize outreach with relevant threat context and risk reduction angles.' },
       { q: 'What makes cybersecurity lead generation different from other B2B categories?', a: 'The technical depth required, the trust premium, and the multi-stakeholder complexity. Security buyers respond to threat intelligence and risk context — not product feature lists. Every piece of content must demonstrate genuine security expertise.' },
       { q: 'How do you use threat intelligence in outreach?', a: 'We monitor public breach disclosures, SEC cyber incident filings, CVE databases, and dark web intelligence to identify organizations that have been or are likely to be targeted — then personalize outreach with relevant threat context.' },
       { q: 'What role do analyst relations play in cybersecurity lead generation?', a: 'Gartner, Forrester, and IDC rankings significantly influence security buying decisions. We help you engage with analysts and use analyst recognition to build credibility in outreach — especially for ABM target lists.' },
+    ],
+    expandedFaqs: [
+      { q: 'Who is the primary buyer for cybersecurity tools?', a: 'CISOs, CTOs, IT Security Directors, and increasingly, CFOs for risk and compliance purchases. Procurement and legal also involved in enterprise deals. The CISO owns the strategic decision, the security director owns the technical evaluation, and the CFO approves the budget — all three must be engaged.' },
+      { q: 'How do you personalize at scale for security buyers?', a: 'We analyze public breach data, SEC filings, CVE disclosures, and company announcements to personalize outreach with relevant threat context and risk reduction angles. A manufacturing company that just disclosed a supply chain breach gets a different message than a fintech company facing regulatory scrutiny about their authentication stack.' },
+      { q: 'What makes cybersecurity lead generation different from other B2B categories?', a: 'The technical depth required, the trust premium, and the multi-stakeholder complexity. Security buyers respond to threat intelligence and risk context — not product feature lists. Every piece of content must demonstrate genuine security expertise. A CISO who receives a generic vendor email will dismiss it immediately; one who receives a message that demonstrates you understand their specific threat landscape will respond.' },
+      { q: 'How do you use threat intelligence in outreach?', a: 'We monitor public breach disclosures, SEC cyber incident filings, CVE databases, and dark web intelligence to identify organizations that have been or are likely to be targeted — then personalize outreach with relevant threat context. We look for specific indicators: an organization that just disclosed a breach gets an incident response message; one whose third-party vendor was breached gets a supply chain risk message.' },
+      { q: 'What role do analyst relations play in cybersecurity lead generation?', a: 'Gartner, Forrester, and IDC rankings significantly influence security buying decisions. We help you engage with analysts and use analyst recognition (Magic Quadrant placement, Forrester Wave ranking) to build credibility in outreach — especially for ABM target lists where analyst endorsement can accelerate committee approval.' },
+      { q: 'How do you handle the long enterprise security sales cycle?', a: 'Enterprise security deals take 6–18 months and involve multiple stakeholders with veto power. We use a stage-gated pipeline model: awareness/education, technical evaluation, risk assessment, procurement, and contract. Each stage has specific engagement activities, content deliverables, and success criteria. We maintain account-level engagement throughout — security buyers forget vendors that go quiet.' },
+      { q: 'What role does incident response play in cybersecurity lead generation?', a: 'When an organization experiences a breach or ransomware attack, they immediately need incident response (IR) services. We monitor public breach disclosures and use this as an outreach trigger — reaching out to organizations that have disclosed incidents with IR-focused messaging at the moment they\'re most receptive to help. This timing-based approach has significantly higher response rates than cold outbound.' },
+      { q: 'Do you help MSSP lead generation?', a: 'Yes. Managed Security Service Providers face a different competitive landscape — they compete against both DIY security programs and larger MSSP players. We help MSSPs differentiate through specialization (vertical MSSPs, geography-focused MSSPs, or use-case-focused MSSPs) and build lead generation campaigns that target organizations in their specific sweet spot.' },
     ],
   },
   {
@@ -687,6 +1267,7 @@ export const industries: Industry[] = [
     description: 'Generate leads for consulting firms, agencies, and professional service providers.',
     icon: 'Briefcase',
     overview: 'Professional services is the ultimate trust-first B2B category. When a Managing Director is evaluating a consulting firm, law practice, or marketing agency, they\'re not just buying a service — they\'re betting their reputation on a team they\'re handing significant responsibility to. The buying decision is deeply personal and relationship-driven.\n\nThe challenge for professional services firms is credibility at scale. A firm\'s reputation is built on individual expertise and demonstrated outcomes — things that don\'t multiply easily. Every new practice area, every new geography, every new service offering requires a new credibility foundation.\n\nWhat separates high-growth professional services firms from stagnant ones is their ability to systematize credibility — to turn the expertise of their best people into content, frameworks, and thought leadership that can be scaled to thousands of prospects. Lead generation for professional services is ultimately a content and thought leadership challenge, amplified by targeted direct outreach.',
+    marketOverview: 'The professional services market is vast — spanning management consulting ($300B+), IT services ($1T+), legal services ($700B+), accounting ($600B+), and marketing agencies ($150B+). Within each category, the market is highly fragmented: the largest players (McKinsey, Deloitte, Accenture) have global reach, but thousands of specialized boutiques and mid-market firms compete for specific niches. This fragmentation creates opportunity — buyers increasingly prefer specialized expertise over generalist firms.\n\nThe buying behavior of professional services has shifted post-pandemic. Buyers are more skeptical of traditional business development approaches — thought leadership is now table stakes, and firms need genuine intellectual property, proprietary data, and demonstrated outcomes to stand out. The firms winning in this environment have turned their expertise into scalable content assets: frameworks, research reports, benchmarking tools, and predictive models that deliver value before any engagement begins.\n\nThe professional services landscape is also undergoing AI-driven disruption. Firms that integrate AI tools (research automation, proposal generation, knowledge management) are increasing their productivity and undercutting traditional rates. Lead generation must account for how AI is changing the competitive dynamics — buyers are increasingly evaluating firms on their AI capabilities and the efficiency advantage they bring.',
     challenges: ['Building credibility from scratch', 'Trust-first buying decisions', 'Multiple decision-makers', 'Differentiating in a crowded market'],
     buyingJourney: [
       'Need recognition — a C-suite executive or senior leader identifies a strategic challenge that requires external expertise.',
@@ -696,6 +1277,20 @@ export const industries: Industry[] = [
       'Proposal and scope development — detailed scope, team, timeline, and pricing proposed. Often follows a discovery process with key stakeholders.',
       'Engagement negotiation — terms, commercial structure, and team composition negotiated. Reference calls with past clients are common at this stage.',
     ],
+    buyingTriggers: [
+      'New CEO or C-suite appointment — new leadership often brings a new strategic agenda that requires fresh external expertise',
+      'Merger or acquisition activity — M&A creates immediate needs for due diligence, integration consulting, and post-merger management',
+      'Major business crisis — a revenue decline, regulatory investigation, or competitive disruption creates urgency for external strategic advice',
+      'Strategic planning cycle — companies bring in external advisors during annual or quarterly strategy planning',
+      'Technology transformation project — digital transformation, ERP implementation, or AI adoption creates demand for specialized implementation expertise',
+    ],
+    redFlags: [
+      'No budget authority in the contact — C-suite titles with no real decision power often consume your team\'s time without moving the deal forward',
+      'Only interested in free advice — buyers who extract insights without genuine intent rarely convert to paying clients',
+      'Firm in serious financial distress — engagement fees may go unpaid even if they sign',
+      'Contact is a junior procurement role — professional services buying is typically owned by senior executives, not procurement coordinators',
+      'Expecting unrealistic scope for the budget — a mismatch between their expectations and your pricing suggests misalignment that will surface in negotiation',
+    ],
     decisionMakers: [
       { title: 'Managing Partner / CEO', responsibilities: 'The ultimate decision-maker for major professional services engagements. Evaluates strategic fit, firm reputation, and relationship quality.', background: 'Senior executive or partner-level professional, 20+ years experience, relationship-focused, reputation-conscious.' },
       { title: 'C-suite Executive (COO, CFO, CMO)', responsibilities: 'The business-side sponsor who owns the problem being addressed. Champions the engagement internally and manages budget approval.', background: 'Functional C-suite executive relevant to the service being evaluated. Deeply focused on business outcomes and risk management.' },
@@ -704,14 +1299,33 @@ export const industries: Industry[] = [
     ],
     channels: ['LinkedIn Outreach', 'Content Marketing', 'Cold Email', 'Referral programs', 'Webinars & speaking'],
     aiOpportunities: ['Expertise matching AI — matching prospective clients with specific consultants based on their challenge profile', 'Automated proposal generation using firm knowledge bases and client context', 'Client intent monitoring — tracking when target accounts are researching problems the firm solves', 'Relationship mapping to identify mutual connections and warm introduction opportunities', 'Automated thought leadership distribution and engagement scoring to identify high-potential prospects'],
+    pricingBenchmark: 'Professional services lead generation typically ranges from $2,000–$5,000/month for boutique firms and $8,000–$20,000/month for mid-market and global firms. Because professional services engagements often exceed $50K–$500K+, quality leads are worth significant revenue. Appointment-based pricing runs $300–$600/meeting for director-level buyers and $800–$2,000/meeting for C-suite executives.',
+    competitiveLandscape: 'Professional services firms compete against: the client doing the work internally (DIY), larger global firms with broader capabilities, boutique firms with deeper specialization, and freelance/contractor markets. The differentiation is credibility and fit — lead gen must demonstrate genuine expertise and cultural alignment, not just service descriptions. The rise of AI coding and research tools is also creating a new competitive category: solo consultants with AI leverage who undercut traditional firm rates.',
     idealStrategy: 'Use content marketing to demonstrate expertise and attract inbound. Combine with targeted LinkedIn outreach to executives and C-suite buyers looking for professional services.',
     process: ['Niche positioning and differentiation', 'Executive persona targeting', 'Thought leadership campaigns', 'Inbound inquiry handling', 'Qualification and proposal stage'],
+    relatedIndustries: ['saas', 'hr-tech', 'manufacturing'],
+    internalLinks: [
+      { label: 'Content Marketing', href: '/services/content-marketing' },
+      { label: 'B2B Lead Generation', href: '/services/b2b-lead-generation' },
+      { label: 'LinkedIn Outreach', href: '/services/linkedin-outreach' },
+      { label: 'Demand Generation', href: '/services/demand-generation' },
+    ],
     faqs: [
       { q: 'How do you help professional services firms stand out?', a: 'Through deep niche specialization in your specific service area and hyper-personalized outreach that demonstrates you understand their specific business challenges.' },
       { q: 'What is realistic for a new professional services firm?', a: 'Most firms see 5–15 qualified leads per month in the first 3 months, scaling to 20–50/month by month 6 as content and authority builds.' },
       { q: 'How do you build credibility for a new professional services offering?', a: 'Through a combination of founder expertise content, framework development, pilot client case studies, and speaking engagements that establish thought leadership before scaling outreach.' },
       { q: 'What is the role of referrals in professional services lead generation?', a: 'Referrals are the #1 source of qualified leads for professional services firms. We build referral programs, optimize your client experience for referral triggers, and create systematic outreach to past clients and professional network connections.' },
       { q: 'How do you help firms expand into new geographies or service areas?', a: 'We identify the right introduction strategy for new markets — often a combination of local content, partnership with local firms, event presence, and LinkedIn outreach to target executives in the new geography.' },
+    ],
+    expandedFaqs: [
+      { q: 'How do you help professional services firms stand out?', a: 'Through deep niche specialization in your specific service area and hyper-personalized outreach that demonstrates you understand their specific business challenges. The key is specificity: "supply chain resilience for electronics manufacturers in Southeast Asia" beats "supply chain consulting" every time. We help you define and communicate your narrowest, most defensible position.' },
+      { q: 'What is realistic for a new professional services firm?', a: 'Most firms see 5–15 qualified leads per month in the first 3 months, scaling to 20–50/month by month 6 as content and authority builds. Realistic timelines: inbound content leads appear in 3–4 months, outbound campaigns generate responses within 4–6 weeks, referrals appear immediately if your existing network is strong.' },
+      { q: 'How do you build credibility for a new professional services offering?', a: 'Through a combination of founder expertise content (LinkedIn articles, speaking engagements), framework development (proprietary methodologies), pilot client case studies, and industry association participation that establishes thought leadership before scaling outreach. Credibility must precede outbound — you can\'t sell what you haven\'t proven.' },
+      { q: 'What is the role of referrals in professional services lead generation?', a: 'Referrals are the #1 source of qualified leads for professional services firms — they account for 50–70% of new business for most established firms. We build referral programs that systematize this: referral triggers embedded in client experience, structured past-client outreach, and professional network activation campaigns.' },
+      { q: 'How do you help firms expand into new geographies or service areas?', a: 'We identify the right introduction strategy for new markets — often a combination of local content (market-specific insights), partnership with local firms, event presence, and LinkedIn outreach to target executives in the new geography. New market expansion requires a different credibility foundation than existing market penetration.' },
+      { q: 'How do you help consulting firms generate leads for new service offerings?', a: 'New service offerings face the cold-start problem: no case studies, no references, no market credibility. We solve this by building a "pilot program" lead gen strategy — targeting companies willing to be early adopters in exchange for favorable terms. This generates the case studies and references needed for mainstream marketing. The output of the pilot program becomes the marketing engine for the next phase.' },
+      { q: 'What is the role of speaking and events for professional services lead generation?', a: 'Speaking at industry conferences, hosting webinars, and running roundtables are the highest-ROI activities for professional services credibility building. We help identify the right events, craft compelling speaking proposals, prepare presentation content, and run post-event follow-up campaigns to convert attendees into pipeline. Every speaking engagement should generate a pipeline report, not just applause.' },
+      { q: 'How do you handle professional services firms with multiple practice areas?', a: 'Multi-practice firms need to decide: should lead generation be firm-level (building overall brand) or practice-level (targeting specific ICPs per practice)? Our recommendation is practice-level targeting with firm-level brand support. Each practice area has a distinct ICP, buying trigger, and channel preference. We build practice-specific campaigns that can be coordinated under a unified firm brand when appropriate.' },
     ],
   },
 ]
@@ -728,6 +1342,21 @@ export interface Country {
   channels: string[]
   localCaseStudies: string
   faqs: { q: string; a: string }[]
+  // NEW FIELDS
+  marketOverview: string
+  businessCulture: string
+  outboundStrategy: string
+  linkedInStrategy: string
+  appointmentSetting: string
+  commonMistakes: string[]
+  localTips: string[]
+  bestTimeToReach: string
+  decisionMakerAccess: string
+  complianceNotes: string
+  currency: string
+  avgSalesCycle: string
+  preferredChannels: string[]
+  languageNotes: string
 }
 
 export const countries: Country[] = [
@@ -745,6 +1374,35 @@ export const countries: Country[] = [
       { q: 'What is the typical B2B sales cycle in Singapore?', a: 'SMB decisions typically take 1–3 months. Enterprise deals can run 6–12 months with formal procurement processes. Relationships and trust are critical throughout.' },
       { q: 'Do I need to be physically present in Singapore to sell there?', a: 'Not necessarily. Many Singapore B2B buyers are comfortable with virtual meetings. However, in-person relationship building accelerates trust and deals significantly.' },
     ],
+    // NEW FIELDS
+    marketOverview: `Singapore stands as Southeast Asia's most mature B2B market, with a GDP per capita that rivals developed Western nations. The city-state's strategic location, world-class infrastructure, and pro-business policies have attracted over 30,000 multinational companies to establish regional headquarters here. The B2B technology market is particularly robust, driven by the government's Smart Nation initiative which has created sustained demand for digital transformation solutions across finance, logistics, healthcare, and government sectors.\n\nThe Singapore B2B buyer is highly sophisticated. They have typically been approached by multiple vendors, conduct thorough due diligence, and expect vendors to understand local regulatory requirements and business practices. Decision-makers in Singapore are well-educated, often Western-trained, and highly time-conscious. They value efficiency, clarity, and professionalism above all else.\n\nSingapore's b2b market is characterized by premium pricing expectations. Buyers here associate higher prices with higher quality and better service. This creates an opportunity for vendors who can demonstrate clear ROI and differentiation. The market also has a strong preference for established vendors with local presence or references from similar Singapore-based companies.`,
+    businessCulture: `Singapore business culture blends Eastern values with Western professionalism. Punctuality is non-negotiable — being even five minutes late to a meeting is considered disrespectful and unprofessional. Business cards are exchanged at the beginning of meetings and should be received with both hands, examined respectfully, and never written on or stuffed in back pockets.\n\nHierarchy matters in Singapore business. Address senior executives with appropriate titles (Dr., Prof., Mr., Mrs.) and wait for them to initiate informal address. Decisions often cascade from the top down, so while you may meet with operational managers initially, real authority rests with directors and C-suite executives.\n\nSingaporeans value "face" — the concept of social dignity and reputation. Public criticism or embarrassment should be avoided at all costs. When disagreeing, do so indirectly and privately. Also note that "yes" can sometimes mean "I hear you" rather than "I agree," so look for behavioral signals of commitment rather than relying solely on verbal affirmation.`,
+    outboundStrategy: `Outbound strategy in Singapore requires a multi-channel, highly personalized approach. The Singapore B2B buyer is flooded with outreach and has become adept at ignoring generic messages. Success requires demonstrating genuine understanding of their business challenges and showing clear differentiation from competitors.\n\nStart with deep research before any outreach. Understand the company's recent news, their specific industry challenges, and ideally have a mutual connection or reference from a similar company. LinkedIn is the dominant B2B channel in Singapore, followed closely by email. Cold calls can work but should be brief and focused on creating value rather than pitching.\n\nSingapore responds well to thought leadership content. Before asking for a meeting, provide value through insights, benchmarks, or case studies relevant to their situation. The best outbound sequences combine LinkedIn connection requests with personalized email follow-ups, building familiarity before requesting a discovery call.`,
+    linkedInStrategy: `LinkedIn is the #1 channel for reaching Singapore B2B decision-makers. The platform has very high adoption among Singapore professionals, with engagement rates significantly higher than regional averages. A strong LinkedIn presence for your company and salespeople is essential — Singapore buyers will research your profile before responding to any outreach.\n\nFor LinkedIn outreach, focus on quality over quantity. Singaporeans are quick to dismiss connection requests that feel mass-produced. Personalize every message with specific references to their company, recent posts they've shared, or mutual connections. InMail messages work well for reaching C-suite executives who may not accept connection requests.\n\nContent marketing on LinkedIn is highly effective in Singapore. Share insights about Singapore-specific business challenges, regulatory changes, or industry trends. Comment thoughtfully on prospects' posts before reaching out — this builds familiarity that dramatically improves response rates when you do send a connection request.`,
+    appointmentSetting: `Appointment setting in Singapore should be professional, direct, and value-focused. Singapore buyers appreciate efficiency — get to the point quickly, demonstrate what you understand about their business, and clearly articulate what you're asking for and what value they'll receive.\n\nBest practices include: requesting meetings through multiple channels (LinkedIn + email), offering specific time slots rather than open-ended "are you available?", and following up 2-3 times before moving on. Singapore calendars are typically very full, so persistence with politeness is key.\n\nFor enterprise deals, expect a longer appointment setting process that may include an introductory call with a manager before reaching the decision-maker. Offer to travel to their office — this demonstrates commitment and makes it easier for them to justify the time investment. Always confirm appointments 24 hours in advance, as Singapore professionals often have last-minute schedule changes.`,
+    commonMistakes: [
+      'Sending generic mass emails without any research — Singapore buyers immediately recognize and ignore template messages',
+      'Being late to meetings — punctuality is taken extremely seriously in Singapore business culture',
+      'Being too aggressive with follow-ups — excessive persistence is considered rude and will damage your reputation',
+      'Focusing only on price — Singapore buyers associate premium pricing with premium quality',
+      'Skipping the relationship-building phase — attempting to close too quickly without establishing trust',
+      'Ignoring local compliance requirements — Singapore has strict data protection and anti-spam laws',
+    ],
+    localTips: [
+      'Build relationships before asking for anything — coffees, industry events, and introductions through mutual connections are essential',
+      'Use formal titles and proper business etiquette — it signals respect for their culture and professionalism',
+      'Leverage Singapore government frameworks (e.g., Smart Nation) in your messaging — it resonates with local buyers',
+      'Reference other Singapore-based clients or case studies — local social proof is more persuasive than international examples',
+      'Be mindful of religious and cultural sensitivities — Singapore is multicultural (Chinese, Malay, Indian)',
+      'Follow up consistently but politely — Singaporeans appreciate persistence but respond poorly to pressure',
+    ],
+    bestTimeToReach: 'Best times are Tuesday through Thursday, 9-11 AM or 2-4 PM SGT. Avoid Monday mornings and Friday afternoons. Send LinkedIn messages early in the week for higher visibility.',
+    decisionMakerAccess: `Reaching decision-makers in Singapore is moderately accessible but requires the right approach. C-suite executives in Singapore are approachable but extremely time-constrained. Direct cold outreach to C-level targets has a lower response rate than reaching directors or VPs first.\n\nThe most effective approach is building credibility through referrals or warm introductions. LinkedIn connections with mutual contacts significantly improve acceptance rates. For enterprise targets, consider starting with operational contacts who can champion your solution internally before approaching executives directly.`,
+    complianceNotes: `Singapore has strict data protection laws under the Personal Data Protection Act (PDPA). Cold email and LinkedIn outreach must comply with these regulations — ensure you have legitimate interest grounds for contacting individuals and provide clear unsubscribe mechanisms. Singapore also has clear anti-spam regulations for electronic messages. When in doubt, consult with a Singapore legal professional familiar with PDPA requirements for B2B outreach.`,
+    currency: 'SGD (Singapore Dollar)',
+    avgSalesCycle: '3–6 months for SMB, 6–18 months for enterprise with formal procurement',
+    preferredChannels: ['LinkedIn Outreach', 'Cold Email', 'Referrals & warm introductions'],
+    languageNotes: 'English is the primary business language. Some Chinese-speaking prospects may respond better to Mandarin for relationship-building. All business documentation should be in English.',
   },
   {
     id: '2',
@@ -760,6 +1418,35 @@ export const countries: Country[] = [
       { q: 'Is Vietnam ready for B2B SaaS?', a: 'Absolutely. Vietnam has one of the fastest-growing SaaS adoption rates in Southeast Asia, particularly in HR tech, logistics, fintech, and manufacturing.' },
       { q: 'What language should outreach be in?', a: 'English works for enterprise and tech companies. For SMBs and local businesses, bilingual (Vietnamese + English) outreach performs significantly better.' },
     ],
+    // NEW FIELDS
+    marketOverview: `Vietnam has emerged as Southeast Asia's fastest-growing economy, with GDP growth consistently among the region's highest. The country has successfully transitioned from a manufacturing-led economy to one increasingly driven by technology and services. The B2B tech market is booming, particularly in Ho Chi Minh City and Hanoi, where a vibrant startup ecosystem has developed alongside established enterprises.\n\nThe Vietnamese B2B buyer is young (median age under 30), digitally native, and highly receptive to technology solutions. Unlike some regional markets, Vietnam has embraced digital transformation with enthusiasm, driven partly by necessity as companies seek efficiency gains. There's strong demand across HR tech, fintech, logistics tech, and manufacturing automation.\n\nVietnam's business culture retains elements of its French colonial past, creating a unique blend of formality and informality. Business relationships are built on personal trust ("uy tín"), which must be established before deals can progress. The market is price-sensitive compared to Singapore but increasingly value-conscious, with buyers willing to pay for solutions that demonstrate clear ROI.`,
+    businessCulture: `Vietnamese business culture is relationship-driven with a strong emphasis on personal trust and mutual respect ("uy tín"). The concept of "nan" — the need to preserve harmony and avoid giving offense — shapes communication styles. Vietnamese businesspeople are indirect communicators and may say "no" indirectly to avoid confrontation.\n\nBusiness meals are central to relationship building. Expect lengthy lunches (2-3 hours is normal) where business is discussed only after food has been consumed and small talk exchanged. Tea or coffee rituals before meetings help establish rapport. Hierarchy matters — address senior people first and with appropriate titles.\n\nThe French colonial legacy has left a mark on Vietnamese business formality. Written communication tends to be more formal than in casual conversation. Decision-making can be slow as consensus is sought among stakeholders. Patience is essential — rushing is seen as disrespectful and may damage relationships irreparably.`,
+    outboundStrategy: `Outbound in Vietnam requires a relationship-first approach. Cold outreach without prior connection typically has low response rates. The most effective strategy combines digital channels with real-world relationship building — attend industry events, leverage local partners, and use warm introductions wherever possible.\n\nVietnamese buyers respond well to peer recommendations. Before reaching out directly, try to establish a connection through mutual contacts or industry associations. If using cold email, personal introductions from a Vietnamese speaker significantly improve response rates. Zalo (the dominant messaging app) should be part of your outreach mix for SMB targets.\n\nLocalize your approach for Vietnam. Vietnamese language in outreach (even just the subject line or greeting) dramatically improves response rates. Understand that decision-makers may require multiple touchpoints over weeks or months before they're ready to engage. Don't push for a meeting immediately — invest in the relationship first.`,
+    linkedInStrategy: `LinkedIn usage is growing rapidly in Vietnam, particularly among professionals in tech, finance, and international companies. While not as dominant as in Singapore, LinkedIn is increasingly important for reaching enterprise decision-makers and younger professionals.\n\nFor LinkedIn outreach in Vietnam, focus on personalizing connection requests with references to mutual connections, shared groups, or specific company news. Vietnamese professionals respond better to warm outreach than cold connection requests. Consider using Vietnamese language in initial messages, especially when connecting with local company decision-makers.\n\nContent marketing on LinkedIn in Vietnamese can help establish credibility. Share insights about the Vietnamese market, regulatory changes, or industry trends. Engage with prospects' content by leaving thoughtful comments before sending connection requests — this builds familiarity and trust.`,
+    appointmentSetting: `Appointment setting in Vietnam requires flexibility and patience. Decision-makers' calendars are often fluid, and last-minute changes are common. Confirm appointments multiple times and be prepared to reschedule without frustration.\n\nApproach appointment setting as an extension of relationship building. Rather than directly requesting a meeting, frame it as wanting to "share some insights" or "learn about their challenges." This softer approach aligns with Vietnamese preferences for indirect communication.\n\nFor enterprise deals, expect to meet with multiple stakeholders before reaching the decision-maker. Junior contacts may be initial points of contact who can facilitate introductions to senior executives. Always bring small gifts (quality pens, company swag) to meetings as a gesture of respect. Follow up with thank-you messages within 24 hours.`,
+    commonMistakes: [
+      'Skipping the relationship-building phase and going straight for the sale — this is considered rude and will fail',
+      'Being too direct or aggressive in communication — Vietnamese prefer indirect approaches and may avoid confrontation',
+      'Underestimating the importance of personal trust ("uy tín") — without it, deals stall regardless of product quality',
+      'Using only English without any Vietnamese language elements — even a simple greeting in Vietnamese builds rapport',
+      'Rushing the decision-making process — consensus-building takes time and cannot be accelerated',
+      'Neglecting Zalo as a channel — it\'s the dominant business communication tool in Vietnam',
+    ],
+    localTips: [
+      'Invest in relationship building first — coffees, meals, and industry events are essential investments',
+      'Use Vietnamese language elements in outreach — even basic Vietnamese greetings significantly improve response rates',
+      'Leverage local partners or distributors who already have trusted relationships in the market',
+      'Be patient with decision-making — it often requires consensus among multiple stakeholders',
+      'Respect hierarchy and address senior decision-makers appropriately with titles',
+      'Follow up consistently but without pressure — persistence is valued but must be patient',
+    ],
+    bestTimeToReach: 'Tuesday through Thursday, 8-10 AM or 2-4 PM ICT. Monday mornings are for internal planning. Friday afternoons see reduced availability. Follow up on Zalo for faster responses.',
+    decisionMakerAccess: `Decision-maker access in Vietnam varies significantly by company type. In state-owned enterprises and large local companies, reaching decision-makers can be challenging and typically requires warm introductions. International companies and multinational subsidiaries are generally more accessible via LinkedIn and email.\n\nThe key to accessing Vietnamese decision-makers is building relationships from the outside in — start with operational contacts, build trust, and let them facilitate introductions to senior executives. Decision-makers in Vietnam often rely heavily on recommendations from their team, so getting middle management buy-in is crucial.`,
+    complianceNotes: `Vietnam's digital marketing and data regulations are evolving rapidly. The Cybersecurity Law requires foreign companies to store data locally and comply with government data requests. For B2B outreach, ensure compliance with anti-spam regulations and obtain appropriate consent for electronic communications. Consider consulting with a local legal expert on data protection requirements before launching outreach campaigns.`,
+    currency: 'VND (Vietnamese Dong)',
+    avgSalesCycle: '2–4 months for SMB, 4–8 months for enterprise',
+    preferredChannels: ['LinkedIn Outreach', 'Zalo Messaging', 'Facebook', 'Referrals'],
+    languageNotes: 'English works for MNCs and tech companies. For local businesses, Vietnamese language outreach significantly outperforms English-only approaches. Consider bilingual materials.',
   },
   {
     id: '3',
@@ -775,6 +1462,35 @@ export const countries: Country[] = [
       { q: 'What are the key business regions in Malaysia?', a: 'Kuala Lumpur (federal territory and Selangor) is the primary B2B hub. Penang is strong for tech and manufacturing. Johor is growing for logistics and supply chain.' },
       { q: 'How does Malaysian business culture affect sales?', a: 'Trust and relationship-building precede deal-closing. Expect multiple meetings and relationship cultivation. Decisions often involve consensus among senior stakeholders.' },
     ],
+    // NEW FIELDS
+    marketOverview: `Malaysia represents a unique multicultural B2B landscape where three major ethnic communities — Malay, Chinese, and Indian — each bring distinct business practices while operating within a shared national business culture. This diversity creates both complexity and opportunity, as different communities may prefer different communication styles and channels.\n\nThe Malaysian B2B market is characterized by its stability and international integration. Kuala Lumpur's position as a regional HQ hub for multinational companies means decision-makers here are globally-minded and familiar with Western business practices. The government's MyDIGITAL initiative is accelerating B2B tech adoption across government, finance, and enterprise sectors.\n\nMalaysia offers a balanced combination of developed market infrastructure with emerging market growth potential. The country's 33 million population includes a substantial middle class with strong purchasing power. B2B vendors can achieve regional impact from a Malaysian base while accessing markets across ASEAN.`,
+    businessCulture: `Malaysian business culture emphasizes harmony, respect, and relationship-building. The concept of "budi" — encompassing courtesy, consideration, and moral character — is central to business interactions. Malaysians avoid confrontation and prioritize preserving face for all parties involved in negotiations.\n\nMulticultural awareness is essential. Malay business culture tends to be more hierarchical and formal, with Islam influencing business practices (note prayer times and halal considerations). Chinese-Malaysian businesses often blend Confucian values with modern business practices, emphasizing family connections and long-term relationships. Indian-Malaysian businesses may have distinct approaches based on professional backgrounds.\n\nBusiness cards are exchanged formally — present and receive with both hands, study the card respectfully, and never write on it or place it in your back pocket. Meetings often begin with small talk about family, travel, or food before transitioning to business topics. Patience is valued, and relationships take time to develop properly.`,
+    outboundStrategy: `Outbound strategy in Malaysia should reflect the multicultural nature of the market. English is universally accepted in business, but demonstrating cultural awareness — particularly in proposals and communications — can differentiate your approach. Consider multilingual content strategies that address different business communities.\n\nRelationship-building remains essential before pushing for sales. Attend industry events in KL, build connections through business associations (like MTDC, MDEC), and leverage any existing Malaysian contacts for warm introductions. Malaysian buyers appreciate persistence but respond poorly to aggressive tactics.\n\nFor multinational targets in Malaysia, LinkedIn and email work well with Western-style personalization. For local companies, building personal relationships through introductions, events, and in-person meetings is more effective. Tailor your approach based on whether you're targeting MNC subsidiaries or local businesses.`,
+    linkedInStrategy: `LinkedIn is highly effective in Malaysia, particularly for reaching multinational company employees, urban professionals, and tech decision-makers. Malaysia has one of Southeast Asia's highest LinkedIn adoption rates among business professionals.\n\nFor LinkedIn outreach, personalize connection requests with references to mutual connections, shared industry groups, or specific company news. Malaysian professionals appreciate thoughtful personalization that demonstrates genuine interest rather than mass outreach.\n\nConsider that Malaysian LinkedIn users may represent different ethnic and professional backgrounds. Content in English works universally, but content that resonates with specific industry or cultural contexts can improve engagement. Thought leadership content about regional market trends performs well.`,
+    appointmentSetting: `Appointment setting in Malaysia benefits from a relationship-first approach. Rather than directly requesting meetings, frame outreach as wanting to share insights or learn about their business challenges. This softer approach aligns with Malaysian preferences for indirect communication and relationship building.\n\nBe flexible with scheduling — Malaysian professionals appreciate punctuality but understand that last-minute changes may occur. Confirm appointments 24 hours in advance and be prepared for meetings that may start later than scheduled.\n\nFor enterprise deals, expect to meet with multiple stakeholders. Middle managers often serve as initial contacts and potential champions who can facilitate introductions to senior decision-makers. Building rapport with these stakeholders is crucial to advancing deals.`,
+    commonMistakes: [
+      'Treating Malaysia as a single homogeneous market — the three major ethnic communities have different business preferences',
+      'Being too aggressive in follow-ups — Malaysian business culture values patience and relationship-building over hard selling',
+      'Ignoring religious and cultural considerations — Malaysia is an Islamic nation with relevant cultural practices',
+      'Underestimating the importance of face — public criticism or embarrassment damages relationships permanently',
+      'Rushing decision-making — consensus among stakeholders takes time and cannot be forced',
+      'Skipping relationship-building to go straight for the sale',
+    ],
+    localTips: [
+      'Build relationships before asking for anything — multiple touchpoints and meetings are expected',
+      'Be culturally sensitive — acknowledge religious holidays and business practices respectfully',
+      'Use formal titles and proper etiquette — demonstrates respect for Malaysian business culture',
+      'Leverage Malaysian business associations and chambers of commerce for introductions',
+      'Consider multilingual outreach for different business communities',
+      'Be patient with enterprise deals — multiple stakeholders and consensus-building takes time',
+    ],
+    bestTimeToReach: 'Tuesday through Thursday, 9-11 AM or 2-4 PM MYT. Avoid Friday afternoons (prayer time). Monday mornings often involve internal meetings. LinkedIn messages work well mid-week.',
+    decisionMakerAccess: `Decision-maker access in Malaysia is generally accessible for well-prepared vendors. C-suite executives at multinational companies are accustomed to vendor outreach and respond to professional, well-researched approaches. Local company decision-makers may require more relationship-building but are reachable through persistent, respectful engagement.\n\nThe key is understanding your target — multinational subsidiaries follow global procurement processes and respond to formal proposals, while local companies may require warm introductions and extended relationship building. Building relationships with middle management first is often the pathway to executive access.`,
+    complianceNotes: `Malaysia has comprehensive data protection laws under the Personal Data Protection Act (PDPA). B2B outreach must comply with these regulations, including legitimate interest assessments and opt-out mechanisms for electronic communications. For government-related targets, additional procurement and vendor registration requirements may apply. Consult with Malaysian legal counsel familiar with PDPA requirements for B2B marketing.`,
+    currency: 'MYR (Malaysian Ringgit)',
+    avgSalesCycle: '3–5 months for SMB, 6–12 months for enterprise',
+    preferredChannels: ['LinkedIn Outreach', 'Cold Email', 'Events & exhibitions', 'Referrals'],
+    languageNotes: 'English is the primary business language. Malay (Bahasa Malaysia) is the national language. Mandarin is widely used in Chinese-Malaysian business communities. Consider multilingual content for maximum market reach.',
   },
   {
     id: '4',
@@ -790,6 +1506,35 @@ export const countries: Country[] = [
       { q: 'Is Thailand 4.0 driving B2B tech demand?', a: 'Yes. The Thailand 4.0 initiative specifically promotes adoption of AI, IoT, and digital platforms across manufacturing, logistics, and services — creating significant B2B opportunity.' },
       { q: 'What language works best in Thailand?', a: 'Thai language outreach significantly outperforms English for local companies. English works well for multinationals and international joint ventures in Bangkok.' },
     ],
+    // NEW FIELDS
+    marketOverview: `Thailand's B2B market is the second-largest in ASEAN, driven by a diversified economy spanning manufacturing, agriculture, tourism, and increasingly technology services. Bangkok serves as the regional hub, home to both Thai conglomerates and international company offices. The Thailand 4.0 initiative is transforming the economy toward innovation and technology adoption.\n\nThe Thai B2B buyer is relationship-centric and values long-term partnerships over transactional interactions. Decision-making tends to be hierarchical, with senior management approval required for significant purchases. The concept of "kreng jai" (consideration for others' feelings) shapes communication, making Thai business interactions more indirect than Western approaches.\n\nThailand presents significant opportunity for B2B vendors, particularly in digital transformation, supply chain technology, and professional services. The country's automotive and electronics manufacturing sector is sophisticated and constantly seeking efficiency improvements. The growing startup ecosystem in Bangkok is increasingly receptive to modern B2B solutions.`,
+    businessCulture: `Thai business culture is built on the concepts of "kreng jai" (consideration for others' feelings) and "face" (social dignity). These values profoundly shape business interactions. Thai people avoid direct confrontation and will often say what they think you want to hear rather than giving direct negative feedback. Understanding this indirect communication style is essential for interpreting responses.\n\nHierarchy is important in Thai business. Address senior executives with appropriate honorifics (Khun for general respect, plus academic or professional titles where applicable). The most senior person should be addressed first in meetings. Decision-making authority typically rests with senior management, so identifying the right person is crucial.\n\nBusiness card exchanges ("jao deng") are formal rituals. Present and receive cards with both hands, examine them respectfully, and never write on them or place them in your back pocket. Initial meetings focus heavily on relationship building through small talk, food, and tea — business is discussed only after rapport is established. The phrase " mai pen rai" (never mind, no worries) reflects the Thai approach to conflict and problems.`,
+    outboundStrategy: `Outbound strategy in Thailand requires patience, relationship focus, and cultural sensitivity. Thai buyers respond to warm introductions far better than cold outreach. The most effective approach combines multiple channels while investing heavily in relationship building before pushing for sales.\n\nLINE (the dominant messaging platform with 50+ million users) should be part of your outreach mix. For local Thai companies, WhatsApp or LINE messages may get faster responses than email. Professional networking platforms and industry events in Bangkok are valuable for meeting decision-makers.\n\nThai language significantly improves response rates for local companies. Even a translated subject line or Thai greeting in an English email can help. For multinational companies in Thailand, Western-style outreach with cultural awareness works well. Always frame your offering in terms of how it will benefit the buyer and their organization.`,
+    linkedInStrategy: `LinkedIn is increasingly important in Thailand, particularly for reaching international companies, finance sector professionals, and tech decision-makers. However, LINE remains the dominant business communication platform for Thai companies, so LinkedIn should complement rather than replace other channels.\n\nFor LinkedIn outreach, personalize connection requests thoroughly. Thai professionals appreciate thoughtful personalization that demonstrates research and genuine interest. Content marketing in English performs well among Thailand's international business community.\n\nConsider that many Thai business professionals maintain separate LinkedIn profiles for international connections versus their primary LINE-based local network. LinkedIn is useful for initial contact, but follow-up on LINE can significantly accelerate relationship building and deal progress.`,
+    appointmentSetting: `Appointment setting in Thailand benefits from a gradual, relationship-focused approach. Rather than requesting a meeting directly, frame outreach as wanting to share insights or learn about their business. Multiple touchpoints over weeks or months may be necessary before a meeting is granted.\n\nThai calendars can be flexible, so confirm appointments 24-48 hours in advance and be prepared for rescheduling. Meetings often run longer than scheduled, as relationship building takes priority over rigid time management.\n\nFor enterprise deals, expect to meet with multiple stakeholders. Initial meetings may be with operational managers who can champion your solution internally. Face-to-face meetings are strongly preferred — video calls are acceptable but less effective than in-person relationship building. Small gifts of quality (avoid anything too personal or overly expensive) are appropriate gestures of respect.`,
+    commonMistakes: [
+      'Being too direct or aggressive — Thai business culture values harmony and indirect communication',
+      'Skipping relationship building — attempting to close deals without establishing personal rapport will fail',
+      'Taking "yes" at face value — it often means "I hear you" rather than agreement; look for behavioral commitment signals',
+      'Ignoring the importance of face — public criticism or embarrassment damages relationships irreparably',
+      'Underestimating the hierarchy — always address the most senior person appropriately',
+      'Rushing decisions — Thai consensus-building takes time and cannot be accelerated without damage',
+    ],
+    localTips: [
+      'Invest heavily in relationship building — multiple meetings and social events before asking for anything',
+      'Learn basic Thai greetings and business phrases — demonstrates respect and builds rapport',
+      'Use LINE for follow-up and ongoing communication — it\'s the dominant business tool in Thailand',
+      'Be patient with decision-making — multiple stakeholders must be consulted',
+      'Present business cards formally and receive them respectfully with both hands',
+      'Frame your offering around benefits to their organization, not just features or price',
+    ],
+    bestTimeToReach: 'Tuesday through Thursday, 9-11 AM or 2-4 PM ICT. Avoid Monday mornings (often planning meetings). Friday afternoons see reduced availability. LINE messages can be sent anytime but expect responses during business hours.',
+    decisionMakerAccess: `Reaching decision-makers in Thailand often requires a patient, multi-touch approach. Direct access to C-suite executives is challenging without existing relationships. The most effective pathway is through senior operational managers who can champion your solution internally.\n\nThai decision-makers prefer relationship-based interactions. A warm introduction from a trusted contact dramatically improves access. Industry events, business associations, and networking groups in Bangkok provide opportunities to build the relationships that lead to executive meetings.`,
+    complianceNotes: `Thailand has data protection regulations under the Personal Data Protection Act (PDPA), which applies to B2B marketing activities. Anti-spam regulations govern electronic communications. For government-related sales, additional compliance requirements apply. Thai law also has specific requirements around contracts and business documentation. Consult with Thai legal counsel familiar with PDPA and commercial law requirements.`,
+    currency: 'THB (Thai Baht)',
+    avgSalesCycle: '4–6 months for SMB, 6–12 months for enterprise',
+    preferredChannels: ['LINE Messaging', 'LinkedIn Outreach', 'Cold Email', 'Referrals', 'Local events'],
+    languageNotes: 'Thai language significantly outperforms English for local companies. English is widely used in international companies, joint ventures, and Bangkok business community. Consider bilingual materials and Thai language outreach for local market penetration.',
   },
   {
     id: '5',
@@ -805,6 +1550,35 @@ export const countries: Country[] = [
       { q: 'How do I navigate Indonesia\'s regulatory environment?', a: 'Foreign B2B companies often need a local entity or partnership. We can help identify the right market entry approach and ensure compliance with BKPM regulations.' },
       { q: 'What is the best outreach channel in Indonesia?', a: 'LinkedIn for enterprise and tech companies, WhatsApp for SMBs and local businesses. Email works but WhatsApp follow-up dramatically improves response rates.' },
     ],
+    // NEW FIELDS
+    marketOverview: `Indonesia represents Southeast Asia's largest B2B market by population and a rapidly growing economy projected to become one of the world's top five by 2050. The archipelago nation's 270 million people include a massive and growing middle class with significant purchasing power concentrated in Jakarta. Digital adoption has accelerated dramatically post-pandemic, creating unprecedented B2B opportunities.\n\nThe Indonesian B2B landscape is Jakarta-centric for enterprise decisions, with the city serving as headquarters for most major companies and all international offices. The country has leapfrogged traditional technology adoption curves, with mobile-first business practices now standard. There's strong demand across fintech, e-commerce enablement, logistics optimization, and digital transformation services.\n\nDespite the opportunity, Indonesia presents unique challenges: thousands of islands create logistical complexity, regulatory requirements for foreign companies are substantial, and relationship-building is essential. Companies that invest in understanding Indonesia's unique dynamics are rewarded with access to one of the world's largest emerging B2B markets.`,
+    businessCulture: `Indonesian business culture is built on the concept of "kekeluargaan" — essentially, treating business relationships as family relationships. This creates a warm, personal business environment where trust must be established before business can proceed. Indonesian buyers expect vendors to invest in relationships, not just send proposals.\n\nCommunication in Indonesia tends to be indirect and context-dependent. "Yes" may mean "I hear you" rather than "I agree," and direct disagreement is avoided to preserve harmony. The concept of "malu" (shame) influences behavior — Indonesian buyers may avoid saying no directly to avoid embarrassment for either party.\n\nHierarchy matters significantly. Decisions typically flow from the top down, with senior executives holding final authority. Business is conducted in formal Indonesian (Bahasa Indonesia) or English depending on the company. Building relationships through multiple meetings, business meals, and social events is essential before expecting serious engagement on sales.`,
+    outboundStrategy: `Outbound in Indonesia requires a multi-channel, relationship-first approach. WhatsApp is the dominant business communication tool — ignoring it in favor of email only significantly reduces effectiveness. The most successful outreach combines email for formal proposals with WhatsApp for relationship building and quick responses.\n\nIndonesian buyers respond best to warm introductions or referrals. Cold outreach should focus on providing value first — industry insights, benchmarking data, or relevant case studies — before requesting meetings. Building credibility takes time; rushing the process damages trust.\n\nLocalization is important for Indonesian market penetration. This includes Indonesian language in outreach materials, understanding local business practices, and ideally having local team members or partners who understand the cultural nuances. A local partner or distributor can significantly accelerate market entry and relationship building.`,
+    linkedInStrategy: `LinkedIn is increasingly important in Indonesia, particularly for reaching enterprise decision-makers, multinational company employees, and the growing tech sector. Jakarta's business professionals have higher LinkedIn engagement than the general population, making it a viable channel for B2B outreach.\n\nFor LinkedIn outreach in Indonesia, focus on enterprise targets and international companies. Indonesian local companies may be less active on LinkedIn, preferring WhatsApp for business communication. Personalize connection requests with references to mutual connections, shared industry groups, or specific company context.\n\nConsider that LinkedIn should complement rather than replace WhatsApp in Indonesia. Use LinkedIn for initial contact and professional outreach, then transition relationship building to WhatsApp where Indonesian business professionals spend significant time.`,
+    appointmentSetting: `Appointment setting in Indonesia benefits from WhatsApp-first approach for local companies. Send a brief, polite message introducing yourself and your value proposition, then request a brief call or meeting. Be prepared for non-committal responses initially — relationship building is ongoing before appointments are confirmed.\n\nIndonesian professionals value flexibility and may reschedule frequently. Build buffer time into your schedule and follow up consistently without expressing frustration. Confirm appointments 24 hours in advance and again on the day of the meeting.\n\nFor enterprise deals, expect a longer process involving multiple meetings with different stakeholders. Initial contacts may be junior staff who facilitate introductions to senior decision-makers. Always bring small gifts (quality items, company swag) to meetings as a gesture of respect.`,
+    commonMistakes: [
+      'Ignoring WhatsApp — it\'s the dominant business communication tool in Indonesia',
+      'Being too aggressive in follow-ups — patience and relationship-building are essential',
+      'Skipping the relationship phase — attempting to close without establishing trust will fail',
+      'Underestimating the importance of local partnerships — foreign companies often need local partners',
+      'Ignoring the regulatory complexity — Indonesia has significant requirements for foreign businesses',
+      'Using only English without Indonesian language elements — localization significantly improves response',
+    ],
+    localTips: [
+      'Make WhatsApp central to your outreach strategy — it\'s how Indonesian business gets done',
+      'Build relationships before asking for anything — multiple meetings and social engagement are expected',
+      'Consider a local partner or distributor — they have trusted relationships and understand the market',
+      'Be patient with enterprise deals — multiple stakeholders and approvals take time',
+      'Indonesian language in outreach significantly improves response rates',
+      'Respect the hierarchy — always address senior executives appropriately',
+    ],
+    bestTimeToReach: 'Tuesday through Thursday, 9-11 AM or 2-4 PM WIB. WhatsApp messages can be sent anytime with responses during business hours. Avoid Monday mornings (internal meetings) and Friday afternoons.',
+    decisionMakerAccess: `Reaching decision-makers in Indonesia requires understanding the centralized decision-making structure. In many Indonesian companies, particularly family-owned businesses (which constitute a large portion of the economy), the owner or top executive makes final decisions. Getting introduced to them typically requires building relationships through intermediate contacts.\n\nFor enterprise targets, LinkedIn outreach to C-suite executives has moderate success. More effective is building relationships through middle management who can champion your solution to senior executives. A warm introduction from a trusted contact dramatically improves access to decision-makers.`,
+    complianceNotes: `Indonesia has significant regulatory requirements for foreign companies under BKPM (Investment Coordinating Board) regulations. Foreign B2B companies typically need a local entity (PT PMA) or partnership with a local company. Data protection laws are evolving, and there are specific requirements around electronic communications and marketing. Consult with Indonesian legal counsel familiar with BKPM regulations, data protection requirements, and commercial law before market entry.`,
+    currency: 'IDR (Indonesian Rupiah)',
+    avgSalesCycle: '3–6 months for SMB, 6–12 months for enterprise',
+    preferredChannels: ['WhatsApp', 'LinkedIn Outreach', 'Cold Email', 'Referrals & partners'],
+    languageNotes: 'Bahasa Indonesia is the national language and primary business language. English is used in multinational companies and international business. Indonesian language outreach significantly improves response rates for local companies.',
   },
   {
     id: '6',
@@ -820,6 +1594,35 @@ export const countries: Country[] = [
       { q: 'Is the Philippines a good market for B2B SaaS?', a: 'Yes, especially for CRM, HR tech, and operations tools. The BPO and startup ecosystems are early adopters. Enterprise adoption is growing rapidly.' },
       { q: 'How important is relationship-building in Philippines B2B sales?', a: 'Extremely important. Filipino business culture values personal relationships ("pakikisama"). Invest time in relationship building before pushing for a sale.' },
     ],
+    // NEW FIELDS
+    marketOverview: `The Philippines has emerged as Southeast Asia's most accessible B2B market for Western companies, combining strong English proficiency with a business culture that closely mirrors US and European practices. Manila's position as the world's BPO capital has created a sophisticated professional class familiar with global business standards and technology adoption.\n\nThe Philippine B2B market is characterized by its English-speaking workforce, making market entry significantly easier than in other ASEAN countries. The country has strong demand for CRM systems, HR technology, operations tools, and BPO-enabling technologies. The startup ecosystem in Manila and Cebu is growing rapidly, creating new opportunities for modern B2B solutions.\n\nBeyond BPO, the Philippine economy spans banking, retail, manufacturing, and services sectors, all increasingly seeking digital transformation. The country's young demographics and high social media usage create unique opportunities for B2B marketing through digital channels.`,
+    businessCulture: `Filipino business culture is built on the concept of "pakikisama" — harmonious relationships with others — and "utang na loob" — the debt of gratitude that comes from receiving favors. These values create a relationship-oriented business environment where trust must be established before business can proceed effectively.\n\nFilipino business communication is relatively formal and follows hierarchical structures. Addressing senior executives with appropriate titles (Sir/Ma'am, plus professional titles where applicable) is expected. English is the language of business, making communication straightforward for Western companies.\n\nRelationship-building involves multiple meetings, social events, and personal connections. Business meals are important for building rapport. The concept of "Bahala Na" (trust in fate/providence) influences decision-making, which can appear less structured than Western approaches but is no less deliberate. Family connections often influence business relationships.`,
+    outboundStrategy: `Outbound strategy in the Philippines benefits from the country's Western-friendly business culture. Email is highly effective as a primary outreach channel — Filipino professionals are responsive to well-crafted business emails. LinkedIn outreach also performs well due to high platform adoption among Manila's business professionals.\n\nDespite the Western-friendly culture, relationship-building remains essential. Cold outreach should aim to initiate relationships, not immediately close deals. Filipino buyers appreciate persistence and follow-up but respond poorly to aggressive pressure tactics.\n\nReferrals are particularly powerful in the Philippines. A warm introduction from a trusted contact dramatically accelerates deal progression. Consider developing relationships with Filipino business networks, chambers of commerce, and industry associations to generate warm introductions.`,
+    linkedInStrategy: `LinkedIn is highly effective in the Philippines, particularly for reaching Manila's business professionals, tech decision-makers, and multinational company employees. The platform has very high adoption among Philippine B2B professionals, with engagement rates comparable to Western markets.\n\nFor LinkedIn outreach, personalize connection requests thoroughly. Filipino professionals appreciate genuine personalization that demonstrates research and real interest. LinkedIn InMail works well for reaching senior executives who may not accept connection requests.\n\nContent marketing on LinkedIn is well-received by Philippine professionals. Share insights about regional business trends, technology adoption, and industry-specific content. Engaging with prospects' posts before sending connection requests builds familiarity and improves response rates.`,
+    appointmentSetting: `Appointment setting in the Philippines benefits from direct, professional outreach. Filipino business professionals respond well to clear, well-articulated value propositions delivered via email or LinkedIn. Unlike more indirect Asian cultures, Filipinos appreciate straightforward requests for meetings when accompanied by clear benefits.\n\nConfirm appointments 24 hours in advance and be flexible with scheduling. Business meetings may extend beyond scheduled time as relationship building takes priority. Follow up with thank-you messages within 24 hours of meetings.\n\nFor enterprise deals, expect to engage with multiple stakeholders. Initial meetings may be with department heads or managers who can champion your solution to senior executives. Peer recommendations and references from similar Philippine companies are particularly persuasive.`,
+    commonMistakes: [
+      'Being too aggressive or pushy — while relationship-oriented, Filipino buyers dislike high-pressure tactics',
+      'Skipping relationship-building — cold transactions without rapport-building damage trust',
+      'Underestimating referrals — warm introductions are exceptionally powerful in Philippine business',
+      'Ignoring the importance of face — public criticism or embarrassment should be avoided',
+      'Not following up consistently — persistence is valued and expected in Philippine business',
+      'Treating it exactly like a US market — while Western-friendly, cultural nuances still matter',
+    ],
+    localTips: [
+      'Leverage referrals aggressively — warm introductions are exceptionally effective in Philippines',
+      'Build relationships through multiple touchpoints before pushing for sales',
+      'Use professional, formal communication — Filipinos appreciate proper business etiquette',
+      'Engage with Filipino business associations and chambers of commerce for networking',
+      'Follow up consistently but respectfully — persistence is valued',
+      'Consider the BPO and startup ecosystems as early-adopter targets for tech solutions',
+    ],
+    bestTimeToReach: 'Tuesday through Thursday, 9-11 AM or 2-4 PM PHT. Monday mornings often involve department meetings. LinkedIn messages work well throughout the week. Email follow-up is highly effective.',
+    decisionMakerAccess: `Decision-maker access in the Philippines is relatively accessible compared to other Asian markets, thanks to Western-friendly business practices. C-suite executives at multinational companies and growing Philippine enterprises are accustomed to vendor outreach and respond to professional approaches.\n\nThe pathway to decision-makers often runs through department heads and managers who serve as champions. Building relationships with these stakeholders is key to facilitating introductions to senior executives. Referrals from trusted contacts significantly accelerate access.`,
+    complianceNotes: `The Philippines has data protection laws under the Data Privacy Act, which applies to B2B marketing activities. Anti-spam regulations govern electronic communications. For government-related sales, procurement follows specific public bidding processes. The country's strong legal system provides reliable contract enforcement. Consult with Philippine legal counsel familiar with data protection and commercial law requirements.`,
+    currency: 'PHP (Philippine Peso)',
+    avgSalesCycle: '2–4 months for SMB, 4–8 months for enterprise',
+    preferredChannels: ['LinkedIn Outreach', 'Cold Email', 'Referrals', 'Events & networking'],
+    languageNotes: 'English is the primary business language. Filipino (Tagalog) is spoken informally. All business communication should be in English with professional, formal tone. Cultural awareness of Filipino values enhances relationships.',
   },
   {
     id: '7',
@@ -835,6 +1638,35 @@ export const countries: Country[] = [
       { q: 'How does Australian business culture differ from the US/UK?', a: 'More direct and less formal than UK, more relationship-focused than US. Australians value authenticity and transparency. Punctuality and follow-through are expected.' },
       { q: 'What are the key B2B sectors in Australia?', a: 'Financial services, mining & resources (tech for), healthcare, agtech, education, and professional services. Sydney and Melbourne dominate for tech and finance.' },
     ],
+    // NEW FIELDS
+    marketOverview: `Australia's B2B market is one of the most sophisticated in the Asia-Pacific region, characterized by high digital maturity, strong regulatory frameworks, and demanding customers who expect premium quality. Sydney and Melbourne serve as the primary business hubs, home to both global multinational headquarters and innovative local enterprises.\n\nThe Australian B2B buyer is highly informed and skeptical of vendor claims. They've been approached by countless salespeople and have developed keen abilities to identify genuine value versus marketing hype. Success requires substantive proof points, clear ROI demonstration, and alignment with Australian business practices.\n\nAustralia's economy is diversified across financial services, mining and resources technology, healthcare, agritech, and professional services. The country's geographic isolation has created unique market dynamics where local presence and references often matter significantly. Despite the sophistication, Australia remains relatively accessible for international B2B vendors willing to invest in understanding the market.`,
+    businessCulture: `Australian business culture balances British formality with egalitarian values. While professional and respectful, Australians generally avoid excessive formality and hierarchy. First names are commonly used quickly in business relationships, and there's an expectation of authenticity and straightforwardness.\n\nPunctuality is valued and expected in Australian business. Being late to meetings is considered disrespectful. Business discussions tend to be direct — Australians generally say what they mean and appreciate the same approach from others. However, there's still emphasis on building relationships before diving into transactional discussions.\n\nAustralian business culture values fairness, transparency, and follow-through. Verbal commitments are taken seriously, and broken promises damage relationships significantly. The concept of "mateship" extends to business relationships, creating expectations of mutual support and reliability.`,
+    outboundStrategy: `Outbound strategy in Australia benefits from direct, evidence-based approaches. Australian buyers are skeptical of vendor claims and demand proof. Cold outreach should lead with concrete evidence — case studies, data, ROI calculations, and references from similar Australian companies.\n\nLinkedIn and email are the dominant B2B channels in Australia. Personalization is essential — mass generic outreach is quickly identified and ignored. Australian professionals respond to outreach that demonstrates genuine understanding of their business challenges and clear value propositions.\n\nContent marketing and thought leadership work well in Australia. Buyers here conduct extensive research before engaging with vendors. Educational content that helps them solve problems builds credibility and positions your company as a trusted advisor rather than just another vendor.`,
+    linkedInStrategy: `LinkedIn is the dominant B2B professional platform in Australia, with very high adoption among business professionals. It's the primary channel for reaching decision-makers in Sydney, Melbourne, and other major cities. Australian professionals are active on the platform and responsive to well-crafted outreach.\n\nFor LinkedIn outreach, focus on genuine personalization that demonstrates research and real interest. Australian professionals quickly identify mass outreach and ignore it. InMail messages work well for reaching senior executives. Content marketing on LinkedIn is well-received, with Australian professionals appreciating thought leadership on industry trends.\n\nLinkedIn advertising can be effective for ABM campaigns targeting specific Australian companies or industries. The platform's targeting capabilities allow precise reach to decision-makers in target accounts.`,
+    appointmentSetting: `Appointment setting in Australia is straightforward compared to many Asian markets. Australian business professionals respond well to direct, professional outreach that clearly articulates value. Request meetings with specific purposes and times rather than vague "let's connect" messages.\n\nConfirm appointments 24 hours in advance. Australian calendars tend to be well-organized, and last-minute changes are less common than in some Asian markets. Be punctual — Australian professionals notice when vendors arrive late to meetings.\n\nFor enterprise deals, expect committee-based decision-making. Multiple stakeholders will be involved, and vendor presentations may need to address different audiences (economic buyers, technical evaluators, end users). Coordinate with your champion to understand the decision-making process and key stakeholders.`,
+    commonMistakes: [
+      'Being vague or generic — Australian buyers demand specific proof points and clear ROI',
+      'Over-promising and under-delivering — Australians value transparency and follow-through above all',
+      'Skipping the evidence — unsubstantiated claims are immediately discounted',
+      'Being overly formal — Australian business culture is relatively egalitarian and appreciates authenticity',
+      'Neglecting local references — Australian case studies and references are far more persuasive than international ones',
+      'Rushing relationship-building — while direct, Australians still value genuine connections',
+    ],
+    localTips: [
+      'Lead with evidence and data — Australian buyers demand proof, not promises',
+      'Be authentic and direct — Australians appreciate straightforwardness and detect insincerity quickly',
+      'Provide Australian case studies and references — local social proof is essential',
+      'Use LinkedIn as your primary channel — it\'s highly effective for Australian B2B outreach',
+      'Respect punctuality — being on time (or early) is expected and noticed',
+      'Understand the committee nature of enterprise decisions — plan for multiple stakeholders',
+    ],
+    bestTimeToReach: 'Tuesday through Thursday, 8-11 AM or 2-4 PM AEST/AEDT. Monday mornings often involve team meetings. LinkedIn messages work well throughout the week. Avoid Friday afternoons as meetings wrap up early.',
+    decisionMakerAccess: `Decision-maker access in Australia is relatively straightforward for well-prepared vendors. Australian executives are accustomed to B2B outreach and respond to professional, evidence-based approaches. The key is demonstrating genuine value rather than generic sales pitches.\n\nDirect outreach to C-suite executives via LinkedIn InMail has moderate success. More effective is building relationships with operational stakeholders who can champion your solution internally. In enterprise deals, multiple decision-makers must be engaged, each with different evaluation criteria.`,
+    complianceNotes: `Australia has comprehensive privacy laws under the Privacy Act and spam laws under the Spam Act. B2B marketing must comply with these regulations, including consent requirements and unsubscribe mechanisms. Australian Consumer Law governs commercial transactions. For enterprise deals, contracts are typically sophisticated and require careful negotiation. Australia has strong contract enforcement and dispute resolution mechanisms.`,
+    currency: 'AUD (Australian Dollar)',
+    avgSalesCycle: '3–6 months for SMB, 6–12 months for enterprise',
+    preferredChannels: ['LinkedIn Outreach', 'Cold Email', 'SEO & Content Marketing', 'ABM'],
+    languageNotes: 'English is the only business language. Australian English has some unique terminology and spelling (e.g., -ise vs -ize). Business communication is direct and professional. Cultural references should be appropriate for Australian audience.',
   },
   {
     id: '8',
@@ -850,6 +1682,35 @@ export const countries: Country[] = [
       { q: 'Do I need a local entity to sell in the UAE?', a: 'You can sell remotely to UAE companies, but having a UAE entity or local partner significantly improves trust and deal-closing rates. Free zones like DAFZA and DMCC offer easy setup.' },
       { q: 'Is the UAE market expensive to sell into?', a: 'It can be. CAC is higher than SEA but deal sizes and contract values are also proportionally larger. ROI on well-executed UAE campaigns is typically strong.' },
     ],
+    // NEW FIELDS
+    marketOverview: `The UAE stands as the Middle East's premier business destination, offering unmatched infrastructure, political stability, and access to the broader GCC market of 50+ million people. Dubai and Abu Dhabi serve as dual hubs, each with distinct characteristics — Dubai for trade, logistics, and private sector; Abu Dhabi for government, energy, and sovereign wealth. The country's zero income tax, 100% foreign ownership in free zones, and world-class business environment attract global companies.\n\nThe UAE B2B market is characterized by high transaction values and premium expectations. Buyers here expect vendors who can match the sophistication of their operations. The market is competitive, with global players vying for deals alongside local champions. Success requires professional presentation, local credibility, and clear value propositions.\n\nThe UAE serves as a gateway not just to the GCC but to broader MENA markets. Many companies establish UAE presence to access regional opportunities, making the country both a market and a hub. Government and SOE (state-owned enterprise) procurement represent significant B2B opportunity.`,
+    businessCulture: `UAE business culture is formal, relationship-driven, and hierarchical. While English is the language of business, Arabic cultural norms shape interactions. Building relationships is essential — UAE buyers need to trust you and your company before committing to significant deals.\n\nBusiness meetings in the UAE are formal affairs. Dress impeccably (Western business attire for men and women), arrive on time, and maintain professional demeanor throughout. Business cards are exchanged and should be presented and received with respect. Initial meetings focus on relationship building before business is discussed.\n\nPatience is essential in UAE business. Decision-making can be slow as relationships are built and consensus sought among stakeholders. The concept of "wasta" (connections and influence) plays a role — relationships with well-connected individuals can accelerate processes significantly. Face is important — criticism should be delivered privately and diplomatically.`,
+    outboundStrategy: `Outbound strategy in the UAE requires a formal, professional approach that builds relationships before asking for commitments. The most effective approach combines multiple touchpoints over weeks or months, with significant investment in understanding the prospect's business and building credibility.\n\nLinkedIn and email are effective channels for initial outreach, particularly for international companies and multinational offices. For local UAE companies, warm introductions through business networks are significantly more effective than cold outreach. Consider engaging a local partner or distributor who has established relationships.\n\nProfessional presentation is essential in the UAE. Your company materials, proposals, and communications should be polished and professional. High transaction values mean buyers are cautious — they need confidence in your company's ability to deliver.`,
+    linkedInStrategy: `LinkedIn is highly effective in the UAE, particularly for reaching international company employees, finance professionals, and tech decision-makers. Dubai's business community is active on the platform, with engagement rates comparable to Western markets.\n\nFor LinkedIn outreach, focus on professional, formal personalization. UAE professionals respond to outreach that demonstrates genuine understanding of their business context and clear value propositions. Content marketing about regional business trends and UAE market insights performs well.\n\nConsider that many UAE professionals maintain separate LinkedIn profiles for international connections. LinkedIn can facilitate initial contact, but relationship building may transition to in-person meetings, email, or other channels as deals progress.`,
+    appointmentSetting: `Appointment setting in the UAE benefits from formal, professional outreach. Request meetings with clear purposes and benefits, demonstrating that you understand the prospect's business. Initial meetings may focus on relationship building before business discussions begin.\n\nBe flexible with scheduling — UAE professionals often have busy calendars with frequent interruptions. Confirm appointments 24 hours in advance and be punctual. For significant deals, expect multiple meetings before commitments are made.\n\nFace-to-face meetings are strongly preferred for enterprise deals. Video calls are acceptable for initial contact but should transition to in-person meetings as relationships develop. Consider traveling to Dubai or Abu Dhabi for key meetings — this demonstrates commitment.`,
+    commonMistakes: [
+      'Being too casual or informal — UAE business culture values professionalism and formality',
+      'Rushing the relationship — attempting to close without investing in trust-building will fail',
+      'Not having local presence or references — UAE buyers prefer vendors with regional credibility',
+      'Underestimating the competition — global players compete in the UAE, so differentiation is essential',
+      'Ignoring cultural considerations — Arabic business norms shape interactions even in English-language meetings',
+      'Skipping due diligence — verify credentials and references before engaging UAE buyers',
+    ],
+    localTips: [
+      'Invest heavily in relationship building — multiple meetings and social events are expected',
+      'Consider a local partner or distributor — they have trusted relationships and understand the market',
+      'Be professional and formal in all communications — first impressions matter significantly',
+      'Dress impeccably for all meetings — appearance reflects on your professionalism',
+      'Be patient with enterprise deals — decision-making involves multiple stakeholders and takes time',
+      'Leverage UAE trade shows and events — Dubai hosts numerous business events throughout the year',
+    ],
+    bestTimeToReach: 'Sunday through Thursday, 9-11 AM or 2-4 PM GST. Friday is the Islamic holy day — avoid scheduling. LinkedIn messages work well throughout the week. Sunday-Thursday is the standard business week.',
+    decisionMakerAccess: `Decision-maker access in the UAE varies by company type. International companies and multinational offices are accessible via LinkedIn and professional outreach. Local UAE companies, family conglomerates, and government entities typically require warm introductions.\n\nThe key to accessing UAE decision-makers is building relationships from the outside in. Start with operational contacts, build trust, and let them facilitate introductions to senior executives. For government and SOE targets, engaging a local partner or consultant is often essential.`,
+    complianceNotes: `The UAE has specific regulations for business operations, including commercial company law and free zone regulations. For B2B marketing, ensure compliance with local advertising regulations. Government procurement follows formal tender processes for many purchases. UAE law governs commercial contracts, with specific requirements for contract formation and execution. Consult with UAE legal counsel familiar with commercial law and business regulations.`,
+    currency: 'AED (UAE Dirham)',
+    avgSalesCycle: '4–8 months for SMB, 8–18 months for enterprise/government',
+    preferredChannels: ['LinkedIn Outreach', 'Cold Email', 'Referrals & partnerships', 'Events & trade shows'],
+    languageNotes: 'English is the primary business language. Arabic is used in government contexts and traditional business. Bilingual materials (English/Arabic) enhance credibility for local market penetration. Professional translation is essential.',
   },
   {
     id: '9',
@@ -865,6 +1726,35 @@ export const countries: Country[] = [
       { q: 'Is Saudi Arabia open to foreign B2B companies?', a: 'Very much so. Vision 2030 actively encourages foreign investment and partnerships. The Saudi market is more open than ever for quality B2B solutions.' },
       { q: 'What language should I use?', a: 'English is widely used in Saudi business, particularly for tech and international companies. Arabic is preferred for government and traditional business entities.' },
     ],
+    // NEW FIELDS
+    marketOverview: `Saudi Arabia represents the Gulf's largest economy and one of the world's most significant B2B markets, driven by the most ambitious economic transformation program outside of China. Vision 2030 is reshaping the kingdom's economy away from oil dependence, creating massive opportunities across entertainment, tourism, technology, healthcare, education, and renewable energy.\n\nThe Saudi B2B market is characterized by large transaction values and government-driven demand. Government entities and state-owned enterprises are major buyers, with procurement processes ranging from formal tenders to relationship-based selections. The private sector is growing rapidly, driven by Vision 2030's push for economic diversification.\n\nForeign companies have unprecedented access to the Saudi market under Vision 2030. The government actively seeks quality international partners to deliver its ambitious transformation agenda. Success requires understanding Saudi business practices, cultural considerations, and often partnering with local entities who can navigate the market effectively.`,
+    businessCulture: `Saudi business culture is formal, hierarchical, and relationship-driven. While significant modernization has occurred, Arabic cultural norms remain influential in business interactions. Building relationships is not just beneficial but essential — deals don't progress without established trust.\n\nSaudi business culture emphasizes respect for hierarchy and seniority. Decision-makers are typically at senior executive or ministerial levels for significant purchases. Address senior individuals with appropriate titles and honorifics. Initial meetings focus heavily on relationship building before business is discussed.\n\nPatience is crucial in Saudi business. Decision-making involves multiple stakeholders and can take extended periods. Face is extremely important — public criticism or embarrassment damages relationships irreparably. The concept of "wasta" (connections) plays a significant role in business success.`,
+    outboundStrategy: `Outbound strategy in Saudi Arabia requires a patient, relationship-first approach. The most effective strategy combines multiple channels while investing heavily in relationship building through trusted intermediaries or local partners. Direct cold outreach has limited effectiveness without existing relationships.\n\nLinkedIn and professional networks are valuable for initial contact with tech-savvy Saudi professionals and international companies. For government entities and traditional businesses, warm introductions through local partners are essential. Consider attending Saudi business events and conferences to build relationships.\n\nLocalization matters in Saudi Arabia. Arabic language capabilities significantly enhance credibility and effectiveness. Professional presentation aligned with Saudi expectations is essential. The high transaction values mean buyers are cautious and require significant trust before committing.`,
+    linkedInStrategy: `LinkedIn is increasingly important in Saudi Arabia, particularly for reaching younger professionals, tech decision-makers, and international company employees. The platform has growing adoption among Saudi business professionals, especially in Riyadh's business districts.\n\nFor LinkedIn outreach, focus on professional, personalized communication. Saudi professionals respond to outreach that demonstrates genuine understanding and respect. Content marketing about Saudi Vision 2030 priorities and regional business trends performs well.\n\nConsider that LinkedIn is most effective for international companies and tech-forward Saudi businesses. Traditional government entities and family businesses may be less active on LinkedIn, requiring alternative relationship-building approaches.`,
+    appointmentSetting: `Appointment setting in Saudi Arabia benefits from warm introductions and relationship building. Direct appointment requests without existing rapport have limited success. Frame outreach as an opportunity to share insights and learn about their challenges rather than a sales pitch.\n\nBe flexible with scheduling and patient with response times. Saudi calendars may operate differently than Western expectations. Confirm appointments well in advance and be prepared for last-minute changes. Face-to-face meetings are strongly preferred for significant discussions.\n\nFor government and enterprise targets, engaging a local partner or sponsor is often essential for access. Your local partner can facilitate introductions and navigate the relationship-building process that precedes business discussions.`,
+    commonMistakes: [
+      'Being too aggressive or pushing for quick decisions — Saudi business requires patience and relationship investment',
+      'Not engaging local partners — foreign companies often need local sponsors for market access',
+      'Underestimating cultural considerations — Arabic business norms significantly shape interactions',
+      'Skipping relationship-building — deals don\'t progress without established trust',
+      'Ignoring language considerations — Arabic materials enhance credibility and effectiveness',
+      'Being insensitive to religious practices — prayer times and Islamic holidays affect scheduling',
+    ],
+    localTips: [
+      'Engage a local partner or sponsor — essential for government and enterprise market access',
+      'Invest heavily in relationship building — multiple visits and meetings over extended periods',
+      'Use Arabic language in materials — demonstrates respect and enhances credibility',
+      'Respect religious practices — schedule around prayer times and Islamic holidays',
+      'Be patient with decision-making — multiple stakeholders and consensus-building takes time',
+      'Leverage Vision 2030 messaging — aligns your offering with Saudi strategic priorities',
+    ],
+    bestTimeToReach: 'Sunday through Thursday, 9-11 AM or 2-4 PM AST. Friday and Saturday are the weekend. LinkedIn messages work throughout the week. Be sensitive to prayer times affecting availability.',
+    decisionMakerAccess: `Reaching decision-makers in Saudi Arabia typically requires local partnerships or warm introductions. Direct access to government entities and SOEs is challenging without existing relationships. Engaging a local partner who has established relationships with target decision-makers is often essential.\n\nThe pathway to decision-makers runs through local partners, sponsors, or trusted intermediaries. For private sector targets, LinkedIn outreach to international company employees or tech-forward businesses has moderate success. Building relationships takes extended periods — multiple visits over months may be necessary before access is granted.`,
+    complianceNotes: `Saudi Arabia has specific regulations for foreign business operations, including sponsorship requirements in some sectors. Government procurement follows formal tender processes for many purchases. Anti-corruption and anti-bribery laws are strictly enforced. Business contracts must comply with Saudi law and regulations. Consult with Saudi legal counsel familiar with commercial law, government procurement, and foreign investment regulations.`,
+    currency: 'SAR (Saudi Riyal)',
+    avgSalesCycle: '6–12 months for private sector, 12–24 months for government',
+    preferredChannels: ['LinkedIn Outreach', 'Referrals & local partners', 'Local events & conferences', 'Government ABM'],
+    languageNotes: 'English is used in international companies and tech sector. Arabic is essential for government entities and traditional businesses. Arabic materials and Arabic-speaking team members significantly enhance credibility and effectiveness.',
   },
   {
     id: '10',
@@ -880,6 +1770,35 @@ export const countries: Country[] = [
       { q: 'How does Qatar\'s small market size affect B2B opportunity?', a: 'The smaller market means fewer but higher-value deals. Average contract values in Qatar are among the highest in the region. Quality over quantity is the right approach.' },
       { q: 'Do I need to visit Qatar to sell there?', a: 'Initial meetings are increasingly virtual, but regular in-person presence (quarterly at minimum) is important for relationship-building in Qatari business culture.' },
     ],
+    // NEW FIELDS
+    marketOverview: `Qatar represents the world's wealthiest economy per capita, with a small but extraordinarily high-value B2B market. Doha serves as the regional hub for finance, energy, logistics, and sports/event management. The country's massive infrastructure investments — including for the FIFA World Cup and ongoing diversification — have created significant B2B opportunities.\n\nThe Qatari B2B market is characterized by ultra-high transaction values and premium expectations. Buyers here expect world-class quality and service, reflecting the country's global standing. The market is small enough that relationships are personal and reputation matters enormously. Success with a few key accounts can define a company's regional success.\n\nQatar's National Vision 2030 drives diversification away from hydrocarbon dependence, creating opportunities across healthcare, education, technology, and professional services. The finance sector (Qatar Financial Centre) and energy (Qatar Petroleum and affiliates) remain dominant, but new sectors are emerging rapidly.`,
+    businessCulture: `Qatari business culture is formal, hierarchical, and deeply relationship-driven. The small population means business networks are tightly interconnected — reputation spreads quickly. Building trust requires face-to-face interaction and demonstrated commitment over time.\n\nQatari business culture values formality and respect for hierarchy. Decision-makers are often at senior executive or ministerial levels for significant purchases. Address senior individuals with appropriate titles and honorifics. Initial meetings focus on relationship building — rushing to business discussions without establishing rapport is considered inappropriate.\n\nPatience is essential in Qatari business. The small market means each relationship is important, and decisions involve careful consideration. Face is extremely important — public criticism damages relationships. The concept of "wasta" (connections) plays a significant role. Qatari buyers expect premium quality in everything, including vendor relationships.`,
+    outboundStrategy: `Outbound strategy in Qatar requires a focused, relationship-first approach. The small market size means quality over quantity is essential — target only the most relevant prospects rather than mass outreach. Build deep relationships with a select number of key accounts rather than trying to reach everyone.\n\nWarm introductions are essential for accessing Qatari decision-makers. LinkedIn and professional networks can facilitate initial contact, but relationship building requires in-person meetings and sustained engagement. Consider attending Qatar's business events and summits to build relationships.\n\nProfessional presentation aligned with premium expectations is essential. Qatari buyers expect world-class vendors who can match their standards. Localization — including Arabic language capabilities and understanding of Qatari business practices — significantly enhances credibility.`,
+    linkedInStrategy: `LinkedIn is useful for reaching Qatar's international business community, finance professionals, and tech decision-makers. Doha's business professionals are active on the platform, though personal relationships remain more important than in some other markets.\n\nFor LinkedIn outreach, focus on professional, personalized communication that demonstrates genuine understanding of the prospect's business context. Content marketing about Qatar's economic diversification and regional business trends performs well. LinkedIn can facilitate initial contact, but relationship building typically requires in-person interaction.\n\nConsider that many Qatari business relationships are built through personal networks and introductions. LinkedIn is most effective for international companies and tech-forward businesses in Qatar's market.`,
+    appointmentSetting: `Appointment setting in Qatar benefits from warm introductions and relationship building. Direct requests without existing rapport have limited success. Frame outreach as an opportunity to share insights and build understanding rather than a sales pitch.\n\nBe patient with scheduling — Qatari professionals may not respond quickly, and multiple touchpoints may be necessary before appointments are confirmed. Face-to-face meetings are strongly preferred for significant discussions. Regular in-person presence (quarterly minimum) is important for maintaining relationships.\n\nFor enterprise and government targets, engaging a local partner is often essential. Your local partner can facilitate introductions and navigate the relationship-building process that precedes business discussions.`,
+    commonMistakes: [
+      'Mass outreach to too many targets — Qatar\'s small market means relationships are personal and quality matters more than quantity',
+      'Not investing in relationships — attempting to close deals without trust-building will fail',
+      'Not having local presence or partners — local relationships are essential for market access',
+      'Underestimating the premium expectations — Qatari buyers expect world-class quality in everything',
+      'Rushing the decision process — careful evaluation takes time in high-value deals',
+      'Being insensitive to cultural considerations — Arabic business norms shape interactions',
+    ],
+    localTips: [
+      'Focus on quality over quantity — target only the most relevant accounts in this small market',
+      'Invest in deep relationships with key accounts — each relationship matters more than in larger markets',
+      'Engage local partners — essential for building trust and navigating Qatari business culture',
+      'Maintain regular in-person presence — quarterly visits minimum for relationship maintenance',
+      'Match premium expectations — Qatari buyers expect world-class vendors and service',
+      'Leverage Qatar\'s business events and summits — excellent networking opportunities in Doha',
+    ],
+    bestTimeToReach: 'Sunday through Thursday, 9-11 AM or 2-4 PM AST. Friday and Saturday are the weekend. LinkedIn messages work throughout the week. In-person relationship building is essential for significant deals.',
+    decisionMakerAccess: `Decision-maker access in Qatar typically requires local partnerships or warm introductions. The small market means relationships are interconnected, and reputation spreads quickly. Engaging a local partner with established relationships is often essential for accessing key decision-makers.\n\nDirect access to C-suite executives is challenging without existing relationships. The pathway typically runs through local partners or trusted intermediaries. For international companies and finance sector targets, LinkedIn outreach may facilitate initial contact, but relationship building requires sustained in-person engagement.`,
+    complianceNotes: `Qatar has specific regulations for foreign business operations, including sponsorship requirements in some sectors. Government and SOE procurement follows formal tender processes for many purchases. Anti-corruption laws are strictly enforced. Business contracts must comply with Qatari law. Consult with Qatari legal counsel familiar with commercial law, government procurement, and foreign investment regulations.`,
+    currency: 'QAR (Qatari Riyal)',
+    avgSalesCycle: '6–18 months for enterprise/government',
+    preferredChannels: ['Referrals & local partners', 'Business events & summits', 'LinkedIn Outreach', 'ABM'],
+    languageNotes: 'English is widely used in Qatari business, particularly in finance and international companies. Arabic is used in government contexts and traditional business. Arabic materials enhance credibility for local market penetration.',
   },
 ]
 

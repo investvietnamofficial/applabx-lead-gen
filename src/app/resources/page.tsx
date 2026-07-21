@@ -17,6 +17,7 @@ export const metadata: Metadata = generateMetadata({
   title: 'Resources',
   description:
     'Free guides, templates, checklists, and insights to master B2B lead generation.',
+  path: '/resources',
 })
 
 // Placeholder resources data

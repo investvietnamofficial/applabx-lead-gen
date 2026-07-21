@@ -3,6 +3,14 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Cookie Policy | AppLabx',
   description: 'How AppLabx uses cookies and similar tracking technologies on our website.',
+  alternates: {
+    canonical: 'https://lead-gen-agency.applabx.com/cookies',
+  },
+  openGraph: {
+    title: 'Cookie Policy | AppLabx',
+    description: 'How AppLabx uses cookies and similar tracking technologies on our website.',
+    url: 'https://lead-gen-agency.applabx.com/cookies',
+  },
 }
 
 export default function CookiesPage() {

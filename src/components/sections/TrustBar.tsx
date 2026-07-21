@@ -40,12 +40,8 @@ export function TrustBar() {
           </div>
 
           {/* Note to operators — not shown in production */}
-          <div className="mt-8 text-center">
-            <p className="text-xs text-[var(--brand-gray-light)] italic">
-              Client logos will be added before launch.{' '}
-              <span className="not-italic font-medium">See PLACEHOLDERS.md for full list.</span>
-            </p>
-          </div>
+          {/* PLACEHOLDER: Remove this div once real client logos are added to public/logos/ */}
+          <p aria-hidden="true" className="sr-only">PLACEHOLDER: Add real client logos to public/logos/ before launch. See PLACEHOLDERS.md.</p>
         </div>
       </section>
     )

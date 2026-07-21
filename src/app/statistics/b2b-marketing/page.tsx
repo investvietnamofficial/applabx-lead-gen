@@ -90,6 +90,15 @@ export default function B2BMarketingStatisticsPage() {
     },
   ]
 
+  const keyTakeaways = [
+    'LinkedIn dominates B2B social—75% of decision-makers use it for vendor research, making it essential for B2B visibility.',
+    'Email marketing delivers 6.4x ROI and remains the primary channel for 89% of B2B marketers—don\'t neglect it.',
+    'Account-Based Marketing (ABM) adoption is growing rapidly, with 87% of users reporting higher ROI than other initiatives.',
+    'B2B buyers do extensive online research—92% search before engaging sales. SEO and content are non-negotiable.',
+  ]
+
+  const methodology = 'These statistics are compiled from research by leading B2B organizations including LinkedIn, Content Marketing Institute, Forrester Research, Terminus, and DMA. Data represents cross-industry B2B benchmarks from surveys, platform analytics, and buyer behavior studies. Channel effectiveness metrics are derived from marketing performance data, while ROI figures come from controlled marketing experiments and industry surveys.'
+
   const sources = [
     'LinkedIn Business Statistics',
     'Content Marketing Institute (CMI) Research',
@@ -104,15 +113,24 @@ export default function B2BMarketingStatisticsPage() {
     { label: 'Cold Email Statistics', href: '/statistics/cold-email' },
   ]
 
+  const relatedReading = [
+    { label: 'LinkedIn Outreach', href: '/services/linkedin-outreach', description: 'Social selling and LinkedIn connection campaigns for enterprise B2B' },
+    { label: 'B2B Marketing Services', href: '/services/b2b-marketing', description: 'Comprehensive B2B marketing strategy and execution' },
+    { label: 'Account-Based Marketing', href: '/services/abm', description: 'Targeted ABM campaigns for high-value accounts' },
+  ]
+
   return (
     <StatisticsPageTemplate
       title="B2B Marketing Statistics: Channel Effectiveness & Buyer Insights"
       description="Critical B2B marketing data on channel effectiveness, buyer behavior, and ROI benchmarks for 2024."
       intro="B2B marketing continues to evolve with changing buyer behavior and new channel opportunities. These statistics represent verified industry research and benchmarks from leading B2B marketing studies. Understanding these trends helps marketers allocate budgets effectively, choose the right channels, and create strategies that actually reach decision-makers."
       stats={stats}
+      keyTakeaways={keyTakeaways}
+      methodology={methodology}
       sources={sources}
       canonical="https://lead-gen-agency.applabx.com/statistics/b2b-marketing"
       relatedPages={relatedPages}
+      relatedReading={relatedReading}
     />
   )
 }

@@ -12,6 +12,7 @@ export const metadata: Metadata = generateMetadata({
   title: 'Case Studies',
   description:
     'Real results from real clients. See how AppLabx has helped B2B companies generate qualified leads and book more strategy calls.',
+  path: '/case-studies',
 })
 
 // Placeholder case studies data - clearly marked as placeholders

@@ -9,6 +9,14 @@ export const metadata: Metadata = {
   title: 'Frequently Asked Questions | AppLabx',
   description:
     'Common questions about B2B lead generation, our services, pricing, timelines, and how we work with clients.',
+  alternates: {
+    canonical: 'https://lead-gen-agency.applabx.com/faq',
+  },
+  openGraph: {
+    title: 'Frequently Asked Questions | AppLabx',
+    description: 'Common questions about B2B lead generation, our services, pricing, and timelines.',
+    url: 'https://lead-gen-agency.applabx.com/faq',
+  },
 }
 
 const faqs = [

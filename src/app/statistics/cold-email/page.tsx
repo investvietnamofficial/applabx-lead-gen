@@ -90,6 +90,15 @@ export default function ColdEmailStatisticsPage() {
     },
   ]
 
+  const keyTakeaways = [
+    'Most cold emails (70%) go unanswered—follow-up sequences are essential, not optional, for campaign success.',
+    'The sweet spot for cold email sequences is 3-5 emails with 2-4 days between touches, with emails 2-3 driving most replies.',
+    'Timing matters: Tuesday-Thursday, 9-11 AM local time consistently outperforms other sending windows.',
+    'Quick follow-up (within 48 hours of no response) can boost reply rates by 65%—set automated follow-ups.',
+  ]
+
+  const methodology = 'These statistics are compiled from outreach platform benchmarks including Mailshake, Yesware, HubSpot, and Outreach.io research data. Numbers represent aggregated performance data from thousands of B2B cold email campaigns across multiple industries. Performance varies based on list quality, email content, sender reputation, and target audience. Best sending times are derived from engagement analytics across time zones.'
+
   const sources = [
     'Mailshake Outreach Benchmarks',
     'Yesware Annual Report',
@@ -103,15 +112,24 @@ export default function ColdEmailStatisticsPage() {
     { label: 'B2B Marketing Statistics', href: '/statistics/b2b-marketing' },
   ]
 
+  const relatedReading = [
+    { label: 'Cold Email Outreach', href: '/services/cold-email', description: 'Scalable cold email campaigns with high deliverability and personalization' },
+    { label: 'Email Marketing', href: '/services/email-marketing', description: 'Nurture sequences and email automation for lead development' },
+    { label: 'Outbound Sales', href: '/services/outbound-sales', description: 'Multi-channel outbound including email, LinkedIn, and phone' },
+  ]
+
   return (
     <StatisticsPageTemplate
       title="Cold Email Statistics: Benchmarks for 2024"
       description="Essential cold email performance metrics and benchmarks to optimize your email outreach campaigns."
       intro="Cold email remains one of the highest-ROI outbound channels when executed correctly. These statistics represent verified industry benchmarks from thousands of B2B email campaigns. Use these numbers to set realistic targets, identify optimization opportunities, and benchmark your campaign performance against industry standards."
       stats={stats}
+      keyTakeaways={keyTakeaways}
+      methodology={methodology}
       sources={sources}
       canonical="https://lead-gen-agency.applabx.com/statistics/cold-email"
       relatedPages={relatedPages}
+      relatedReading={relatedReading}
     />
   )
 }

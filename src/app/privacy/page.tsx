@@ -3,6 +3,14 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Privacy Policy | AppLabx',
   description: 'How AppLabx collects, uses, and protects your personal information.',
+  alternates: {
+    canonical: 'https://lead-gen-agency.applabx.com/privacy',
+  },
+  openGraph: {
+    title: 'Privacy Policy | AppLabx',
+    description: 'How AppLabx collects, uses, and protects your personal information.',
+    url: 'https://lead-gen-agency.applabx.com/privacy',
+  },
 }
 
 export default function PrivacyPage() {

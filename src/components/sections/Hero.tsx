@@ -1,10 +1,10 @@
 'use client'
 
 import { m, type Variants } from 'framer-motion'
+import Link from 'next/link'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
-import { CTA_PRIMARY } from '@/lib/constants'
-import { CheckCircle, ArrowRight, TrendingUp, Globe, Zap } from 'lucide-react'
+import { CheckCircle, ArrowRight, TrendingUp, Globe, Zap, Calendar, Target, Mail, Users } from 'lucide-react'
 
 // Honest trust indicators — replace with verified metrics once available
 const trustIndicators = [
@@ -22,11 +22,11 @@ const STATS = [
 ]
 
 const pipelineSteps = [
-  { label: 'Prospect', icon: '🔍' },
-  { label: 'AI Targeting', icon: '🎯' },
-  { label: 'Multi-Channel', icon: '📧' },
-  { label: 'Qualified Lead', icon: '✅' },
-  { label: 'Booked Call', icon: '📅' },
+  { label: 'ICP Discovery', icon: Target },
+  { label: 'Data Enrich', icon: Zap },
+  { label: 'AI Personalize', icon: Mail },
+  { label: 'Multi-Channel', icon: Users },
+  { label: 'Booked Meeting', icon: Calendar },
 ]
 
 const containerVariants: Variants = {
@@ -99,17 +99,31 @@ export function Hero() {
                 variants={itemVariants}
                 className="flex flex-col sm:flex-row gap-4"
               >
-                <Button size="xl">{CTA_PRIMARY}</Button>
-                <Button variant="outline" size="xl">
-                  See How It Works
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
+                <Link href="/contact">
+                  <Button size="xl">
+                    <Calendar className="w-5 h-5" />
+                    Book a Free Strategy Call
+                  </Button>
+                </Link>
+                <Link href="#how-it-works">
+                  <Button variant="outline" size="xl">
+                    See How It Works
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </Link>
+              </m.div>
+
+              {/* Trust note */}
+              <m.div variants={itemVariants} className="mt-6">
+                <p className="text-sm text-[var(--brand-gray)]">
+                  No commitment required. Response within 24 hours.
+                </p>
               </m.div>
 
               {/* Trust Indicators */}
               <m.div
                 variants={itemVariants}
-                className="mt-12 flex flex-wrap items-center gap-6 text-[var(--brand-gray)]"
+                className="mt-10 flex flex-wrap items-center gap-6 text-[var(--brand-gray)]"
               >
                 {trustIndicators.map((indicator, index) => (
                   <div
@@ -142,8 +156,8 @@ export function Hero() {
                       className="relative flex flex-col items-center"
                     >
                       {/* Node */}
-                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--brand-primary)] to-[var(--brand-accent)] flex items-center justify-center text-2xl shadow-lg">
-                        {step.icon}
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--brand-primary)] to-[var(--brand-accent)] flex items-center justify-center shadow-lg">
+                        <step.icon className="w-6 h-6 text-white" />
                       </div>
                       {/* Label */}
                       <span className="mt-3 text-xs font-medium text-[var(--brand-gray)] text-center whitespace-nowrap">

@@ -22,6 +22,7 @@ export const metadata: Metadata = generateMetadata({
   title: 'Blog — B2B Lead Generation Insights',
   description:
     'Expert insights on cold email strategy, LinkedIn outreach, AI in B2B sales, and outbound lead generation for APAC markets.',
+  path: '/resources/blog',
 })
 
 // Placeholder articles data

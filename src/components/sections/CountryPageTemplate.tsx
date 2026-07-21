@@ -10,11 +10,13 @@ import { SectionHeading } from '@/components/ui/SectionHeading'
 import { type Country } from '@/lib/constants'
 import { breadcrumbSchema, faqSchema } from '@/lib/seo'
 import {
+  AlertCircle,
   ArrowRight,
   BarChart3,
   Calendar,
   CheckCircle2,
   ChevronDown,
+  Clock,
   FileText,
   Globe,
   Handshake,
@@ -27,6 +29,7 @@ import {
   Target,
   TrendingUp,
   Users,
+  XCircle,
   Zap,
 } from 'lucide-react'
 
@@ -695,6 +698,342 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
               ))}
             </div>
           </div>
+        </Container>
+      </section>
+
+      {/* ================================================================
+          BUSINESS CULTURE SECTION
+      ================================================================ */}
+      <section className="section-padding bg-white">
+        <Container>
+          <SectionHeading
+            eyebrow="Business Culture"
+            title={`Understanding ${country.name} Business Culture`}
+            subtitle="Cultural intelligence is the foundation of successful market entry"
+          />
+
+          <div className="grid lg:grid-cols-2 gap-12 mt-12">
+            <m.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="bg-[var(--brand-light)] rounded-2xl p-8 h-full">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-[var(--brand-primary)]/10 flex items-center justify-center">
+                    <Globe className="w-6 h-6 text-[var(--brand-primary)]" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-[var(--brand-dark)]">
+                    Local Business Norms
+                  </h3>
+                </div>
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-[var(--brand-gray)] leading-relaxed whitespace-pre-line">
+                    {country.businessCulture}
+                  </p>
+                </div>
+              </div>
+            </m.div>
+
+            <m.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="space-y-6"
+            >
+              <div className="bg-white rounded-2xl p-8 border border-[var(--border)]">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-[var(--brand-accent)]/10 flex items-center justify-center">
+                    <Clock className="w-5 h-5 text-[var(--brand-accent)]" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-[var(--brand-dark)]">
+                    Best Time to Reach
+                  </h3>
+                </div>
+                <p className="text-[var(--brand-gray)] leading-relaxed">
+                  {country.bestTimeToReach}
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl p-8 border border-[var(--border)]">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center">
+                    <Target className="w-5 h-5 text-purple-600" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-[var(--brand-dark)]">
+                    Decision Maker Access
+                  </h3>
+                </div>
+                <p className="text-[var(--brand-gray)] leading-relaxed">
+                  {country.decisionMakerAccess}
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl p-8 border border-[var(--border)]">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
+                    <BarChart3 className="w-5 h-5 text-blue-600" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-[var(--brand-dark)]">
+                    Sales Cycle
+                  </h3>
+                </div>
+                <p className="text-[var(--brand-gray)] leading-relaxed">
+                  {country.avgSalesCycle}
+                </p>
+              </div>
+            </m.div>
+          </div>
+
+          {/* Language Notes */}
+          <m.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mt-12 bg-gradient-to-r from-[var(--brand-light)] to-transparent rounded-2xl p-8"
+          >
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-[var(--brand-primary)]/10 flex items-center justify-center flex-shrink-0">
+                <Mic className="w-6 h-6 text-[var(--brand-primary)]" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-[var(--brand-dark)] mb-2">
+                  Language & Communication Notes
+                </h3>
+                <p className="text-[var(--brand-gray)] leading-relaxed">
+                  {country.languageNotes}
+                </p>
+              </div>
+            </div>
+          </m.div>
+        </Container>
+      </section>
+
+      {/* ================================================================
+          OUTBOUND STRATEGY SECTION
+      ================================================================ */}
+      <section className="section-padding bg-[var(--brand-light-secondary)]">
+        <Container>
+          <SectionHeading
+            eyebrow="Outbound Strategy"
+            title={`How to Approach ${country.name} Outbound`}
+            subtitle="A tailored approach that aligns with local market dynamics"
+          />
+
+          <div className="grid lg:grid-cols-3 gap-8 mt-12">
+            <m.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-2"
+            >
+              <div className="bg-white rounded-2xl p-8 border border-[var(--border)] h-full">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-[var(--brand-accent)]/10 flex items-center justify-center">
+                    <Zap className="w-6 h-6 text-[var(--brand-accent)]" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-[var(--brand-dark)]">
+                    Outbound Approach
+                  </h3>
+                </div>
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-[var(--brand-gray)] leading-relaxed whitespace-pre-line">
+                    {country.outboundStrategy}
+                  </p>
+                </div>
+              </div>
+            </m.div>
+
+            <m.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="space-y-6"
+            >
+              <div className="bg-white rounded-2xl p-6 border border-[var(--border)]">
+                <h4 className="text-sm font-semibold uppercase tracking-wider text-[var(--brand-gray)] mb-4">
+                  Currency
+                </h4>
+                <p className="text-lg font-medium text-[var(--brand-dark)]">
+                  {country.currency}
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl p-6 border border-[var(--border)]">
+                <h4 className="text-sm font-semibold uppercase tracking-wider text-[var(--brand-gray)] mb-4">
+                  Preferred Channels
+                </h4>
+                <ul className="space-y-2">
+                  {country.preferredChannels.map((channel, idx) => (
+                    <li key={idx} className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-[var(--brand-primary)]" />
+                      <span className="text-[var(--brand-dark)]">{channel}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </m.div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ================================================================
+          LINKEDIN & APPOINTMENT SETTING SECTION
+      ================================================================ */}
+      <section className="section-padding bg-white">
+        <Container>
+          <SectionHeading
+            eyebrow="Channel Strategy"
+            title={`LinkedIn & Appointment Setting in ${country.name}`}
+            subtitle="Mastering the key channels for this market"
+          />
+
+          <div className="grid lg:grid-cols-2 gap-8 mt-12">
+            <m.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="bg-gradient-to-br from-[var(--brand-light)] to-white rounded-2xl p-8 h-full border border-[var(--border)]">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center">
+                    <Link2 className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-[var(--brand-dark)]">
+                    LinkedIn Strategy
+                  </h3>
+                </div>
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-[var(--brand-gray)] leading-relaxed whitespace-pre-line">
+                    {country.linkedInStrategy}
+                  </p>
+                </div>
+              </div>
+            </m.div>
+
+            <m.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <div className="bg-gradient-to-br from-[var(--brand-light)] to-white rounded-2xl p-8 h-full border border-[var(--border)]">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
+                    <Calendar className="w-6 h-6 text-green-600" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-[var(--brand-dark)]">
+                    Appointment Setting
+                  </h3>
+                </div>
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-[var(--brand-gray)] leading-relaxed whitespace-pre-line">
+                    {country.appointmentSetting}
+                  </p>
+                </div>
+              </div>
+            </m.div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ================================================================
+          COMMON MISTAKES & LOCAL TIPS SECTION
+      ================================================================ */}
+      <section className="section-padding bg-[var(--brand-light-secondary)]">
+        <Container>
+          <SectionHeading
+            eyebrow="Market Insights"
+            title={`Common Mistakes & Local Tips for ${country.name}`}
+            subtitle="What to avoid and what works in this market"
+          />
+
+          <div className="grid lg:grid-cols-2 gap-8 mt-12">
+            {/* Common Mistakes */}
+            <m.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="bg-white rounded-2xl p-8 border border-[var(--border)] h-full">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center">
+                    <XCircle className="w-6 h-6 text-red-500" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-[var(--brand-dark)]">
+                    Common Mistakes to Avoid
+                  </h3>
+                </div>
+                <ul className="space-y-4">
+                  {country.commonMistakes.map((mistake, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-[var(--brand-gray)]">{mistake}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </m.div>
+
+            {/* Local Tips */}
+            <m.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <div className="bg-white rounded-2xl p-8 border border-[var(--border)] h-full">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
+                    <CheckCircle2 className="w-6 h-6 text-green-500" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-[var(--brand-dark)]">
+                    Practical Local Tips
+                  </h3>
+                </div>
+                <ul className="space-y-4">
+                  {country.localTips.map((tip, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--brand-primary)] text-white flex items-center justify-center text-xs font-bold">
+                        {idx + 1}
+                      </div>
+                      <span className="text-[var(--brand-gray)]">{tip}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </m.div>
+          </div>
+
+          {/* Compliance Notes */}
+          <m.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mt-8 bg-amber-50 rounded-2xl p-8 border border-amber-200"
+          >
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center flex-shrink-0">
+                <AlertCircle className="w-6 h-6 text-amber-600" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-[var(--brand-dark)] mb-2">
+                  Compliance Notes
+                </h3>
+                <p className="text-[var(--brand-gray)] leading-relaxed">
+                  {country.complianceNotes}
+                </p>
+              </div>
+            </div>
+          </m.div>
         </Container>
       </section>
 

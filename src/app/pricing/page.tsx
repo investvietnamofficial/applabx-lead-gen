@@ -10,6 +10,7 @@ export const metadata: Metadata = generateMetadata({
   title: 'Pricing',
   description:
     'Transparent pricing for every stage of growth. No hidden fees. No long-term lock-ins. Just results.',
+  path: '/pricing',
 })
 
 // FAQ data
