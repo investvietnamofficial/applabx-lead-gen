@@ -160,10 +160,13 @@ applabx-lead-gen/
 ├── public/
 │   ├── _headers           ← Cloudflare security + cache headers
 │   ├── favicon.svg
-│   └── og-default.svg     ← Static OG image
+│   ├── og-default.svg    ← Static OG image
+│   ├── sitemap.xml        ← Static sitemap (generated at build time)
+│   └── robots.txt        ← Static robots file
 ├── functions/
 │   └── api/
-│       └── contact.ts     ← Cloudflare Pages Function: POST /api/contact
+│       ├── contact.ts    ← Cloudflare Pages Function: POST /api/contact
+│       └── newsletter.ts  ← Cloudflare Pages Function: POST /api/newsletter
 ├── src/
 │   ├── app/
 │   │   ├── page.tsx      ← Homepage (15 sections)
@@ -175,8 +178,6 @@ applabx-lead-gen/
 │   │   ├── pricing/
 │   │   ├── resources/
 │   │   ├── services/     ← 10 service pages
-│   │   ├── sitemap.ts
-│   │   ├── robots.ts
 │   │   ├── loading.tsx
 │   │   ├── error.tsx
 │   │   └── not-found.tsx
