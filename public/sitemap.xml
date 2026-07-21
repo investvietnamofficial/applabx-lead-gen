@@ -201,6 +201,66 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lead-gen-agency.applabx.com/compare/apollo-vs-zoominfo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lead-gen-agency.applabx.com/compare/clay-vs-apollo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lead-gen-agency.applabx.com/compare/cold-email-vs-linkedin</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lead-gen-agency.applabx.com/compare/inbound-vs-outbound</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lead-gen-agency.applabx.com/compare/abm-vs-traditional-b2b</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lead-gen-agency.applabx.com/compare/linkedin-vs-email</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lead-gen-agency.applabx.com/statistics/lead-generation</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lead-gen-agency.applabx.com/statistics/cold-email</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lead-gen-agency.applabx.com/statistics/b2b-marketing</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lead-gen-agency.applabx.com/tools/roi-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://lead-gen-agency.applabx.com/tools/cac-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://lead-gen-agency.applabx.com/tools/icp-generator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://lead-gen-agency.applabx.com/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
@@ -21,7 +21,7 @@ export function CTAFinalSection() {
       </div>
 
       <Container className="relative z-10">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -71,7 +71,7 @@ export function CTAFinalSection() {
           <p className="mt-8 text-sm text-white/60">
             100% free consultation. No commitment required.
           </p>
-        </motion.div>
+        </m.div>
       </Container>
     </section>
   )

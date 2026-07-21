@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import * as Accordion from '@radix-ui/react-accordion'
 import { Container } from '@/components/ui/Container'
 import { SectionHeading } from '@/components/ui/SectionHeading'
@@ -61,7 +61,7 @@ export function FAQSection() {
             className="space-y-4"
           >
             {faqs.map((faq, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -86,7 +86,7 @@ export function FAQSection() {
                     </div>
                   </Accordion.Content>
                 </Accordion.Item>
-              </motion.div>
+              </m.div>
             ))}
           </Accordion.Root>
         </div>

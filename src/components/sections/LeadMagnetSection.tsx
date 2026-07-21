@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { useState } from 'react'
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
@@ -29,7 +29,7 @@ export function LeadMagnetSection() {
       <Container className="relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Content */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -60,10 +60,10 @@ export function LeadMagnetSection() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </m.div>
 
           {/* Right Column - Form */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -121,7 +121,7 @@ export function LeadMagnetSection() {
 
             {/* Decorative element */}
             <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-[var(--brand-accent)]/20 rounded-full blur-2xl" />
-          </motion.div>
+          </m.div>
         </div>
       </Container>
     </section>

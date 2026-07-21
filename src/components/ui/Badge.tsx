@@ -12,6 +12,7 @@ const badgeVariants = cva(
         outline: 'border border-[var(--border)] text-[var(--brand-gray)] bg-white',
         secondary: 'bg-[var(--brand-light-secondary)] text-[var(--brand-gray)]',
         primary: 'bg-[var(--brand-primary)]/10 text-[var(--brand-primary)]',
+        accent: 'bg-[var(--brand-accent)]/20 text-[var(--brand-accent)]',
       },
     },
     defaultVariants: {

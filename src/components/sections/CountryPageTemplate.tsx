@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import Link from 'next/link'
 import * as Accordion from '@radix-ui/react-accordion'
 import { Container } from '@/components/ui/Container'
@@ -298,7 +298,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
         <Container className="relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             {/* Eyebrow */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -308,38 +308,38 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                   Countries
                 </Badge>
               </Link>
-            </motion.div>
+            </m.div>
 
             {/* Flag + H1 */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               className="mb-6"
             >
               <span className="text-8xl block mb-4">{country.flag}</span>
-            </motion.div>
+            </m.div>
 
-            <motion.h1
+            <m.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="heading-1 text-[var(--brand-dark)] mb-4"
             >
               B2B Lead Generation in {country.name}
-            </motion.h1>
+            </m.h1>
 
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               className="text-xl text-[var(--brand-gray)] mb-6 max-w-2xl mx-auto leading-relaxed"
             >
               Strategy, Channels &amp; Results
-            </motion.p>
+            </m.p>
 
             {/* Short intro */}
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.35 }}
@@ -347,10 +347,10 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
             >
               {country.description} We combine deep local market expertise with AI-powered
               multi-channel outreach to connect you with the right decision-makers.
-            </motion.p>
+            </m.p>
 
             {/* CTAs */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -368,10 +368,10 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                   <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
-            </motion.div>
+            </m.div>
 
             {/* Trust bar */}
-            <motion.p
+            <m.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
@@ -380,7 +380,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
               <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
               {/* ⚠️ PLACEHOLDER: Replace with actual client count */}
               <span>Trusted by <strong>50+</strong> businesses across {country.name}</span>
-            </motion.p>
+            </m.p>
           </div>
         </Container>
       </section>
@@ -398,7 +398,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
 
           <div className="grid lg:grid-cols-5 gap-12 mt-12">
             {/* Long-form market text */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -430,10 +430,10 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                   ))}
                 </ul>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Key stats sidebar */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -469,7 +469,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </Container>
       </section>
@@ -487,7 +487,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
 
           <div className="grid lg:grid-cols-2 gap-12 mt-12">
             {/* Left: description */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -504,10 +504,10 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                 </div>
                 <p className="text-[var(--brand-gray)] leading-relaxed">{country.buyerBehavior}</p>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Right: decision process + stakeholders */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -570,7 +570,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </Container>
       </section>
@@ -588,7 +588,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
             {channelCards.map((card, idx) => (
-              <motion.div
+              <m.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -606,7 +606,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                 <p className="text-xs text-[var(--brand-primary)] font-medium bg-[var(--brand-primary)]/5 px-3 py-2 rounded-lg">
                   ✦ {card.tactic}
                 </p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </Container>
@@ -636,7 +636,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                   { step: '04', title: 'Launch & Qualify', desc: 'Execute outreach across chosen channels with real-time engagement tracking.' },
                   { step: '05', title: 'CRM & Pipeline', desc: 'Deliver qualified leads directly to your CRM with full engagement history.' },
                 ].map((item, idx) => (
-                  <motion.div
+                  <m.div
                     key={idx}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -649,7 +649,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                     </div>
                     <h4 className="text-sm font-semibold text-[var(--brand-dark)] mb-2">{item.title}</h4>
                     <p className="text-xs text-[var(--brand-gray)] leading-snug">{item.desc}</p>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
             </div>
@@ -678,7 +678,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                   description: `Our AI sequences adapt to ${country.name} market conditions — choosing the right channel mix, timing, and personalization level for maximum response rates.`,
                 },
               ].map((item, idx) => (
-                <motion.div
+                <m.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -691,7 +691,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                   </div>
                   <h4 className="text-base font-semibold text-[var(--brand-dark)] mb-2">{item.title}</h4>
                   <p className="text-sm text-[var(--brand-gray)] leading-relaxed">{item.description}</p>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -712,7 +712,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
           <div className="max-w-3xl mx-auto mt-12">
             <Accordion.Root type="single" collapsible className="space-y-4">
               {allFaqs.map((faq, idx) => (
-                <motion.div
+                <m.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -737,7 +737,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                       </div>
                     </Accordion.Content>
                   </Accordion.Item>
-                </motion.div>
+                </m.div>
               ))}
             </Accordion.Root>
           </div>
@@ -812,7 +812,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
         </div>
 
         <Container className="relative z-10">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -843,7 +843,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
             <p className="mt-8 text-sm text-white/60">
               100% free consultation. No commitment required. Response within 24 hours.
             </p>
-          </motion.div>
+          </m.div>
         </Container>
       </section>
     </>

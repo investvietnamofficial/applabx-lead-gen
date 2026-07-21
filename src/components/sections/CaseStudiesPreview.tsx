@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, type Variants } from 'framer-motion'
+import { m, type Variants } from 'framer-motion'
 import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { SectionHeading } from '@/components/ui/SectionHeading'
@@ -60,7 +60,7 @@ const itemVariants: Variants = {
 
 function CaseStudyCard({ cs, index }: { cs: CaseStudy; index: number }) {
   return (
-    <motion.div
+    <m.div
       variants={itemVariants}
       className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors"
     >
@@ -96,7 +96,7 @@ function CaseStudyCard({ cs, index }: { cs: CaseStudy; index: number }) {
           ))}
         </div>
       </div>
-    </motion.div>
+    </m.div>
   )
 }
 
@@ -119,7 +119,7 @@ export function CaseStudiesPreview() {
           className="[&>h2]:text-white [&>p]:text-[var(--brand-gray-light)]"
         />
 
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -129,7 +129,7 @@ export function CaseStudiesPreview() {
           {realCaseStudies.slice(0, 3).map((cs, i) => (
             <CaseStudyCard key={cs.clientName} cs={cs} index={i} />
           ))}
-        </motion.div>
+        </m.div>
 
         <div className="mt-12 text-center">
           <Link href="/case-studies">

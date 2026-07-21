@@ -1,61 +1,41 @@
 import { Hero } from '@/components/sections/Hero'
 import { TrustBar } from '@/components/sections/TrustBar'
-import { ProblemsSection } from '@/components/sections/ProblemsSection'
 import { ServicesPreview } from '@/components/sections/ServicesPreview'
-import { AIPipelineSection } from '@/components/sections/AIPipelineSection'
-import { IndustriesPreview } from '@/components/sections/IndustriesPreview'
-import { CountriesPreview } from '@/components/sections/CountriesPreview'
+import { ResultsSection } from '@/components/sections/ResultsSection'
 import { ProcessSection } from '@/components/sections/ProcessSection'
+import { IndustriesPreview } from '@/components/sections/IndustriesPreview'
 import { CaseStudiesPreview } from '@/components/sections/CaseStudiesPreview'
-import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
-import { IntegrationsSection } from '@/components/sections/IntegrationsSection'
 import { FAQSection } from '@/components/sections/FAQSection'
-import { LeadMagnetSection } from '@/components/sections/LeadMagnetSection'
 import { CTAFinalSection } from '@/components/sections/CTAFinalSection'
 
 export default function HomePage() {
   return (
     <main>
-      {/* 1. Hero Section */}
+      {/* 1. Hero — sell the outcome */}
       <Hero />
 
-      {/* 2. Trust Bar - ⚠️ PLACEHOLDER */}
+      {/* 2. Trust — who we serve */}
       <TrustBar />
 
-      {/* 3. Problems Section */}
-      <ProblemsSection />
-
-      {/* 4. Services Preview */}
+      {/* 3. Services — what we do */}
       <ServicesPreview />
 
-      {/* 5. AI Pipeline Section */}
-      <AIPipelineSection />
+      {/* 4. Results — how the pipeline works + outcomes */}
+      <ResultsSection />
 
-      {/* 6. Industries Preview */}
-      <IndustriesPreview />
-
-      {/* 7. Countries Preview */}
-      <CountriesPreview />
-
-      {/* 8. Process Section */}
+      {/* 5. Process — how we work with you */}
       <ProcessSection />
 
-      {/* 9. Case Studies Preview - ⚠️ PLACEHOLDER */}
+      {/* 6. Industries — who we specialize in */}
+      <IndustriesPreview />
+
+      {/* 7. Case Studies — real results (placeholder until real data) */}
       <CaseStudiesPreview />
 
-      {/* 10. Testimonials Section - ⚠️ PLACEHOLDER */}
-      <TestimonialsSection />
-
-      {/* 11. Integrations Section - ⚠️ PLACEHOLDER */}
-      <IntegrationsSection />
-
-      {/* 12. FAQ Section */}
+      {/* 8. FAQ */}
       <FAQSection />
 
-      {/* 13. Lead Magnet Section */}
-      <LeadMagnetSection />
-
-      {/* 14. Final CTA Section */}
+      {/* 9. Final CTA */}
       <CTAFinalSection />
     </main>
   )

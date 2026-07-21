@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, type Variants } from 'framer-motion'
+import { m, type Variants } from 'framer-motion'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { CTA_PRIMARY } from '@/lib/constants'
@@ -67,35 +67,35 @@ export function Hero() {
         <div className="container relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Column - Hero Content */}
-            <motion.div
+            <m.div
               variants={containerVariants}
               initial="hidden"
               animate="visible"
               className="max-w-2xl"
             >
-              <motion.div variants={itemVariants}>
+              <m.div variants={itemVariants}>
                 <Badge variant="primary" className="mb-6">
                   AI-Powered Lead Generation
                 </Badge>
-              </motion.div>
+              </m.div>
 
-              <motion.h1
+              <m.h1
                 variants={itemVariants}
                 className="heading-1 text-[var(--brand-dark)] mb-6 leading-tight"
               >
                 Stop Guessing.{' '}
                 <span className="text-gradient">Start Generating Qualified B2B Leads.</span>
-              </motion.h1>
+              </m.h1>
 
-              <motion.p
+              <m.p
                 variants={itemVariants}
                 className="text-xl text-[var(--brand-gray)] mb-8 leading-relaxed"
               >
                 We combine AI-powered targeting with proven outbound strategies to deliver a
                 consistent pipeline of decision-maker leads — no more cold calls that go nowhere.
-              </motion.p>
+              </m.p>
 
-              <motion.div
+              <m.div
                 variants={itemVariants}
                 className="flex flex-col sm:flex-row gap-4"
               >
@@ -104,10 +104,10 @@ export function Hero() {
                   See How It Works
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
-              </motion.div>
+              </m.div>
 
               {/* Trust Indicators */}
-              <motion.div
+              <m.div
                 variants={itemVariants}
                 className="mt-12 flex flex-wrap items-center gap-6 text-[var(--brand-gray)]"
               >
@@ -120,11 +120,11 @@ export function Hero() {
                     <span className="text-sm font-medium">{indicator.text}</span>
                   </div>
                 ))}
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
 
             {/* Right Column - Pipeline Illustration */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
@@ -134,7 +134,7 @@ export function Hero() {
                 {/* Pipeline Flow */}
                 <div className="flex items-center justify-between gap-2">
                   {pipelineSteps.map((step, index) => (
-                    <motion.div
+                    <m.div
                       key={step.label}
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
@@ -153,7 +153,7 @@ export function Hero() {
                       {/* Connector Arrow */}
                       {index < pipelineSteps.length - 1 && (
                         <div className="absolute top-8 -right-6 w-8 h-0.5 bg-gradient-to-r from-[var(--brand-primary)] to-[var(--brand-accent)]">
-                          <motion.div
+                          <m.div
                             initial={{ scaleX: 0 }}
                             animate={{ scaleX: 1 }}
                             transition={{ duration: 0.3, delay: 0.8 + index * 0.15 }}
@@ -161,23 +161,23 @@ export function Hero() {
                           />
                         </div>
                       )}
-                    </motion.div>
+                    </m.div>
                   ))}
                 </div>
 
                 {/* Floating decorative elements */}
-                <motion.div
+                <m.div
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                   className="absolute -top-4 -right-4 w-20 h-20 rounded-xl bg-[var(--brand-primary)]/10 backdrop-blur-sm"
                 />
-                <motion.div
+                <m.div
                   animate={{ y: [0, 10, 0] }}
                   transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
                   className="absolute -bottom-4 -left-4 w-16 h-16 rounded-xl bg-[var(--brand-accent)]/10 backdrop-blur-sm"
                 />
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -191,7 +191,7 @@ export function Hero() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {/* Verified stats — replace with actual metrics when available */}
             {STATS.map((stat, index) => (
-              <motion.div
+              <m.div
                 key={stat.label}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -203,7 +203,7 @@ export function Hero() {
                 </div>
                 <div className="text-4xl font-bold text-white mb-2">{stat.value}</div>
                 <div className="text-[var(--brand-gray-light)]">{stat.label}</div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>

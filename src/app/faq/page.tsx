@@ -3,6 +3,7 @@ import { Container } from '@/components/ui/Container'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import { faqSchema } from '@/lib/seo-schemas'
 
 export const metadata: Metadata = {
   title: 'Frequently Asked Questions | AppLabx',
@@ -115,8 +116,17 @@ const faqs = [
 ]
 
 export default function FAQPage() {
+  // Build flat FAQ list for schema
+  const allFaqs = faqs.flatMap((cat) => cat.items.map((item) => ({ question: item.q, answer: item.a })))
+  const schema = faqSchema(allFaqs)
+
   return (
-    <main>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <main>
       {/* Hero */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-[var(--brand-light)] to-white relative overflow-hidden">
         <div className="absolute top-20 right-0 w-80 h-80 bg-[var(--brand-primary)]/5 rounded-full blur-3xl" />
@@ -183,6 +193,7 @@ export default function FAQPage() {
           </div>
         </Container>
       </section>
-    </main>
+      </main>
+    </>
   )
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, type Variants } from 'framer-motion'
+import { m, type Variants } from 'framer-motion'
 import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { SectionHeading } from '@/components/ui/SectionHeading'
@@ -55,7 +55,7 @@ export function ServicesPreview() {
           subtitle="Comprehensive solutions to attract, engage, and convert your ideal B2B customers — powered by AI and proven outbound strategies."
         />
 
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -66,7 +66,7 @@ export function ServicesPreview() {
             const IconComponent = iconMap[service.icon] || Target
 
             return (
-              <motion.div key={service.id} variants={itemVariants}>
+              <m.div key={service.id} variants={itemVariants}>
                 <Link
                   href={`/services/${service.slug}`}
                   className="group block p-6 rounded-xl border border-[var(--border)] bg-white hover:border-[var(--brand-primary)] hover:shadow-xl transition-all duration-300 h-full"
@@ -92,13 +92,13 @@ export function ServicesPreview() {
                     <ArrowRight className="w-4 h-4 ml-1" />
                   </div>
                 </Link>
-              </motion.div>
+              </m.div>
             )
           })}
-        </motion.div>
+        </m.div>
 
         {/* View All Link */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -112,7 +112,7 @@ export function ServicesPreview() {
             View All Services
             <ArrowRight className="w-4 h-4" />
           </Link>
-        </motion.div>
+        </m.div>
       </Container>
     </section>
   )

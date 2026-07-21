@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { Container } from '@/components/ui/Container'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Search, Lightbulb, Rocket, Filter, Handshake } from 'lucide-react'
@@ -55,7 +55,7 @@ export function ProcessSection() {
 
           <div className="grid grid-cols-5 gap-8">
             {processSteps.map((step, index) => (
-              <motion.div
+              <m.div
                 key={step.number}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -83,7 +83,7 @@ export function ProcessSection() {
                     {step.description}
                   </p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -96,7 +96,7 @@ export function ProcessSection() {
 
             <div className="space-y-8">
               {processSteps.map((step, index) => (
-                <motion.div
+                <m.div
                   key={step.number}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -128,7 +128,7 @@ export function ProcessSection() {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>

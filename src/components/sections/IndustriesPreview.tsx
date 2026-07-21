@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, type Variants } from 'framer-motion'
+import { m, type Variants } from 'framer-motion'
 import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { SectionHeading } from '@/components/ui/SectionHeading'
@@ -52,7 +52,7 @@ export function IndustriesPreview() {
           subtitle="Deep expertise across B2B sectors — we understand your market, your buyers, and how to reach them."
         />
 
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -63,7 +63,7 @@ export function IndustriesPreview() {
             const IconComponent = iconMap[industry.icon] || Briefcase
 
             return (
-              <motion.div key={industry.id} variants={itemVariants}>
+              <m.div key={industry.id} variants={itemVariants}>
                 <Link
                   href={`/industries/${industry.slug}`}
                   className="group block p-5 rounded-xl border border-[var(--border)] hover:border-[var(--brand-primary)] hover:shadow-lg text-center transition-all duration-300 bg-white"
@@ -78,13 +78,13 @@ export function IndustriesPreview() {
                     {industry.title}
                   </h3>
                 </Link>
-              </motion.div>
+              </m.div>
             )
           })}
-        </motion.div>
+        </m.div>
 
         {/* View All Link */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -98,7 +98,7 @@ export function IndustriesPreview() {
             View All Industries
             <ArrowRight className="w-4 h-4" />
           </Link>
-        </motion.div>
+        </m.div>
       </Container>
     </section>
   )

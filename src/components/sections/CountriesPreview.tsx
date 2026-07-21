@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, type Variants } from 'framer-motion'
+import { m, type Variants } from 'framer-motion'
 import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { SectionHeading } from '@/components/ui/SectionHeading'
@@ -39,7 +39,7 @@ export function CountriesPreview() {
           subtitle="10+ Countries. 1 Consistent Pipeline. Local expertise with global scale."
         />
 
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -47,7 +47,7 @@ export function CountriesPreview() {
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
         >
           {countries.map((country) => (
-            <motion.div key={country.id} variants={itemVariants}>
+            <m.div key={country.id} variants={itemVariants}>
               <Link
                 href={`/countries/${country.slug}`}
                 className="group block p-5 rounded-xl border border-[var(--border)] hover:border-[var(--brand-primary)] hover:shadow-lg bg-white transition-all duration-300 h-full"
@@ -67,12 +67,12 @@ export function CountriesPreview() {
                   {country.description}
                 </p>
               </Link>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
 
         {/* View All Link */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -86,7 +86,7 @@ export function CountriesPreview() {
             View All Countries
             <ArrowRight className="w-4 h-4" />
           </Link>
-        </motion.div>
+        </m.div>
       </Container>
     </section>
   )

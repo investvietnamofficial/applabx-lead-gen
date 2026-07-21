@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, type Variants } from 'framer-motion'
+import { m, type Variants } from 'framer-motion'
 import { Container } from '@/components/ui/Container'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Link2, CheckCircle } from 'lucide-react'
@@ -52,7 +52,7 @@ export function IntegrationsSection() {
         {SHOW_PLACEHOLDER ? (
           <>
             {/* Clean category-based placeholder — no fake logos */}
-            <motion.div
+            <m.div
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
@@ -60,7 +60,7 @@ export function IntegrationsSection() {
               className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
               {integrationCategories.map((cat) => (
-                <motion.div
+                <m.div
                   key={cat.category}
                   variants={itemVariants}
                   className="p-5 rounded-xl border border-[var(--border)] hover:border-[var(--brand-primary)] hover:shadow-md transition-all"
@@ -76,9 +76,9 @@ export function IntegrationsSection() {
                       </div>
                     ))}
                   </div>
-                </motion.div>
+                </m.div>
               ))}
-            </motion.div>
+            </m.div>
 
             <p className="mt-8 text-center text-[var(--brand-gray)] text-sm">
               Plus 50+ more integrations available via Zapier, native APIs, and webhooks.

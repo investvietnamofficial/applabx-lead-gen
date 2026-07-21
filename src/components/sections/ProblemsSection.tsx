@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, type Variants } from 'framer-motion'
+import { m, type Variants } from 'framer-motion'
 import { Container } from '@/components/ui/Container'
 import { AlertTriangle, MessageSquareX, Target, TrendingDown } from 'lucide-react'
 
@@ -48,7 +48,7 @@ export function ProblemsSection() {
   return (
     <section className="section-padding bg-white">
       <Container>
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -61,9 +61,9 @@ export function ProblemsSection() {
           <h2 className="heading-2 text-[var(--brand-dark)]">
             The Lead Generation Problem Is Real
           </h2>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -71,7 +71,7 @@ export function ProblemsSection() {
           className="grid md:grid-cols-3 gap-8"
         >
           {problems.map((problem) => (
-            <motion.div
+            <m.div
               key={problem.title}
               variants={itemVariants}
               className="relative p-8 rounded-2xl border-2 border-red-100 bg-red-50/50 hover:bg-red-50 transition-colors group"
@@ -93,12 +93,12 @@ export function ProblemsSection() {
               <p className="text-[var(--brand-gray)] leading-relaxed">
                 {problem.description}
               </p>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
 
         {/* Solution teaser */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -108,7 +108,7 @@ export function ProblemsSection() {
           <p className="text-2xl font-semibold text-[var(--brand-dark)]">
             AppLabx solves all three.
           </p>
-        </motion.div>
+        </m.div>
       </Container>
     </section>
   )
