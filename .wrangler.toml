@@ -1,0 +1,5 @@
+name = "applabx-lead-gen"
+compatibility_date = "2024-01-01"
+
+# Cloudflare Pages uses wrangler.toml for configuration
+# See deploy-config/cloudflare-pages.ts for full deployment documentation
