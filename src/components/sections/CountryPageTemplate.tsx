@@ -1,6 +1,6 @@
 'use client'
 
-import { m } from 'framer-motion'
+// framer-motion removed — replaced with CSS animations
 import Link from 'next/link'
 import * as Accordion from '@radix-ui/react-accordion'
 import { Container } from '@/components/ui/Container'
@@ -301,64 +301,35 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
         <Container className="relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             {/* Eyebrow */}
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
+            <div className="opacity-0 animate-fade-in-up" style={{ animationDelay: '0ms', animationFillMode: 'forwards' }}>
               <Link href="/countries">
                 <Badge variant="primary" className="mb-6 cursor-pointer hover:bg-[var(--brand-primary)]/20">
                   Countries
                 </Badge>
               </Link>
-            </m.div>
+            </div>
 
             {/* Flag + H1 */}
-            <m.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="mb-6"
-            >
+            <div className="mb-6 opacity-0 animate-fade-in-up" style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
               <span className="text-8xl block mb-4">{country.flag}</span>
-            </m.div>
+            </div>
 
-            <m.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="heading-1 text-[var(--brand-dark)] mb-4"
-            >
+            <h1 className="heading-1 text-[var(--brand-dark)] mb-4 opacity-0 animate-fade-in-up" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
               B2B Lead Generation in {country.name}
-            </m.h1>
+            </h1>
 
-            <m.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-xl text-[var(--brand-gray)] mb-6 max-w-2xl mx-auto leading-relaxed"
-            >
+            <p className="text-xl text-[var(--brand-gray)] mb-6 max-w-2xl mx-auto leading-relaxed opacity-0 animate-fade-in-up" style={{ animationDelay: '300ms', animationFillMode: 'forwards' }}>
               Strategy, Channels &amp; Results
-            </m.p>
+            </p>
 
             {/* Short intro */}
-            <m.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.35 }}
-              className="text-lg text-[var(--brand-gray)] mb-10 max-w-3xl mx-auto leading-relaxed"
-            >
+            <p className="text-lg text-[var(--brand-gray)] mb-10 max-w-3xl mx-auto leading-relaxed opacity-0 animate-fade-in-up" style={{ animationDelay: '350ms', animationFillMode: 'forwards' }}>
               {country.description} We combine deep local market expertise with AI-powered
               multi-channel outreach to connect you with the right decision-makers.
-            </m.p>
+            </p>
 
             {/* CTAs */}
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
+            <div className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-in-up" style={{ animationDelay: '400ms', animationFillMode: 'forwards' }}>
               <Link href="/contact">
                 <Button size="xl">
                   <Calendar className="w-5 h-5" />
@@ -371,19 +342,14 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                   <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
-            </m.div>
+            </div>
 
             {/* Trust bar */}
-            <m.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="mt-8 text-sm text-[var(--brand-gray-light)] flex items-center justify-center gap-2"
-            >
+            <p className="mt-8 text-sm text-[var(--brand-gray-light)] flex items-center justify-center gap-2 opacity-0 animate-fade-in" style={{ animationDelay: '500ms', animationFillMode: 'forwards' }}>
               <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
               {/* ⚠️ PLACEHOLDER: Replace with actual client count */}
               <span>Trusted by <strong>50+</strong> businesses across {country.name}</span>
-            </m.p>
+            </p>
           </div>
         </Container>
       </section>
@@ -401,11 +367,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
 
           <div className="grid lg:grid-cols-5 gap-12 mt-12">
             {/* Long-form market text */}
-            <m.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+            <div
               className="lg:col-span-3"
             >
               <div className="prose prose-lg max-w-none">
@@ -433,14 +395,10 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                   ))}
                 </ul>
               </div>
-            </m.div>
+            </div>
 
             {/* Key stats sidebar */}
-            <m.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+            <div
               className="lg:col-span-2"
             >
               <div className="bg-[var(--brand-light)] rounded-2xl p-8 space-y-6">
@@ -472,7 +430,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                   </p>
                 </div>
               </div>
-            </m.div>
+            </div>
           </div>
         </Container>
       </section>
@@ -490,11 +448,8 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
 
           <div className="grid lg:grid-cols-2 gap-12 mt-12">
             {/* Left: description */}
-            <m.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+            <div
+
             >
               <div className="bg-white rounded-2xl p-8 border border-[var(--border)]">
                 <div className="flex items-center gap-3 mb-6">
@@ -507,14 +462,11 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                 </div>
                 <p className="text-[var(--brand-gray)] leading-relaxed">{country.buyerBehavior}</p>
               </div>
-            </m.div>
+            </div>
 
             {/* Right: decision process + stakeholders */}
-            <m.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+            <div
+
               className="space-y-6"
             >
               {/* Decision-making process */}
@@ -573,7 +525,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                   ))}
                 </div>
               </div>
-            </m.div>
+            </div>
           </div>
         </Container>
       </section>
@@ -591,12 +543,9 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
             {channelCards.map((card, idx) => (
-              <m.div
+              <div
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.05 }}
+
                 className="group p-6 rounded-xl border border-[var(--border)] hover:border-[var(--brand-primary)]/30 hover:shadow-lg transition-all bg-white"
               >
                 <div className="flex items-center gap-3 mb-4">
@@ -609,7 +558,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                 <p className="text-xs text-[var(--brand-primary)] font-medium bg-[var(--brand-primary)]/5 px-3 py-2 rounded-lg">
                   ✦ {card.tactic}
                 </p>
-              </m.div>
+              </div>
             ))}
           </div>
         </Container>
@@ -639,12 +588,8 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                   { step: '04', title: 'Launch & Qualify', desc: 'Execute outreach across chosen channels with real-time engagement tracking.' },
                   { step: '05', title: 'CRM & Pipeline', desc: 'Deliver qualified leads directly to your CRM with full engagement history.' },
                 ].map((item, idx) => (
-                  <m.div
+                  <div
                     key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: idx * 0.1 }}
                     className="relative text-center"
                   >
                     <div className="relative z-10 w-10 h-10 rounded-full bg-[var(--brand-primary)] text-white flex items-center justify-center text-sm font-bold mx-auto mb-4">
@@ -652,7 +597,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                     </div>
                     <h4 className="text-sm font-semibold text-[var(--brand-dark)] mb-2">{item.title}</h4>
                     <p className="text-xs text-[var(--brand-gray)] leading-snug">{item.desc}</p>
-                  </m.div>
+                  </div>
                 ))}
               </div>
             </div>
@@ -681,12 +626,9 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                   description: `Our AI sequences adapt to ${country.name} market conditions — choosing the right channel mix, timing, and personalization level for maximum response rates.`,
                 },
               ].map((item, idx) => (
-                <m.div
+                <div
                   key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+
                   className="p-6 rounded-xl border border-[var(--border)] bg-white hover:shadow-lg transition-all"
                 >
                   <div className="w-12 h-12 rounded-xl bg-[var(--brand-accent)]/10 flex items-center justify-center mb-4">
@@ -694,7 +636,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                   </div>
                   <h4 className="text-base font-semibold text-[var(--brand-dark)] mb-2">{item.title}</h4>
                   <p className="text-sm text-[var(--brand-gray)] leading-relaxed">{item.description}</p>
-                </m.div>
+                </div>
               ))}
             </div>
           </div>
@@ -713,11 +655,8 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
           />
 
           <div className="grid lg:grid-cols-2 gap-12 mt-12">
-            <m.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+            <div
+
             >
               <div className="bg-[var(--brand-light)] rounded-2xl p-8 h-full">
                 <div className="flex items-center gap-3 mb-6">
@@ -734,13 +673,10 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                   </p>
                 </div>
               </div>
-            </m.div>
+            </div>
 
-            <m.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+            <div
+
               className="space-y-6"
             >
               <div className="bg-white rounded-2xl p-8 border border-[var(--border)]">
@@ -784,16 +720,11 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                   {country.avgSalesCycle}
                 </p>
               </div>
-            </m.div>
+            </div>
           </div>
 
           {/* Language Notes */}
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mt-12 bg-gradient-to-r from-[var(--brand-light)] to-transparent rounded-2xl p-8"
+          <div className="mt-12 bg-gradient-to-r from-[var(--brand-light)] to-transparent rounded-2xl p-8"
           >
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-xl bg-[var(--brand-primary)]/10 flex items-center justify-center flex-shrink-0">
@@ -808,7 +739,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                 </p>
               </div>
             </div>
-          </m.div>
+          </div>
         </Container>
       </section>
 
@@ -824,11 +755,8 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
           />
 
           <div className="grid lg:grid-cols-3 gap-8 mt-12">
-            <m.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+            <div
+
               className="lg:col-span-2"
             >
               <div className="bg-white rounded-2xl p-8 border border-[var(--border)] h-full">
@@ -846,13 +774,10 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                   </p>
                 </div>
               </div>
-            </m.div>
+            </div>
 
-            <m.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+            <div
+
               className="space-y-6"
             >
               <div className="bg-white rounded-2xl p-6 border border-[var(--border)]">
@@ -877,7 +802,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                   ))}
                 </ul>
               </div>
-            </m.div>
+            </div>
           </div>
         </Container>
       </section>
@@ -894,11 +819,8 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
           />
 
           <div className="grid lg:grid-cols-2 gap-8 mt-12">
-            <m.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+            <div
+
             >
               <div className="bg-gradient-to-br from-[var(--brand-light)] to-white rounded-2xl p-8 h-full border border-[var(--border)]">
                 <div className="flex items-center gap-3 mb-6">
@@ -915,13 +837,10 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                   </p>
                 </div>
               </div>
-            </m.div>
+            </div>
 
-            <m.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+            <div
+
             >
               <div className="bg-gradient-to-br from-[var(--brand-light)] to-white rounded-2xl p-8 h-full border border-[var(--border)]">
                 <div className="flex items-center gap-3 mb-6">
@@ -938,7 +857,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                   </p>
                 </div>
               </div>
-            </m.div>
+            </div>
           </div>
         </Container>
       </section>
@@ -956,11 +875,8 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
 
           <div className="grid lg:grid-cols-2 gap-8 mt-12">
             {/* Common Mistakes */}
-            <m.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+            <div
+
             >
               <div className="bg-white rounded-2xl p-8 border border-[var(--border)] h-full">
                 <div className="flex items-center gap-3 mb-6">
@@ -980,14 +896,11 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                   ))}
                 </ul>
               </div>
-            </m.div>
+            </div>
 
             {/* Local Tips */}
-            <m.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+            <div
+
             >
               <div className="bg-white rounded-2xl p-8 border border-[var(--border)] h-full">
                 <div className="flex items-center gap-3 mb-6">
@@ -1009,16 +922,11 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                   ))}
                 </ul>
               </div>
-            </m.div>
+            </div>
           </div>
 
           {/* Compliance Notes */}
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mt-8 bg-amber-50 rounded-2xl p-8 border border-amber-200"
+          <div className="mt-8 bg-amber-50 rounded-2xl p-8 border border-amber-200"
           >
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center flex-shrink-0">
@@ -1033,7 +941,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                 </p>
               </div>
             </div>
-          </m.div>
+          </div>
         </Container>
       </section>
 
@@ -1051,12 +959,9 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
           <div className="max-w-3xl mx-auto mt-12">
             <Accordion.Root type="single" collapsible className="space-y-4">
               {allFaqs.map((faq, idx) => (
-                <m.div
+                <div
                   key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.05 }}
+
                 >
                   <Accordion.Item
                     value={`faq-${idx}`}
@@ -1076,7 +981,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
                       </div>
                     </Accordion.Content>
                   </Accordion.Item>
-                </m.div>
+                </div>
               ))}
             </Accordion.Root>
           </div>
@@ -1151,12 +1056,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
         </div>
 
         <Container className="relative z-10">
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center"
+          <div className="max-w-4xl mx-auto text-center"
           >
             {/* Flag */}
             <p className="text-5xl mb-6">{country.flag}</p>
@@ -1182,7 +1082,7 @@ export default function CountryPageTemplate({ country }: CountryPageTemplateProp
             <p className="mt-8 text-sm text-white/60">
               100% free consultation. No commitment required. Response within 24 hours.
             </p>
-          </m.div>
+          </div>
         </Container>
       </section>
     </>

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+// framer-motion removed — motion.div replaced with regular div
 import Link from 'next/link'
 import ToolPageTemplate from '@/components/sections/ToolPageTemplate'
 import { Button } from '@/components/ui/Button'
@@ -227,11 +227,9 @@ export default function ICPGeneratorPage() {
             <span className="text-sm text-[var(--brand-gray)]">{completedFields}/{totalFields} sections</span>
           </div>
           <div className="h-2 bg-[var(--brand-light)] rounded-full overflow-hidden">
-            <motion.div
+            <div
               className="h-full bg-[var(--brand-primary)] rounded-full"
-              initial={{ width: 0 }}
-              animate={{ width: `${progressPercent}%` }}
-              transition={{ duration: 0.3 }}
+              style={{ width: `${progressPercent}%` }}
             />
           </div>
         </div>
@@ -410,9 +408,7 @@ export default function ICPGeneratorPage() {
 
         {/* ICP Summary */}
         {completedFields > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+          <div
             className="bg-gradient-to-br from-[var(--brand-primary)] to-[var(--brand-primary-dark)] rounded-2xl p-8 text-white"
           >
             <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
@@ -422,16 +418,13 @@ export default function ICPGeneratorPage() {
 
             <div className="space-y-4">
               {getFormattedICP().map((section, index) => (
-                <motion.div
+                <div
                   key={section.title}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
                   className="bg-white/10 rounded-lg p-4"
                 >
                   <div className="text-sm text-white/60 mb-1">{section.title}</div>
                   <div className="font-medium">{section.content}</div>
-                </motion.div>
+                </div>
               ))}
 
               {getFormattedICP().length === 0 && (
@@ -454,7 +447,7 @@ export default function ICPGeneratorPage() {
                 </Link>
               </div>
             )}
-          </motion.div>
+          </div>
         )}
 
         {/* Call to Action */}

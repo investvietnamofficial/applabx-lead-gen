@@ -1,6 +1,5 @@
 'use client'
 
-import { m } from 'framer-motion'
 import { useState } from 'react'
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
@@ -29,12 +28,7 @@ export function LeadMagnetSection() {
       <Container className="relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Content */}
-          <m.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <div>
             <span className="inline-block mb-4 text-sm font-semibold uppercase tracking-wider text-[var(--brand-accent)]">
               Free Audit
             </span>
@@ -60,15 +54,10 @@ export function LeadMagnetSection() {
                 </li>
               ))}
             </ul>
-          </m.div>
+          </div>
 
           {/* Right Column - Form */}
-          <m.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
+          <div>
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
               {!isSubmitted ? (
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -121,7 +110,7 @@ export function LeadMagnetSection() {
 
             {/* Decorative element */}
             <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-[var(--brand-accent)]/20 rounded-full blur-2xl" />
-          </m.div>
+          </div>
         </div>
       </Container>
     </section>

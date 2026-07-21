@@ -1,6 +1,5 @@
 'use client'
 
-import { m } from 'framer-motion'
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
 import { CheckCircle, ArrowRight, Search, Sparkles, Filter, Send, Database, BarChart3, Brain } from 'lucide-react'
@@ -59,13 +58,7 @@ export function AIPipelineSection() {
 
       <Container className="relative z-10">
         {/* Section Header */}
-        <m.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <span className="inline-block mb-4 text-sm font-semibold uppercase tracking-wider text-[var(--brand-accent)]">
             How We Work
           </span>
@@ -75,7 +68,7 @@ export function AIPipelineSection() {
           <p className="text-lg text-[var(--brand-gray-light)] max-w-2xl mx-auto">
             A fully automated lead generation system that handles everything from prospect discovery to booked meetings.
           </p>
-        </m.div>
+        </div>
 
         {/* Pipeline Steps */}
         <div className="relative">
@@ -83,12 +76,8 @@ export function AIPipelineSection() {
           <div className="hidden lg:block">
             <div className="flex items-start justify-between gap-4">
               {pipelineSteps.map((step, index) => (
-                <m.div
+                <div
                   key={step.number}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="relative flex-1 max-w-[160px]"
                 >
                   {/* Connector Line */}
@@ -124,7 +113,7 @@ export function AIPipelineSection() {
                       <span className="text-xs">Complete</span>
                     </div>
                   </div>
-                </m.div>
+                </div>
               ))}
             </div>
           </div>
@@ -133,12 +122,8 @@ export function AIPipelineSection() {
           <div className="lg:hidden space-y-4">
             <div className="flex flex-col gap-4">
               {pipelineSteps.map((step, index) => (
-                <m.div
+                <div
                   key={step.number}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="flex gap-4"
                 >
                   {/* Number */}
@@ -169,25 +154,19 @@ export function AIPipelineSection() {
                       <CheckCircle className="w-5 h-5 text-[var(--brand-accent)] flex-shrink-0 mt-1" />
                     </div>
                   </div>
-                </m.div>
+                </div>
               ))}
             </div>
           </div>
         </div>
 
         {/* CTA */}
-        <m.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-16 text-center"
-        >
+        <div className="mt-16 text-center">
           <Button variant="primary" size="lg">
             See the Full Pipeline
             <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
-        </m.div>
+        </div>
       </Container>
     </section>
   )

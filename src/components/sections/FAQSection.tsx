@@ -1,6 +1,5 @@
 'use client'
 
-import { m } from 'framer-motion'
 import * as Accordion from '@radix-ui/react-accordion'
 import { Container } from '@/components/ui/Container'
 import { SectionHeading } from '@/components/ui/SectionHeading'
@@ -61,32 +60,25 @@ export function FAQSection() {
             className="space-y-4"
           >
             {faqs.map((faq, index) => (
-              <m.div
+              <Accordion.Item
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
+                value={`item-${index}`}
+                className="bg-white rounded-xl border border-[var(--border)] overflow-hidden"
               >
-                <Accordion.Item
-                  value={`item-${index}`}
-                  className="bg-white rounded-xl border border-[var(--border)] overflow-hidden"
-                >
-                  <Accordion.Header>
-                    <Accordion.Trigger className="group flex w-full items-center justify-between p-6 text-left hover:bg-[var(--brand-light)] transition-colors">
-                      <span className="font-semibold text-[var(--brand-dark)] pr-4">
-                        {faq.question}
-                      </span>
-                      <ChevronDown className="w-5 h-5 text-[var(--brand-gray)] group-data-[state=open]:rotate-180 transition-transform flex-shrink-0" />
-                    </Accordion.Trigger>
-                  </Accordion.Header>
-                  <Accordion.Content className="overflow-hidden data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp">
-                    <div className="px-6 pb-6 text-[var(--brand-gray)] leading-relaxed">
-                      {faq.answer}
-                    </div>
-                  </Accordion.Content>
-                </Accordion.Item>
-              </m.div>
+                <Accordion.Header>
+                  <Accordion.Trigger className="group flex w-full items-center justify-between p-6 text-left hover:bg-[var(--brand-light)] transition-colors">
+                    <span className="font-semibold text-[var(--brand-dark)] pr-4">
+                      {faq.question}
+                    </span>
+                    <ChevronDown className="w-5 h-5 text-[var(--brand-gray)] group-data-[state=open]:rotate-180 transition-transform flex-shrink-0" />
+                  </Accordion.Trigger>
+                </Accordion.Header>
+                <Accordion.Content className="overflow-hidden data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp">
+                  <div className="px-6 pb-6 text-[var(--brand-gray)] leading-relaxed">
+                    {faq.answer}
+                  </div>
+                </Accordion.Content>
+              </Accordion.Item>
             ))}
           </Accordion.Root>
         </div>

@@ -1,6 +1,5 @@
 'use client'
 
-import { m } from 'framer-motion'
 import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
@@ -21,15 +20,9 @@ export function CTAFinalSection() {
       </div>
 
       <Container className="relative z-10">
-        <m.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto text-center"
-        >
+        <div className="max-w-4xl mx-auto text-center">
           {/* Icon */}
-          <div className="w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center mx-auto mb-8">
+          <div className="w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center mx-auto mb-8 opacity-0 animate-fade-in-up" style={{ animationDelay: '0ms', animationFillMode: 'forwards' }}>
             <Calendar className="w-10 h-10 text-white" />
           </div>
 
@@ -71,7 +64,7 @@ export function CTAFinalSection() {
           <p className="mt-8 text-sm text-white/60">
             100% free consultation. No commitment required.
           </p>
-        </m.div>
+        </div>
       </Container>
     </section>
   )

@@ -1,6 +1,5 @@
 'use client'
 
-import { m } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { Container } from '@/components/ui/Container'
 import { SectionHeading } from '@/components/ui/SectionHeading'
@@ -63,11 +62,7 @@ function TestimonialCarousel({ testimonials }: { testimonials: Testimonial[] }) 
 
   return (
     <div className="max-w-4xl mx-auto">
-      <m.div
-        key={currentIndex}
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.4 }}
+      <div
         className="bg-white rounded-2xl shadow-xl p-8 md:p-12 relative"
       >
         {/* Quote Icon */}
@@ -124,7 +119,7 @@ function TestimonialCarousel({ testimonials }: { testimonials: Testimonial[] }) 
         >
           <ChevronRight className="w-5 h-5" />
         </button>
-      </m.div>
+      </div>
 
       {/* Dots */}
       <div className="flex items-center justify-center gap-2 mt-8">

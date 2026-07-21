@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import { motion } from 'framer-motion'
+// framer-motion removed — motion.div replaced with regular div
 import Link from 'next/link'
 import { Metadata } from 'next'
 import ToolPageTemplate from '@/components/sections/ToolPageTemplate'
@@ -128,56 +128,36 @@ export default function ROICalculatorPage() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* ROI */}
-            <motion.div
-              key={roi}
-              initial={{ scale: 0.95 }}
-              animate={{ scale: 1 }}
-              className="text-center"
-            >
+            <div key={roi} className="text-center">
               <div className={`text-4xl font-bold mb-1 ${roi >= 0 ? 'text-emerald-300' : 'text-red-300'}`}>
                 {roi >= 0 ? '+' : ''}{roi.toFixed(0)}%
               </div>
               <div className="text-sm text-white/70">ROI</div>
-            </motion.div>
+            </div>
 
             {/* Revenue */}
-            <motion.div
-              key={revenue}
-              initial={{ scale: 0.95 }}
-              animate={{ scale: 1 }}
-              className="text-center"
-            >
+            <div key={revenue} className="text-center">
               <div className="text-4xl font-bold mb-1">
                 ${revenue.toLocaleString()}
               </div>
               <div className="text-sm text-white/70">Monthly Revenue</div>
-            </motion.div>
+            </div>
 
             {/* Closed Deals */}
-            <motion.div
-              key={closedDeals}
-              initial={{ scale: 0.95 }}
-              animate={{ scale: 1 }}
-              className="text-center"
-            >
+            <div key={closedDeals} className="text-center">
               <div className="text-4xl font-bold mb-1">
                 {closedDeals}
               </div>
               <div className="text-sm text-white/70">Closed Deals</div>
-            </motion.div>
+            </div>
 
             {/* Cost Per Lead */}
-            <motion.div
-              key={costPerLead}
-              initial={{ scale: 0.95 }}
-              animate={{ scale: 1 }}
-              className="text-center"
-            >
+            <div key={costPerLead} className="text-center">
               <div className="text-4xl font-bold mb-1">
                 ${costPerLead.toFixed(0)}
               </div>
               <div className="text-sm text-white/70">Cost Per Lead</div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Additional Stats */}

@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { m, AnimatePresence } from 'framer-motion'
 import { Container } from '@/components/ui/Container'
 import { CheckCircle2, Users, Mail, Calendar, TrendingUp, Zap } from 'lucide-react'
 
@@ -34,11 +33,7 @@ function OutcomeMetric({
 }) {
   const count = useCounter(metric.value, 2000, countersStarted)
   return (
-    <m.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+    <div
       className="text-center p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
     >
       <div className="text-3xl lg:text-4xl font-bold text-white mb-1">
@@ -46,7 +41,7 @@ function OutcomeMetric({
       </div>
       <div className="text-sm font-semibold text-[#10B981] mb-2">{metric.label}</div>
       <div className="text-xs text-[#94A3B8]">{metric.description}</div>
-    </m.div>
+    </div>
   )
 }
 
@@ -170,13 +165,7 @@ export function ResultsSection() {
 
       <Container className="relative z-10">
         {/* Section Header */}
-        <m.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <span className="inline-block mb-4 text-sm font-semibold uppercase tracking-wider text-[#10B981]">
             How Results Are Built
           </span>
@@ -186,7 +175,7 @@ export function ResultsSection() {
           <p className="text-lg text-[#94A3B8] max-w-2xl mx-auto">
             Our AI pipeline handles every step — from identifying your ideal prospects to landing a confirmed meeting on your calendar.
           </p>
-        </m.div>
+        </div>
 
         {/* Interactive Pipeline — Desktop */}
         <div className="hidden lg:block mb-20">
@@ -197,14 +186,10 @@ export function ResultsSection() {
                 const isActive = index === activeStage
                 const isPast = index < activeStage
                 return (
-                  <m.div
+                  <div
                     key={stage.id}
                     className="relative flex-1 cursor-pointer"
                     onClick={() => setActiveStage(index)}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.08 }}
                   >
                     {/* Connector line */}
                     {index < pipelineStages.length - 1 && (
@@ -218,23 +203,21 @@ export function ResultsSection() {
 
                     {/* Node */}
                     <div className="relative z-10 flex flex-col items-center">
-                      <m.div
+                      <div
                         className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
                           isActive
-                            ? `${stage.bgColor} shadow-lg shadow-${stage.color}/30 scale-110`
+                            ? `${stage.bgColor} shadow-lg scale-110 animate-pulse`
                             : isPast
                             ? 'bg-[#10B981]'
                             : 'bg-white/10 border border-white/20'
                         }`}
-                        animate={isActive ? { scale: [1, 1.1, 1] } : {}}
-                        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
                       >
                         <stage.icon
                           className={`w-5 h-5 ${
                             isActive || isPast ? 'text-white' : 'text-white/50'
                           }`}
                         />
-                      </m.div>
+                      </div>
 
                       {/* Label */}
                       <div className="mt-3 text-center">
@@ -245,38 +228,31 @@ export function ResultsSection() {
                         </div>
                       </div>
                     </div>
-                  </m.div>
+                  </div>
                 )
               })}
             </div>
 
             {/* Active Stage Detail */}
-            <AnimatePresence mode="wait">
-              <m.div
-                key={activeStage}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
-                className="mt-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6"
-              >
-                <div className="flex items-center gap-4 mb-2">
-                  <div
-                    className="w-3 h-3 rounded-full"
-                    style={{ backgroundColor: pipelineStages[activeStage].color }}
-                  />
-                  <h3 className="text-lg font-semibold text-white">
-                    {pipelineStages[activeStage].label}
-                  </h3>
-                  <span className="text-sm text-[#94A3B8]">
-                    Stage {activeStage + 1} of {pipelineStages.length}
-                  </span>
-                </div>
-                <p className="text-[#94A3B8] text-sm">
-                  {pipelineStages[activeStage].description}
-                </p>
-              </m.div>
-            </AnimatePresence>
+            <div
+              className="mt-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6"
+            >
+              <div className="flex items-center gap-4 mb-2">
+                <div
+                  className="w-3 h-3 rounded-full"
+                  style={{ backgroundColor: pipelineStages[activeStage].color }}
+                />
+                <h3 className="text-lg font-semibold text-white">
+                  {pipelineStages[activeStage].label}
+                </h3>
+                <span className="text-sm text-[#94A3B8]">
+                  Stage {activeStage + 1} of {pipelineStages.length}
+                </span>
+              </div>
+              <p className="text-[#94A3B8] text-sm">
+                {pipelineStages[activeStage].description}
+              </p>
+            </div>
           </div>
         </div>
 

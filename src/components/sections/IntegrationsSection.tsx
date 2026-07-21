@@ -1,6 +1,5 @@
 'use client'
 
-import { m, type Variants } from 'framer-motion'
 import { Container } from '@/components/ui/Container'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Link2, CheckCircle } from 'lucide-react'
@@ -22,23 +21,6 @@ const integrationCategories = [
   { category: 'Automation', tools: ['Zapier', 'Make', 'n8n', 'Pabbly'] },
 ]
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.05 },
-  },
-}
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.4, ease: 'easeOut' as const },
-  },
-}
-
 export function IntegrationsSection() {
   return (
     <section className="section-padding bg-white">
@@ -52,17 +34,10 @@ export function IntegrationsSection() {
         {SHOW_PLACEHOLDER ? (
           <>
             {/* Clean category-based placeholder — no fake logos */}
-            <m.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-            >
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {integrationCategories.map((cat) => (
-                <m.div
+                <div
                   key={cat.category}
-                  variants={itemVariants}
                   className="p-5 rounded-xl border border-[var(--border)] hover:border-[var(--brand-primary)] hover:shadow-md transition-all"
                 >
                   <div className="text-xs uppercase tracking-wider text-[var(--brand-gray)] font-medium mb-3">
@@ -76,9 +51,9 @@ export function IntegrationsSection() {
                       </div>
                     ))}
                   </div>
-                </m.div>
+                </div>
               ))}
-            </m.div>
+            </div>
 
             <p className="mt-8 text-center text-[var(--brand-gray)] text-sm">
               Plus 50+ more integrations available via Zapier, native APIs, and webhooks.

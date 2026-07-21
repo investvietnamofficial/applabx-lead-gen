@@ -1,6 +1,5 @@
 'use client'
 
-import { m, type Variants } from 'framer-motion'
 import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { SectionHeading } from '@/components/ui/SectionHeading'
@@ -41,29 +40,9 @@ const realCaseStudies: CaseStudy[] = [
   // },
 ]
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 },
-  },
-}
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: 'easeOut' as const },
-  },
-}
-
-function CaseStudyCard({ cs, index }: { cs: CaseStudy; index: number }) {
+function CaseStudyCard({ cs }: { cs: CaseStudy }) {
   return (
-    <m.div
-      variants={itemVariants}
-      className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors"
-    >
+    <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
       <div className="mb-6">
         <div className="text-sm text-[var(--brand-accent)] font-medium mb-1">
           {cs.industry} · {cs.country}
@@ -96,7 +75,7 @@ function CaseStudyCard({ cs, index }: { cs: CaseStudy; index: number }) {
           ))}
         </div>
       </div>
-    </m.div>
+    </div>
   )
 }
 
@@ -119,17 +98,11 @@ export function CaseStudiesPreview() {
           className="[&>h2]:text-white [&>p]:text-[var(--brand-gray-light)]"
         />
 
-        <m.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-8"
-        >
-          {realCaseStudies.slice(0, 3).map((cs, i) => (
-            <CaseStudyCard key={cs.clientName} cs={cs} index={i} />
+        <div className="grid md:grid-cols-3 gap-8">
+          {realCaseStudies.slice(0, 3).map((cs) => (
+            <CaseStudyCard key={cs.clientName} cs={cs} />
           ))}
-        </m.div>
+        </div>
 
         <div className="mt-12 text-center">
           <Link href="/case-studies">

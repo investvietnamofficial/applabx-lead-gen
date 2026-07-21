@@ -28,6 +28,7 @@ const config: Config = {
         float: 'float 6s ease-in-out infinite',
         'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
         'gradient-shift': 'gradientShift 8s ease infinite',
+        'scale-x-slide': 'scaleXSlide 0.3s ease-out forwards',
       },
       keyframes: {
         fadeInUp: {
@@ -49,6 +50,10 @@ const config: Config = {
         gradientShift: {
           '0%, 100%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
+        },
+        scaleXSlide: {
+          '0%': { transform: 'scaleX(0)', transformOrigin: 'right center' },
+          '100%': { transform: 'scaleX(1)', transformOrigin: 'right center' },
         },
       },
       container: {

@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { m } from 'framer-motion'
 import {
   ArrowRight,
   ExternalLink,
@@ -106,32 +105,25 @@ export function RelatedContent({
                 {/* Links grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                   {section.items.map((item) => (
-                    <m.div
+                    <Link
                       key={item.href}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.3 }}
+                      href={item.href}
+                      className="group flex items-start gap-3 p-4 bg-white rounded-xl border border-[var(--border)] hover:border-[var(--brand-primary)]/30 hover:shadow-md transition-all duration-200"
                     >
-                      <Link
-                        href={item.href}
-                        className="group flex items-start gap-3 p-4 bg-white rounded-xl border border-[var(--border)] hover:border-[var(--brand-primary)]/30 hover:shadow-md transition-all duration-200"
-                      >
-                        <div className="w-8 h-8 rounded-lg bg-[var(--brand-primary)]/8 flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--brand-primary)]/15 transition-colors">
-                          <ArrowRight className="w-4 h-4 text-[var(--brand-primary)] group-hover:translate-x-0.5 transition-transform" />
+                      <div className="w-8 h-8 rounded-lg bg-[var(--brand-primary)]/8 flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--brand-primary)]/15 transition-colors">
+                        <ArrowRight className="w-4 h-4 text-[var(--brand-primary)] group-hover:translate-x-0.5 transition-transform" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="font-medium text-[var(--brand-dark)] text-sm group-hover:text-[var(--brand-primary)] transition-colors leading-tight">
+                          {item.label}
                         </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="font-medium text-[var(--brand-dark)] text-sm group-hover:text-[var(--brand-primary)] transition-colors leading-tight">
-                            {item.label}
+                        {item.description && (
+                          <div className="text-xs text-[var(--brand-gray)] mt-0.5 leading-relaxed line-clamp-2">
+                            {item.description}
                           </div>
-                          {item.description && (
-                            <div className="text-xs text-[var(--brand-gray)] mt-0.5 leading-relaxed line-clamp-2">
-                              {item.description}
-                            </div>
-                          )}
-                        </div>
-                      </Link>
-                    </m.div>
+                        )}
+                      </div>
+                    </Link>
                   ))}
                 </div>
               </div>

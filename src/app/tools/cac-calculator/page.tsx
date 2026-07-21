@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import { motion } from 'framer-motion'
+// framer-motion removed — motion.div replaced with regular div
 import Link from 'next/link'
 import ToolPageTemplate from '@/components/sections/ToolPageTemplate'
 import { Button } from '@/components/ui/Button'
@@ -105,10 +105,7 @@ export default function CACCalculatorPage() {
             </button>
 
             {showAdvanced && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
+              <div
                 className="grid md:grid-cols-2 gap-6 mt-4"
               >
                 {/* Monthly Revenue */}
@@ -148,7 +145,7 @@ export default function CACCalculatorPage() {
                   </div>
                   <p className="text-xs text-[var(--brand-gray)] mt-1">Percentage of customers lost per month</p>
                 </div>
-              </motion.div>
+              </div>
             )}
           </div>
         </div>
@@ -162,45 +159,30 @@ export default function CACCalculatorPage() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* CAC */}
-            <motion.div
-              key={cacValue}
-              initial={{ scale: 0.95 }}
-              animate={{ scale: 1 }}
-              className="text-center"
-            >
+            <div key={cacValue} className="text-center">
               <div className="text-4xl font-bold mb-1">
                 ${cacValue.toLocaleString(undefined, { maximumFractionDigits: 0 })}
               </div>
               <div className="text-sm text-white/70">Customer Acquisition Cost</div>
-            </motion.div>
+            </div>
 
             {/* LTV */}
             {showAdvanced && monthlyRevenue > 0 && (
               <>
-                <motion.div
-                  key={ltvValue}
-                  initial={{ scale: 0.95 }}
-                  animate={{ scale: 1 }}
-                  className="text-center"
-                >
+                <div key={ltvValue} className="text-center">
                   <div className="text-4xl font-bold mb-1">
                     ${ltvValue.toLocaleString(undefined, { maximumFractionDigits: 0 })}
                   </div>
                   <div className="text-sm text-white/70">Customer Lifetime Value</div>
-                </motion.div>
+                </div>
 
                 {/* LTV:CAC Ratio */}
-                <motion.div
-                  key={computedLtvCacRatio}
-                  initial={{ scale: 0.95 }}
-                  animate={{ scale: 1 }}
-                  className="text-center"
-                >
+                <div key={computedLtvCacRatio} className="text-center">
                   <div className={`text-4xl font-bold mb-1 ${computedIsGoodRatio ? 'text-emerald-300' : 'text-amber-300'}`}>
                     {computedLtvCacRatio.toFixed(1)}:1
                   </div>
                   <div className="text-sm text-white/70">LTV:CAC Ratio</div>
-                </motion.div>
+                </div>
 
                 {/* Health Status */}
                 <div className="text-center">

@@ -1,6 +1,6 @@
 'use client'
 
-import { m } from 'framer-motion'
+// framer-motion removed — replaced with CSS animations
 import Link from 'next/link'
 import * as Accordion from '@radix-ui/react-accordion'
 import { Container } from '@/components/ui/Container'
@@ -72,53 +72,34 @@ export default function StatisticsPageTemplate({
         <Container className="relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             {/* Eyebrow */}
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
+            <div className="opacity-0 animate-fade-in-up" style={{ animationDelay: '0ms', animationFillMode: 'forwards' }}>
               <Link href="/statistics">
                 <Badge variant="primary" className="mb-6 cursor-pointer hover:bg-[var(--brand-primary)]/20">
                   <BarChart3 className="w-4 h-4 mr-2" />
                   Statistics Hub
                 </Badge>
               </Link>
-            </m.div>
+            </div>
 
             {/* H1 */}
-            <m.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="heading-1 text-[var(--brand-dark)] mb-6"
-            >
+            <h1 className="heading-1 text-[var(--brand-dark)] mb-6 opacity-0 animate-fade-in-up" style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
               {title}
-            </m.h1>
+            </h1>
 
             {/* Description */}
-            <m.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-xl text-[var(--brand-gray)] mb-10 max-w-2xl mx-auto leading-relaxed"
-            >
+            <p className="text-xl text-[var(--brand-gray)] mb-10 max-w-2xl mx-auto leading-relaxed opacity-0 animate-fade-in-up" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
               {description}
-            </m.p>
+            </p>
 
             {/* CTAs */}
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
+            <div className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-in-up" style={{ animationDelay: '300ms', animationFillMode: 'forwards' }}>
               <Link href="/contact">
                 <Button size="xl">
                   <Calendar className="w-5 h-5" />
                   Book a Strategy Call
                 </Button>
               </Link>
-            </m.div>
+            </div>
           </div>
         </Container>
       </section>
@@ -126,13 +107,7 @@ export default function StatisticsPageTemplate({
       {/* Introduction Section */}
       <section className="py-16 bg-white">
         <Container>
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto"
-          >
+          <div className="max-w-4xl mx-auto">
             <div className="bg-gradient-to-br from-[var(--brand-light)] to-white rounded-2xl p-8 md:p-12 border border-[var(--border)]">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-xl bg-[var(--brand-primary)]/10 flex items-center justify-center">
@@ -146,20 +121,14 @@ export default function StatisticsPageTemplate({
                 {intro}
               </p>
             </div>
-          </m.div>
+          </div>
         </Container>
       </section>
 
       {/* Statistics Grid */}
       <section className="py-16 bg-[var(--brand-light-secondary)]">
         <Container>
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-6xl mx-auto"
-          >
+          <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="heading-2 text-[var(--brand-dark)] mb-4">
                 Key Statistics
@@ -182,7 +151,7 @@ export default function StatisticsPageTemplate({
                 />
               ))}
             </div>
-          </m.div>
+          </div>
         </Container>
       </section>
 
@@ -190,13 +159,7 @@ export default function StatisticsPageTemplate({
       {keyTakeaways.length > 0 && (
         <section className="py-16 bg-white">
           <Container>
-            <m.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="max-w-4xl mx-auto"
-            >
+            <div className="max-w-4xl mx-auto">
               <div className="bg-gradient-to-br from-[var(--brand-light)] to-white rounded-2xl p-8 md:p-12 border border-[var(--border)]">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 rounded-xl bg-[var(--brand-accent)]/10 flex items-center justify-center">
@@ -215,7 +178,7 @@ export default function StatisticsPageTemplate({
                   ))}
                 </ul>
               </div>
-            </m.div>
+            </div>
           </Container>
         </section>
       )}
@@ -224,13 +187,7 @@ export default function StatisticsPageTemplate({
       {methodology && (
         <section className="py-12 bg-[var(--brand-light-secondary)]">
           <Container>
-            <m.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="max-w-4xl mx-auto"
-            >
+            <div className="max-w-4xl mx-auto">
               <Accordion.Root type="single" collapsible className="space-y-4">
                 <Accordion.Item
                   value="methodology"
@@ -256,7 +213,7 @@ export default function StatisticsPageTemplate({
                   </Accordion.Content>
                 </Accordion.Item>
               </Accordion.Root>
-            </m.div>
+            </div>
           </Container>
 
           <style jsx>{`
@@ -290,13 +247,7 @@ export default function StatisticsPageTemplate({
       {relatedReading.length > 0 && (
         <section className="py-16 bg-white">
           <Container>
-            <m.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="max-w-4xl mx-auto"
-            >
+            <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
                 <h2 className="text-xl font-bold text-[var(--brand-dark)] mb-2">
                   Related Reading
@@ -329,7 +280,7 @@ export default function StatisticsPageTemplate({
                   </Link>
                 ))}
               </div>
-            </m.div>
+            </div>
           </Container>
         </section>
       )}
@@ -338,13 +289,7 @@ export default function StatisticsPageTemplate({
       {relatedPages.length > 0 && (
         <section className="py-16 bg-white">
           <Container>
-            <m.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="max-w-4xl mx-auto"
-            >
+            <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
                 <h2 className="text-xl font-bold text-[var(--brand-dark)] mb-2">
                   Explore Related Statistics
@@ -361,7 +306,7 @@ export default function StatisticsPageTemplate({
                   </Link>
                 ))}
               </div>
-            </m.div>
+            </div>
           </Container>
         </section>
       )}
@@ -369,13 +314,7 @@ export default function StatisticsPageTemplate({
       {/* Sources Section */}
       <section className="py-12 bg-[var(--brand-light)]">
         <Container>
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto"
-          >
+          <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-3 mb-6">
               <BarChart3 className="w-5 h-5 text-[var(--brand-gray)]" />
               <h3 className="text-lg font-semibold text-[var(--brand-dark)]">
@@ -389,20 +328,14 @@ export default function StatisticsPageTemplate({
                 </li>
               ))}
             </ul>
-          </m.div>
+          </div>
         </Container>
       </section>
 
       {/* Share This Page Section */}
       <section className="py-8 bg-white border-t border-[var(--border)]">
         <Container>
-          <m.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="max-w-4xl mx-auto"
-          >
+          <div className="max-w-4xl mx-auto">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <div className="flex items-center gap-2 text-[var(--brand-gray)]">
                 <Share2 className="w-4 h-4" />
@@ -443,7 +376,7 @@ export default function StatisticsPageTemplate({
                 </a>
               </div>
             </div>
-          </m.div>
+          </div>
         </Container>
       </section>
 
@@ -460,13 +393,7 @@ export default function StatisticsPageTemplate({
         </div>
 
         <Container className="relative z-10">
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center"
-          >
+          <div className="max-w-4xl mx-auto text-center">
             <h2 className="heading-2 text-white mb-6">
               Put These Insights to Work
             </h2>
@@ -490,7 +417,7 @@ export default function StatisticsPageTemplate({
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </p>
-          </m.div>
+          </div>
         </Container>
       </section>
     </>

@@ -1,6 +1,5 @@
 'use client'
 
-import { m } from 'framer-motion'
 import { TrendingUp, TrendingDown, Minus, ExternalLink } from 'lucide-react'
 
 interface StatCardProps {
@@ -15,13 +14,9 @@ interface StatCardProps {
   index?: number
 }
 
-export function StatCard({ value, label, source, trend, description, index = 0 }: StatCardProps) {
+export function StatCard({ value, label, source, trend, description }: StatCardProps) {
   return (
-    <m.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+    <div
       className="group relative bg-white rounded-2xl p-6 border border-[var(--border)] hover:border-[var(--brand-primary)]/30 hover:shadow-lg transition-all duration-300"
     >
       {/* Decorative gradient on hover */}
@@ -75,6 +70,6 @@ export function StatCard({ value, label, source, trend, description, index = 0 }
           </div>
         )}
       </div>
-    </m.div>
+    </div>
   )
 }

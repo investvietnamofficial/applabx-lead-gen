@@ -1,6 +1,5 @@
 'use client'
 
-import { m } from 'framer-motion'
 import Link from 'next/link'
 import * as Accordion from '@radix-ui/react-accordion'
 import { Container } from '@/components/ui/Container'
@@ -205,51 +204,27 @@ export default function IndustryPageTemplate({
 
         <Container className="relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
+            <div>
               <Link href="/industries">
                 <Badge variant="primary" className="mb-6 cursor-pointer hover:bg-[var(--brand-primary)]/20">
                   Industries
                 </Badge>
               </Link>
-            </m.div>
+            </div>
 
-            <m.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="w-20 h-20 rounded-2xl bg-[var(--brand-primary)]/10 flex items-center justify-center mx-auto mb-8"
-            >
+            <div className="w-20 h-20 rounded-2xl bg-[var(--brand-primary)]/10 flex items-center justify-center mx-auto mb-8">
               <IconComponent className="w-10 h-10 text-[var(--brand-primary)]" />
-            </m.div>
+            </div>
 
-            <m.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="heading-1 text-[var(--brand-dark)] mb-6"
-            >
+            <h1 className="heading-1 text-[var(--brand-dark)] mb-6">
               {industry.title} Lead Generation
-            </m.h1>
+            </h1>
 
-            <m.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-xl text-[var(--brand-gray)] mb-10 max-w-2xl mx-auto leading-relaxed"
-            >
+            <p className="text-xl text-[var(--brand-gray)] mb-10 max-w-2xl mx-auto leading-relaxed">
               {industry.description}
-            </m.p>
+            </p>
 
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
                 <Button size="xl">
                   <Calendar className="w-5 h-5" />
@@ -262,7 +237,7 @@ export default function IndustryPageTemplate({
                   <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
-            </m.div>
+            </div>
           </div>
         </Container>
       </section>
@@ -273,12 +248,7 @@ export default function IndustryPageTemplate({
       <section className="py-16 bg-white">
         <Container>
           <div className="max-w-4xl mx-auto">
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
+            <div>
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-10 h-10 rounded-lg bg-[var(--brand-primary)]/10 flex items-center justify-center">
                   <Globe className="w-5 h-5 text-[var(--brand-primary)]" />
@@ -287,20 +257,16 @@ export default function IndustryPageTemplate({
                   {industry.title} Lead Generation — Industry Overview
                 </h2>
               </div>
-            </m.div>
+            </div>
 
             <div className="space-y-6">
-              {overviewParagraphs.map((para, idx) => (
-                <m.p
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+              {overviewParagraphs.map((para) => (
+                <p
+                  key={para.substring(0, 20)}
                   className="text-base text-[var(--brand-gray)] leading-relaxed"
                 >
                   {para}
-                </m.p>
+                </p>
               ))}
             </div>
           </div>
@@ -320,12 +286,8 @@ export default function IndustryPageTemplate({
 
           <div className="grid sm:grid-cols-2 gap-6 mt-12 max-w-4xl mx-auto">
             {industry.challenges.map((challenge, idx) => (
-              <m.div
+              <div
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className={`group flex items-start gap-4 p-6 rounded-xl bg-white border-l-4 ${accent.border} shadow-sm hover:shadow-md transition-all`}
               >
                 <div className={`flex-shrink-0 w-10 h-10 rounded-lg ${accent.bg} flex items-center justify-center`}>
@@ -334,7 +296,7 @@ export default function IndustryPageTemplate({
                 <p className="text-[var(--brand-dark)] font-medium leading-relaxed">
                   {challenge}
                 </p>
-              </m.div>
+              </div>
             ))}
           </div>
         </Container>
@@ -358,12 +320,8 @@ export default function IndustryPageTemplate({
 
               <div className="space-y-8">
                 {industry.buyingJourney.map((step, idx) => (
-                  <m.div
+                  <div
                     key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: idx * 0.1 }}
                     className="relative flex items-start gap-6"
                   >
                     {/* Circle */}
@@ -376,7 +334,7 @@ export default function IndustryPageTemplate({
                         {step}
                       </p>
                     </div>
-                  </m.div>
+                  </div>
                 ))}
               </div>
             </div>
@@ -397,12 +355,8 @@ export default function IndustryPageTemplate({
 
           <div className="grid sm:grid-cols-2 gap-6 mt-12 max-w-4xl mx-auto">
             {industry.decisionMakers.map((dm, idx) => (
-              <m.div
+              <div
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="group bg-white rounded-xl border border-[var(--border)] p-6 hover:shadow-md transition-all"
               >
                 {/* Avatar placeholder */}
@@ -435,7 +389,7 @@ export default function IndustryPageTemplate({
                     </p>
                   </div>
                 </div>
-              </m.div>
+              </div>
             ))}
           </div>
         </Container>
@@ -457,12 +411,8 @@ export default function IndustryPageTemplate({
               {industry.channels.map((channel, idx) => {
                 const ChannelIcon = channelIconMap[channel] || Zap
                 return (
-                  <m.div
+                  <div
                     key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: idx * 0.05 }}
                     className="flex items-center gap-3 p-4 rounded-xl border border-[var(--border)] bg-white hover:border-[var(--brand-primary)]/30 hover:shadow-sm transition-all"
                   >
                     <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[var(--brand-accent)]/10 flex items-center justify-center">
@@ -471,7 +421,7 @@ export default function IndustryPageTemplate({
                     <span className="text-sm font-medium text-[var(--brand-dark)] leading-snug">
                       {channel}
                     </span>
-                  </m.div>
+                  </div>
                 )
               })}
             </div>
@@ -494,12 +444,8 @@ export default function IndustryPageTemplate({
             {industry.aiOpportunities.map((opp, idx) => {
               const OppIcon = aiIconMap[opp] || Zap
               return (
-                <m.div
+                <div
                   key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.07 }}
                   className="flex items-start gap-4 p-5 rounded-xl bg-white border border-[var(--border)] hover:shadow-md transition-all"
                 >
                   <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[var(--brand-primary)]/10 flex items-center justify-center">
@@ -508,7 +454,7 @@ export default function IndustryPageTemplate({
                   <p className="text-sm text-[var(--brand-gray)] leading-relaxed">
                     {opp}
                   </p>
-                </m.div>
+                </div>
               )
             })}
           </div>
@@ -560,12 +506,8 @@ export default function IndustryPageTemplate({
                   description: 'You get a named team — not a black box. Regular syncs, transparent reporting, and strategic input as your partner.',
                 },
               ].map((reason, idx) => (
-                <m.div
+                <div
                   key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
                   className="group p-6 rounded-xl border border-[var(--border)] hover:border-[var(--brand-primary)]/30 hover:shadow-lg transition-all bg-white"
                 >
                   <div className="w-12 h-12 rounded-xl bg-[var(--brand-accent)]/10 flex items-center justify-center mb-4 group-hover:bg-[var(--brand-accent)]/20 transition-colors">
@@ -577,7 +519,7 @@ export default function IndustryPageTemplate({
                   <p className="text-[var(--brand-gray)] text-sm leading-relaxed">
                     {reason.description}
                   </p>
-                </m.div>
+                </div>
               ))}
             </div>
           </div>
@@ -600,12 +542,8 @@ export default function IndustryPageTemplate({
             <div className="hidden md:block absolute top-5 left-0 right-0 h-0.5 bg-[var(--border)]" />
             <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
               {industry.process.map((step, idx) => (
-                <m.div
+                <div
                   key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
                   className="relative text-center"
                 >
                   <div className="relative z-10 w-10 h-10 rounded-full bg-[var(--brand-primary)] text-white flex items-center justify-center text-sm font-bold mx-auto mb-4">
@@ -614,7 +552,7 @@ export default function IndustryPageTemplate({
                   <p className="text-sm font-medium text-[var(--brand-dark)] leading-snug">
                     {step}
                   </p>
-                </m.div>
+                </div>
               ))}
             </div>
           </div>
@@ -635,32 +573,25 @@ export default function IndustryPageTemplate({
           <div className="max-w-3xl mx-auto mt-12">
             <Accordion.Root type="single" collapsible className="space-y-4">
               {(industry.expandedFaqs ?? industry.faqs).map((faq, idx) => (
-                <m.div
+                <Accordion.Item
                   key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.05 }}
+                  value={`faq-${idx}`}
+                  className="bg-white rounded-xl border border-[var(--border)] overflow-hidden"
                 >
-                  <Accordion.Item
-                    value={`faq-${idx}`}
-                    className="bg-white rounded-xl border border-[var(--border)] overflow-hidden"
-                  >
-                    <Accordion.Header>
-                      <Accordion.Trigger className="group flex w-full items-center justify-between p-6 text-left hover:bg-[var(--brand-light)] transition-colors">
-                        <span className="font-semibold text-[var(--brand-dark)] pr-4">
-                          {faq.q}
-                        </span>
-                        <ChevronDown className="w-5 h-5 text-[var(--brand-gray)] group-data-[state=open]:rotate-180 transition-transform flex-shrink-0" />
-                      </Accordion.Trigger>
-                    </Accordion.Header>
-                    <Accordion.Content className="overflow-hidden data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp">
-                      <div className="px-6 pb-6 text-[var(--brand-gray)] leading-relaxed">
-                        {faq.a}
-                      </div>
-                    </Accordion.Content>
-                  </Accordion.Item>
-                </m.div>
+                  <Accordion.Header>
+                    <Accordion.Trigger className="group flex w-full items-center justify-between p-6 text-left hover:bg-[var(--brand-light)] transition-colors">
+                      <span className="font-semibold text-[var(--brand-dark)] pr-4">
+                        {faq.q}
+                      </span>
+                      <ChevronDown className="w-5 h-5 text-[var(--brand-gray)] group-data-[state=open]:rotate-180 transition-transform flex-shrink-0" />
+                    </Accordion.Trigger>
+                  </Accordion.Header>
+                  <Accordion.Content className="overflow-hidden data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp">
+                    <div className="px-6 pb-6 text-[var(--brand-gray)] leading-relaxed">
+                      {faq.a}
+                    </div>
+                  </Accordion.Content>
+                </Accordion.Item>
               ))}
             </Accordion.Root>
           </div>
@@ -694,16 +625,12 @@ export default function IndustryPageTemplate({
             <div className="max-w-4xl mx-auto mt-10">
               <div className="prose prose-lg max-w-none">
                 {industry.marketOverview.split('\n\n').map((para, idx) => (
-                  <m.p
+                  <p
                     key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: idx * 0.1 }}
                     className="text-[var(--brand-gray)] leading-relaxed mb-6 text-base"
                   >
                     {para}
-                  </m.p>
+                  </p>
                 ))}
               </div>
             </div>
@@ -732,17 +659,13 @@ export default function IndustryPageTemplate({
                   </p>
                   <ul className="space-y-3">
                     {industry.buyingTriggers.map((trigger, idx) => (
-                      <m.li
+                      <li
                         key={idx}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: idx * 0.05 }}
                         className="flex items-start gap-3"
                       >
                         <div className="w-2 h-2 rounded-full bg-green-500 mt-2 flex-shrink-0" />
                         <span className="text-[var(--brand-gray)] text-sm leading-relaxed">{trigger}</span>
-                      </m.li>
+                      </li>
                     ))}
                   </ul>
                 </div>
@@ -762,17 +685,13 @@ export default function IndustryPageTemplate({
                   </p>
                   <ul className="space-y-3">
                     {industry.redFlags.map((flag, idx) => (
-                      <m.li
+                      <li
                         key={idx}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: idx * 0.05 }}
                         className="flex items-start gap-3"
                       >
                         <div className="w-2 h-2 rounded-full bg-red-500 mt-2 flex-shrink-0" />
                         <span className="text-[var(--brand-gray)] text-sm leading-relaxed">{flag}</span>
-                      </m.li>
+                      </li>
                     ))}
                   </ul>
                 </div>
@@ -795,34 +714,22 @@ export default function IndustryPageTemplate({
             />
             <div className="grid md:grid-cols-2 gap-8 mt-10 max-w-5xl mx-auto">
               {industry.pricingBenchmark && (
-                <m.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="bg-white rounded-2xl border border-[var(--border)] p-8"
-                >
+                <div className="bg-white rounded-2xl border border-[var(--border)] p-8">
                   <div className="w-12 h-12 rounded-xl bg-[var(--brand-accent)]/10 flex items-center justify-center mb-4">
                     <BarChart3 className="w-6 h-6 text-[var(--brand-accent)]" />
                   </div>
                   <h3 className="text-lg font-bold text-[var(--brand-dark)] mb-3">Pricing Benchmark</h3>
                   <p className="text-[var(--brand-gray)] text-sm leading-relaxed">{industry.pricingBenchmark}</p>
-                </m.div>
+                </div>
               )}
               {industry.competitiveLandscape && (
-                <m.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="bg-white rounded-2xl border border-[var(--border)] p-8"
-                >
+                <div className="bg-white rounded-2xl border border-[var(--border)] p-8">
                   <div className="w-12 h-12 rounded-xl bg-[var(--brand-primary)]/10 flex items-center justify-center mb-4">
                     <Globe className="w-6 h-6 text-[var(--brand-primary)]" />
                   </div>
                   <h3 className="text-lg font-bold text-[var(--brand-dark)] mb-3">Competitive Landscape</h3>
                   <p className="text-[var(--brand-gray)] text-sm leading-relaxed">{industry.competitiveLandscape}</p>
-                </m.div>
+                </div>
               )}
             </div>
           </Container>
@@ -838,21 +745,14 @@ export default function IndustryPageTemplate({
             <h3 className="text-lg font-bold text-[var(--brand-dark)] mb-6">Explore Related Services</h3>
             <div className="flex flex-wrap gap-3">
               {industry.internalLinks.map((link, idx) => (
-                <m.div
+                <Link
                   key={idx}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: idx * 0.05 }}
+                  href={link.href}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border)] text-sm font-medium text-[var(--brand-gray)] hover:border-[var(--brand-primary)] hover:text-[var(--brand-primary)] transition-all bg-white"
                 >
-                  <Link
-                    href={link.href}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border)] text-sm font-medium text-[var(--brand-gray)] hover:border-[var(--brand-primary)] hover:text-[var(--brand-primary)] transition-all bg-white"
-                  >
-                    <Link2 className="w-4 h-4" />
-                    {link.label}
-                  </Link>
-                </m.div>
+                  <Link2 className="w-4 h-4" />
+                  {link.label}
+                </Link>
               ))}
             </div>
           </Container>
@@ -871,13 +771,7 @@ export default function IndustryPageTemplate({
         </div>
 
         <Container className="relative z-10">
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center"
-          >
+          <div className="max-w-4xl mx-auto text-center">
             <h2 className="heading-2 text-white mb-6">
               Generate Leads in {industry.title}
             </h2>
@@ -894,7 +788,7 @@ export default function IndustryPageTemplate({
                 Book a Strategy Call
               </Button>
             </Link>
-          </m.div>
+          </div>
         </Container>
       </section>
 
@@ -914,32 +808,25 @@ export default function IndustryPageTemplate({
               {relatedIndustries.map((related) => {
                 const RelatedIcon = iconMap[related.icon] || Target
                 return (
-                  <m.div
+                  <Link
                     key={related.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
+                    href={`/industries/${related.slug}`}
+                    className="group block p-6 bg-white rounded-xl border border-[var(--border)] hover:border-[var(--brand-primary)]/30 hover:shadow-lg transition-all"
                   >
-                    <Link
-                      href={`/industries/${related.slug}`}
-                      className="group block p-6 bg-white rounded-xl border border-[var(--border)] hover:border-[var(--brand-primary)]/30 hover:shadow-lg transition-all"
-                    >
-                      <div className="w-12 h-12 rounded-xl bg-[var(--brand-primary)]/10 flex items-center justify-center mb-4 group-hover:bg-[var(--brand-primary)] transition-colors">
-                        <RelatedIcon className="w-6 h-6 text-[var(--brand-primary)] group-hover:text-white transition-colors" />
-                      </div>
-                      <h3 className="text-lg font-semibold text-[var(--brand-dark)] mb-2 group-hover:text-[var(--brand-primary)] transition-colors">
-                        {related.title}
-                      </h3>
-                      <p className="text-sm text-[var(--brand-gray)] mb-4 line-clamp-2">
-                        {related.description}
-                      </p>
-                      <span className="inline-flex items-center gap-2 text-sm font-medium text-[var(--brand-primary)] group-hover:gap-3 transition-all">
-                        Learn more
-                        <ArrowRight className="w-4 h-4" />
-                      </span>
-                    </Link>
-                  </m.div>
+                    <div className="w-12 h-12 rounded-xl bg-[var(--brand-primary)]/10 flex items-center justify-center mb-4 group-hover:bg-[var(--brand-primary)] transition-colors">
+                      <RelatedIcon className="w-6 h-6 text-[var(--brand-primary)] group-hover:text-white transition-colors" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-[var(--brand-dark)] mb-2 group-hover:text-[var(--brand-primary)] transition-colors">
+                      {related.title}
+                    </h3>
+                    <p className="text-sm text-[var(--brand-gray)] mb-4 line-clamp-2">
+                      {related.description}
+                    </p>
+                    <span className="inline-flex items-center gap-2 text-sm font-medium text-[var(--brand-primary)] group-hover:gap-3 transition-all">
+                      Learn more
+                      <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </Link>
                 )
               })}
             </div>

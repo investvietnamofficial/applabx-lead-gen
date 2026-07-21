@@ -1,6 +1,5 @@
 'use client'
 
-import { m, type Variants } from 'framer-motion'
 import { Container } from '@/components/ui/Container'
 import { AlertTriangle, MessageSquareX, Target, TrendingDown } from 'lucide-react'
 
@@ -22,58 +21,23 @@ const problems = [
   },
 ]
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-}
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: 'easeOut' as const,
-    },
-  },
-}
-
 export function ProblemsSection() {
   return (
     <section className="section-padding bg-white">
       <Container>
-        <m.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <span className="inline-block mb-4 text-sm font-semibold uppercase tracking-wider text-red-600">
             The Problem
           </span>
           <h2 className="heading-2 text-[var(--brand-dark)]">
             The Lead Generation Problem Is Real
           </h2>
-        </m.div>
+        </div>
 
-        <m.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-8"
-        >
+        <div className="grid md:grid-cols-3 gap-8">
           {problems.map((problem) => (
-            <m.div
+            <div
               key={problem.title}
-              variants={itemVariants}
               className="relative p-8 rounded-2xl border-2 border-red-100 bg-red-50/50 hover:bg-red-50 transition-colors group"
             >
               {/* Warning indicator */}
@@ -93,22 +57,16 @@ export function ProblemsSection() {
               <p className="text-[var(--brand-gray)] leading-relaxed">
                 {problem.description}
               </p>
-            </m.div>
+            </div>
           ))}
-        </m.div>
+        </div>
 
         {/* Solution teaser */}
-        <m.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 text-center"
-        >
+        <div className="mt-16 text-center">
           <p className="text-2xl font-semibold text-[var(--brand-dark)]">
             AppLabx solves all three.
           </p>
-        </m.div>
+        </div>
       </Container>
     </section>
   )

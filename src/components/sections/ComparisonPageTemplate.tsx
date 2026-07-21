@@ -1,6 +1,6 @@
 'use client'
 
-import { m } from 'framer-motion'
+// framer-motion removed — replaced with CSS animations
 import Link from 'next/link'
 import * as Accordion from '@radix-ui/react-accordion'
 import { Container } from '@/components/ui/Container'
@@ -136,52 +136,33 @@ export default function ComparisonPageTemplate({ comparison }: ComparisonPageTem
         <Container className="relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             {/* Eyebrow */}
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
+            <div className="opacity-0 animate-fade-in-up" style={{ animationDelay: '0ms', animationFillMode: 'forwards' }}>
               <Link href="/compare">
                 <Badge variant="primary" className="mb-6 cursor-pointer hover:bg-[var(--brand-primary)]/20">
                   Comparison Guide
                 </Badge>
               </Link>
-            </m.div>
+            </div>
 
             {/* H1 */}
-            <m.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="heading-1 text-[var(--brand-dark)] mb-6"
-            >
+            <h1 className="heading-1 text-[var(--brand-dark)] mb-6 opacity-0 animate-fade-in-up" style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
               {comparison.title}
-            </m.h1>
+            </h1>
 
             {/* Description */}
-            <m.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-xl text-[var(--brand-gray)] mb-10 max-w-2xl mx-auto leading-relaxed"
-            >
+            <p className="text-xl text-[var(--brand-gray)] mb-10 max-w-2xl mx-auto leading-relaxed opacity-0 animate-fade-in-up" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
               {comparison.description}
-            </m.p>
+            </p>
 
             {/* CTAs */}
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
+            <div className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-in-up" style={{ animationDelay: '300ms', animationFillMode: 'forwards' }}>
               <Link href="/contact">
                 <Button size="xl">
                   <Calendar className="w-5 h-5" />
                   Book a Strategy Call
                 </Button>
               </Link>
-            </m.div>
+            </div>
           </div>
         </Container>
       </section>
@@ -191,11 +172,7 @@ export default function ComparisonPageTemplate({ comparison }: ComparisonPageTem
         <Container>
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Left Option Card */}
-            <m.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+            <div
               className="relative overflow-hidden rounded-2xl border-2 border-[var(--brand-primary)]/20 bg-gradient-to-br from-[var(--brand-light)] to-white p-8"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--brand-primary)]/5 rounded-full -translate-y-1/2 translate-x-1/2" />
@@ -224,14 +201,10 @@ export default function ComparisonPageTemplate({ comparison }: ComparisonPageTem
                   ))}
                 </ul>
               </div>
-            </m.div>
+            </div>
 
             {/* Right Option Card */}
-            <m.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+            <div
               className="relative overflow-hidden rounded-2xl border-2 border-[var(--brand-accent)]/20 bg-gradient-to-br from-[var(--brand-light)]/50 to-white p-8"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--brand-accent)]/5 rounded-full -translate-y-1/2 translate-x-1/2" />
@@ -260,7 +233,7 @@ export default function ComparisonPageTemplate({ comparison }: ComparisonPageTem
                   ))}
                 </ul>
               </div>
-            </m.div>
+            </div>
           </div>
         </Container>
       </section>
@@ -268,13 +241,7 @@ export default function ComparisonPageTemplate({ comparison }: ComparisonPageTem
       {/* Feature Comparison Table */}
       <section className="py-16 bg-[var(--brand-light-secondary)]">
         <Container>
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-6xl mx-auto"
-          >
+          <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="heading-2 text-[var(--brand-dark)] mb-4">
                 Feature Comparison
@@ -311,18 +278,15 @@ export default function ComparisonPageTemplate({ comparison }: ComparisonPageTem
                 ))}
               </div>
             </div>
-          </m.div>
+          </div>
         </Container>
       </section>
 
       {/* Which Is Right For You */}
       <section className="py-16 bg-white">
         <Container>
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div
+
             className="max-w-6xl mx-auto"
           >
             <div className="text-center mb-12">
@@ -373,18 +337,15 @@ export default function ComparisonPageTemplate({ comparison }: ComparisonPageTem
                 </div>
               </div>
             </div>
-          </m.div>
+          </div>
         </Container>
       </section>
 
       {/* Honest Verdict */}
       <section className="py-16 bg-[var(--brand-light-secondary)]">
         <Container>
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div
+
             className="max-w-4xl mx-auto"
           >
             <div className="bg-white rounded-2xl p-8 md:p-12 border border-[var(--border)] shadow-lg">
@@ -440,18 +401,15 @@ export default function ComparisonPageTemplate({ comparison }: ComparisonPageTem
                 </div>
               </div>
             </div>
-          </m.div>
+          </div>
         </Container>
       </section>
 
       {/* Pricing Comparison Section */}
       <section className="py-16 bg-white">
         <Container>
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div
+
             className="max-w-5xl mx-auto"
           >
             <div className="text-center mb-12">
@@ -568,18 +526,15 @@ export default function ComparisonPageTemplate({ comparison }: ComparisonPageTem
                 </div>
               </div>
             </div>
-          </m.div>
+          </div>
         </Container>
       </section>
 
       {/* Strengths and Weaknesses Section */}
       <section className="py-16 bg-[var(--brand-light-secondary)]">
         <Container>
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div
+
             className="max-w-5xl mx-auto"
           >
             <div className="text-center mb-12">
@@ -696,18 +651,15 @@ export default function ComparisonPageTemplate({ comparison }: ComparisonPageTem
                 </div>
               </div>
             </div>
-          </m.div>
+          </div>
         </Container>
       </section>
 
       {/* Social Proof Placeholder */}
       <section className="py-16 bg-white">
         <Container>
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div
+
             className="max-w-4xl mx-auto"
           >
             <div className="text-center mb-12">
@@ -732,18 +684,15 @@ export default function ComparisonPageTemplate({ comparison }: ComparisonPageTem
                 </p>
               </div>
             </div>
-          </m.div>
+          </div>
         </Container>
       </section>
 
       {/* FAQs Section */}
       <section className="py-16 bg-[var(--brand-light-secondary)]">
         <Container>
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div
+
             className="max-w-4xl mx-auto"
           >
             <div className="text-center mb-12">
@@ -761,12 +710,8 @@ export default function ComparisonPageTemplate({ comparison }: ComparisonPageTem
               className="space-y-4"
             >
               {defaultComparisonFaqs.map((faq, index) => (
-                <m.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
                 >
                   <Accordion.Item
                     value={`faq-${index}`}
@@ -786,10 +731,10 @@ export default function ComparisonPageTemplate({ comparison }: ComparisonPageTem
                       </div>
                     </Accordion.Content>
                   </Accordion.Item>
-                </m.div>
+                </div>
               ))}
             </Accordion.Root>
-          </m.div>
+          </div>
         </Container>
 
         <style jsx>{`
@@ -821,11 +766,8 @@ export default function ComparisonPageTemplate({ comparison }: ComparisonPageTem
       {/* Comparison Navigation */}
       <section className="py-16 bg-white">
         <Container>
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div
+
             className="max-w-4xl mx-auto"
           >
             <div className="text-center mb-8">
@@ -865,7 +807,7 @@ export default function ComparisonPageTemplate({ comparison }: ComparisonPageTem
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
-          </m.div>
+          </div>
         </Container>
       </section>
 
@@ -882,11 +824,8 @@ export default function ComparisonPageTemplate({ comparison }: ComparisonPageTem
         </div>
 
         <Container className="relative z-10">
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div
+
             className="max-w-4xl mx-auto text-center"
           >
             <h2 className="heading-2 text-white mb-6">
@@ -912,7 +851,7 @@ export default function ComparisonPageTemplate({ comparison }: ComparisonPageTem
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </p>
-          </m.div>
+          </div>
         </Container>
       </section>
     </>

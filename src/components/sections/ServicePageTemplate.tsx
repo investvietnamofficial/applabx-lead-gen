@@ -1,6 +1,6 @@
 'use client'
 
-import { m } from 'framer-motion'
+// framer-motion removed — replaced with CSS animations
 import Link from 'next/link'
 import * as Accordion from '@radix-ui/react-accordion'
 import { Container } from '@/components/ui/Container'
@@ -105,55 +105,33 @@ export default function ServicePageTemplate({
         <Container className="relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             {/* Eyebrow */}
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
+            <div className="opacity-0 animate-fade-in-up" style={{ animationDelay: '0ms', animationFillMode: 'forwards' }}>
               <Link href="/services">
                 <Badge variant="primary" className="mb-6 cursor-pointer hover:bg-[var(--brand-primary)]/20">
                   Our Services
                 </Badge>
               </Link>
-            </m.div>
+            </div>
 
             {/* Icon */}
-            <m.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="w-20 h-20 rounded-2xl bg-[var(--brand-primary)]/10 flex items-center justify-center mx-auto mb-8"
-            >
-              <IconComponent className="w-10 h-10 text-[var(--brand-primary)]" />
-            </m.div>
+            <div className="opacity-0 animate-fade-in-up" style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
+              <div className="w-20 h-20 rounded-2xl bg-[var(--brand-primary)]/10 flex items-center justify-center mx-auto mb-8">
+                <IconComponent className="w-10 h-10 text-[var(--brand-primary)]" />
+              </div>
+            </div>
 
             {/* H1 */}
-            <m.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="heading-1 text-[var(--brand-dark)] mb-6"
-            >
+            <h1 className="heading-1 text-[var(--brand-dark)] mb-6 opacity-0 animate-fade-in-up" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
               {service.title}
-            </m.h1>
+            </h1>
 
             {/* Short Description */}
-            <m.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-xl text-[var(--brand-gray)] mb-10 max-w-2xl mx-auto leading-relaxed"
-            >
+            <p className="text-xl text-[var(--brand-gray)] mb-10 max-w-2xl mx-auto leading-relaxed opacity-0 animate-fade-in-up" style={{ animationDelay: '300ms', animationFillMode: 'forwards' }}>
               {service.shortDescription}
-            </m.p>
+            </p>
 
             {/* CTAs */}
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
+            <div className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-in-up" style={{ animationDelay: '400ms', animationFillMode: 'forwards' }}>
               <Link href="/contact">
                 <Button size="xl">
                   <Calendar className="w-5 h-5" />
@@ -166,7 +144,7 @@ export default function ServicePageTemplate({
                   <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
-            </m.div>
+            </div>
           </div>
         </Container>
       </section>
@@ -204,12 +182,8 @@ export default function ServicePageTemplate({
       >
         <div className="grid md:grid-cols-2 gap-6 mt-6">
           {service.problems && service.problems.map((problem, idx) => (
-            <m.div
+            <div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="bg-white rounded-xl p-6 border border-[var(--border)]"
             >
               <div className="flex items-start gap-4">
@@ -221,7 +195,7 @@ export default function ServicePageTemplate({
                   <p className="text-sm text-[var(--brand-gray)] leading-relaxed">{problem.description}</p>
                 </div>
               </div>
-            </m.div>
+            </div>
           ))}
         </div>
       </ContentBlock>
@@ -262,12 +236,8 @@ export default function ServicePageTemplate({
       >
         <div className="space-y-8 mt-6">
           {service.processSteps && service.processSteps.map((step, idx) => (
-            <m.div
+            <div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="flex gap-6"
             >
               <div className="flex-shrink-0">
@@ -279,7 +249,7 @@ export default function ServicePageTemplate({
                 <h3 className="text-xl font-semibold text-[var(--brand-dark)] mb-3">{step.title}</h3>
                 <p className="text-[var(--brand-gray)] leading-relaxed">{step.description}</p>
               </div>
-            </m.div>
+            </div>
           ))}
         </div>
       </ContentBlock>
@@ -294,17 +264,13 @@ export default function ServicePageTemplate({
       >
         <div className="grid sm:grid-cols-2 gap-4 mt-6">
           {service.deliverables.map((deliverable, idx) => (
-            <m.div
+            <div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.05 }}
               className="flex items-start gap-4 p-5 bg-[var(--brand-light)] rounded-xl"
             >
               <CheckCircle className="w-6 h-6 text-[var(--brand-accent)] flex-shrink-0 mt-0.5" />
               <span className="text-[var(--brand-dark)] leading-relaxed">{deliverable}</span>
-            </m.div>
+            </div>
           ))}
         </div>
       </ContentBlock>
@@ -352,32 +318,25 @@ export default function ServicePageTemplate({
         <div className="max-w-3xl mt-6">
           <Accordion.Root type="single" collapsible className="space-y-4">
             {service.faqs.map((faq, idx) => (
-              <m.div
+              <Accordion.Item
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                value={`faq-${idx}`}
+                className="bg-[var(--brand-light)] rounded-xl overflow-hidden"
               >
-                <Accordion.Item
-                  value={`faq-${idx}`}
-                  className="bg-[var(--brand-light)] rounded-xl overflow-hidden"
-                >
-                  <Accordion.Header>
-                    <Accordion.Trigger className="group flex w-full items-center justify-between p-6 text-left hover:bg-[var(--brand-light-secondary)] transition-colors">
-                      <span className="font-semibold text-[var(--brand-dark)] pr-4">
-                        {faq.q}
-                      </span>
-                      <ChevronDown className="w-5 h-5 text-[var(--brand-gray)] group-data-[state=open]:rotate-180 transition-transform flex-shrink-0" />
-                    </Accordion.Trigger>
-                  </Accordion.Header>
-                  <Accordion.Content className="overflow-hidden data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp">
-                    <div className="px-6 pb-6 text-[var(--brand-gray)] leading-relaxed">
-                      {faq.a}
-                    </div>
-                  </Accordion.Content>
-                </Accordion.Item>
-              </m.div>
+                <Accordion.Header>
+                  <Accordion.Trigger className="group flex w-full items-center justify-between p-6 text-left hover:bg-[var(--brand-light-secondary)] transition-colors">
+                    <span className="font-semibold text-[var(--brand-dark)] pr-4">
+                      {faq.q}
+                    </span>
+                    <ChevronDown className="w-5 h-5 text-[var(--brand-gray)] group-data-[state=open]:rotate-180 transition-transform flex-shrink-0" />
+                  </Accordion.Trigger>
+                </Accordion.Header>
+                <Accordion.Content className="overflow-hidden data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp">
+                  <div className="px-6 pb-6 text-[var(--brand-gray)] leading-relaxed">
+                    {faq.a}
+                  </div>
+                </Accordion.Content>
+              </Accordion.Item>
             ))}
           </Accordion.Root>
         </div>
@@ -408,13 +367,7 @@ export default function ServicePageTemplate({
         </div>
 
         <Container className="relative z-10">
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center"
-          >
+          <div className="max-w-4xl mx-auto text-center">
             <h2 className="heading-2 text-white mb-6">Ready to Get Started?</h2>
             <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
               Book a free strategy call with our team to discuss how we can accelerate your growth with {service.title}.
@@ -436,7 +389,7 @@ export default function ServicePageTemplate({
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </p>
-          </m.div>
+          </div>
         </Container>
       </section>
 
@@ -452,32 +405,25 @@ export default function ServicePageTemplate({
             {relatedServices.map((related) => {
               const RelatedIcon = iconMap[related.icon] || Target
               return (
-                <m.div
+                <Link
                   key={related.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
+                  href={`/services/${related.slug}`}
+                  className="group block p-6 bg-white rounded-xl border border-[var(--border)] hover:border-[var(--brand-primary)]/30 hover:shadow-lg transition-all h-full"
                 >
-                  <Link
-                    href={`/services/${related.slug}`}
-                    className="group block p-6 bg-white rounded-xl border border-[var(--border)] hover:border-[var(--brand-primary)]/30 hover:shadow-lg transition-all h-full"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-[var(--brand-primary)]/10 flex items-center justify-center mb-4 group-hover:bg-[var(--brand-primary)] transition-colors">
-                      <RelatedIcon className="w-6 h-6 text-[var(--brand-primary)] group-hover:text-white transition-colors" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-[var(--brand-dark)] mb-2 group-hover:text-[var(--brand-primary)] transition-colors">
-                      {related.title}
-                    </h3>
-                    <p className="text-sm text-[var(--brand-gray)] mb-4 line-clamp-2">
-                      {related.shortDescription}
-                    </p>
-                    <span className="inline-flex items-center gap-2 text-sm font-medium text-[var(--brand-primary)] group-hover:gap-3 transition-all">
-                      Learn more
-                      <ArrowRight className="w-4 h-4" />
-                    </span>
-                  </Link>
-                </m.div>
+                  <div className="w-12 h-12 rounded-xl bg-[var(--brand-primary)]/10 flex items-center justify-center mb-4 group-hover:bg-[var(--brand-primary)] transition-colors">
+                    <RelatedIcon className="w-6 h-6 text-[var(--brand-primary)] group-hover:text-white transition-colors" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-[var(--brand-dark)] mb-2 group-hover:text-[var(--brand-primary)] transition-colors">
+                    {related.title}
+                  </h3>
+                  <p className="text-sm text-[var(--brand-gray)] mb-4 line-clamp-2">
+                    {related.shortDescription}
+                  </p>
+                  <span className="inline-flex items-center gap-2 text-sm font-medium text-[var(--brand-primary)] group-hover:gap-3 transition-all">
+                    Learn more
+                    <ArrowRight className="w-4 h-4" />
+                  </span>
+                </Link>
               )
             })}
           </div>

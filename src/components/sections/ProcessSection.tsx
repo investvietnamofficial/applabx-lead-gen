@@ -1,6 +1,5 @@
 'use client'
 
-import { m } from 'framer-motion'
 import { Container } from '@/components/ui/Container'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Search, Lightbulb, Rocket, Filter, Handshake } from 'lucide-react'
@@ -54,13 +53,9 @@ export function ProcessSection() {
           <div className="absolute top-20 left-0 right-0 h-1 bg-gradient-to-r from-[var(--brand-primary)] via-[var(--brand-accent)] to-[var(--brand-primary)]" />
 
           <div className="grid grid-cols-5 gap-8">
-            {processSteps.map((step, index) => (
-              <m.div
+            {processSteps.map((step) => (
+              <div
                 key={step.number}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.15 }}
                 className="relative"
               >
                 {/* Timeline node */}
@@ -83,7 +78,7 @@ export function ProcessSection() {
                     {step.description}
                   </p>
                 </div>
-              </m.div>
+              </div>
             ))}
           </div>
         </div>
@@ -95,13 +90,9 @@ export function ProcessSection() {
             <div className="absolute top-0 bottom-0 left-6 w-1 bg-gradient-to-b from-[var(--brand-primary)] to-[var(--brand-accent)]" />
 
             <div className="space-y-8">
-              {processSteps.map((step, index) => (
-                <m.div
+              {processSteps.map((step) => (
+                <div
                   key={step.number}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="relative flex gap-6"
                 >
                   {/* Timeline node */}
@@ -128,7 +119,7 @@ export function ProcessSection() {
                       </div>
                     </div>
                   </div>
-                </m.div>
+                </div>
               ))}
             </div>
           </div>

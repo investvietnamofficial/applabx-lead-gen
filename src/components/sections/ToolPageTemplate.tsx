@@ -1,6 +1,6 @@
 'use client'
 
-import { m } from 'framer-motion'
+// framer-motion removed — replaced with CSS animations
 import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
@@ -33,50 +33,33 @@ export default function ToolPageTemplate({
         <Container className="relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             {/* Eyebrow */}
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
+            <div className="opacity-0 animate-fade-in-up" style={{ animationDelay: '0ms', animationFillMode: 'forwards' }}>
               <Link href="/tools">
                 <Badge variant="primary" className="mb-6 cursor-pointer hover:bg-[var(--brand-primary)]/20">
                   <Calculator className="w-4 h-4 mr-2" />
                   Free Tool
                 </Badge>
               </Link>
-            </m.div>
+            </div>
 
             {/* Icon */}
             {icon && (
-              <m.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="w-20 h-20 rounded-2xl bg-[var(--brand-primary)]/10 flex items-center justify-center mx-auto mb-8"
-              >
-                {icon}
-              </m.div>
+              <div className="opacity-0 animate-fade-in-up" style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
+                <div className="w-20 h-20 rounded-2xl bg-[var(--brand-primary)]/10 flex items-center justify-center mx-auto mb-8">
+                  {icon}
+                </div>
+              </div>
             )}
 
             {/* H1 */}
-            <m.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="heading-1 text-[var(--brand-dark)] mb-6"
-            >
+            <h1 className="heading-1 text-[var(--brand-dark)] mb-6 opacity-0 animate-fade-in-up" style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
               {title}
-            </m.h1>
+            </h1>
 
             {/* Description */}
-            <m.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-xl text-[var(--brand-gray)] mb-10 max-w-2xl mx-auto leading-relaxed"
-            >
+            <p className="text-xl text-[var(--brand-gray)] mb-10 max-w-2xl mx-auto leading-relaxed opacity-0 animate-fade-in-up" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
               {description}
-            </m.p>
+            </p>
           </div>
         </Container>
       </section>
@@ -84,15 +67,9 @@ export default function ToolPageTemplate({
       {/* Tool Section */}
       <section className="py-16 bg-white">
         <Container>
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto"
-          >
+          <div className="max-w-4xl mx-auto">
             {children}
-          </m.div>
+          </div>
         </Container>
       </section>
 
@@ -100,13 +77,7 @@ export default function ToolPageTemplate({
       {methodology && (
         <section className="py-12 bg-[var(--brand-light)]">
           <Container>
-            <m.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="max-w-4xl mx-auto"
-            >
+            <div className="max-w-4xl mx-auto">
               <div className="flex items-start gap-4 p-6 bg-white rounded-xl border border-[var(--border)]">
                 <div className="w-10 h-10 rounded-lg bg-[var(--brand-primary)]/10 flex items-center justify-center flex-shrink-0">
                   <BookOpen className="w-5 h-5 text-[var(--brand-primary)]" />
@@ -118,7 +89,7 @@ export default function ToolPageTemplate({
                   {methodology}
                 </div>
               </div>
-            </m.div>
+            </div>
           </Container>
         </section>
       )}
@@ -136,13 +107,7 @@ export default function ToolPageTemplate({
         </div>
 
         <Container className="relative z-10">
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center"
-          >
+          <div className="max-w-4xl mx-auto text-center">
             <h2 className="heading-2 text-white mb-6">
               Ready to Optimize Your Lead Generation?
             </h2>
@@ -166,7 +131,7 @@ export default function ToolPageTemplate({
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </p>
-          </m.div>
+          </div>
         </Container>
       </section>
     </>
