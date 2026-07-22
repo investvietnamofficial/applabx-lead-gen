@@ -1,73 +1,51 @@
-'use client'
-
-import { Container } from '@/components/ui/Container'
-import { AlertTriangle, MessageSquareX, Target, TrendingDown } from 'lucide-react'
-
-const problems = [
-  {
-    icon: MessageSquareX,
-    title: 'Cold outreach that gets ignored',
-    description: 'Generic messages, wrong contacts, no personalization — your emails land in spam or get deleted before the second sentence.',
-  },
-  {
-    icon: Target,
-    title: 'Leads that never convert',
-    description: 'Wrong ICP targeting, no qualification process, poor lead quality — your sales team wastes hours on prospects who will never buy.',
-  },
-  {
-    icon: TrendingDown,
-    title: 'Pipeline that dries up',
-    description: 'Inconsistent lead flow, no predictability, revenue rollercoaster — you can\'t plan for growth when your pipeline is empty month after month.',
-  },
-]
-
 export function ProblemsSection() {
   return (
-    <section className="section-padding bg-white">
-      <Container>
-        <div className="text-center mb-16">
-          <span className="inline-block mb-4 text-sm font-semibold uppercase tracking-wider text-red-600">
-            The Problem
-          </span>
-          <h2 className="heading-2 text-[var(--brand-dark)]">
-            The Lead Generation Problem Is Real
+    <section className="py-24 bg-[#FAF9F6]">
+      <div className="max-w-[1180px] mx-auto px-8">
+        {/* Section header */}
+        <div className="max-w-[680px] mx-auto text-center mb-14">
+          <div className="inline-flex items-center gap-2 bg-[#E3F0E9] text-[#0A4A38] px-4 py-2 rounded-full text-xs font-semibold font-mono tracking-wide mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0B6E4F] inline-block" />
+            THE PROBLEM
+          </div>
+          <h2 className="text-[clamp(28px,3.4vw,40px)] font-bold text-[#191A17] tracking-tight leading-tight mb-4">
+            Most lead gen breaks at the handoff.
           </h2>
+          <p className="text-base text-[#3C3D38]">
+            Cold email vendors don&apos;t touch your landing pages. SEO agencies don&apos;t qualify leads. In-house SDRs burn out on manual list building. The result: pipeline that looks busy but doesn&apos;t close.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {problems.map((problem) => (
+        {/* Problem cards grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            {
+              num: '01',
+              title: 'Disconnected channels',
+              body: 'Outbound, inbound and nurture run through different vendors with no shared data, so leads fall through the cracks between them.',
+            },
+            {
+              num: '02',
+              title: 'Volume without qualification',
+              body: 'Lists get bigger, sequences get louder, but sales still spends hours sorting real opportunities from noise.',
+            },
+            {
+              num: '03',
+              title: 'No visibility into ROI',
+              body: 'Reporting stops at &quot;leads sent,&quot; not booked meetings, sales-qualified pipeline, or closed revenue.',
+            },
+          ].map((card) => (
             <div
-              key={problem.title}
-              className="relative p-8 rounded-2xl border-2 border-red-100 bg-red-50/50 hover:bg-red-50 transition-colors group"
+              key={card.num}
+              className="bg-white border border-[#E8E4D9] rounded-[14px] p-8"
             >
-              {/* Warning indicator */}
-              <div className="absolute top-4 right-4">
-                <AlertTriangle className="w-6 h-6 text-red-400" />
-              </div>
-
-              {/* Icon */}
-              <div className="w-14 h-14 rounded-xl bg-red-100 flex items-center justify-center mb-6 group-hover:bg-red-200 transition-colors">
-                <problem.icon className="w-7 h-7 text-red-600" />
-              </div>
-
-              {/* Content */}
-              <h3 className="text-xl font-semibold text-[var(--brand-dark)] mb-3">
-                {problem.title}
-              </h3>
-              <p className="text-[var(--brand-gray)] leading-relaxed">
-                {problem.description}
-              </p>
+              <div className="font-mono text-[#D6D0C0] text-xs font-semibold mb-4">{card.num}</div>
+              <h3 className="text-lg font-semibold text-[#191A17] mb-3">{card.title}</h3>
+              <p className="text-sm text-[#3C3D38] leading-relaxed">{card.body}</p>
             </div>
           ))}
         </div>
-
-        {/* Solution teaser */}
-        <div className="mt-16 text-center">
-          <p className="text-2xl font-semibold text-[var(--brand-dark)]">
-            AppLabx solves all three.
-          </p>
-        </div>
-      </Container>
+      </div>
     </section>
   )
 }

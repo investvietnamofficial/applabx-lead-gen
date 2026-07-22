@@ -1,130 +1,44 @@
-'use client'
-
-import { Container } from '@/components/ui/Container'
-import { SectionHeading } from '@/components/ui/SectionHeading'
-import { Search, Lightbulb, Rocket, Filter, Handshake } from 'lucide-react'
-
-const processSteps = [
-  {
-    number: '01',
-    title: 'Discovery',
-    description: 'We audit your ICP, market, and existing pipeline to understand your unique challenges and opportunities.',
-    icon: Search,
-  },
-  {
-    number: '02',
-    title: 'Strategy',
-    description: 'Custom multi-channel campaign plan built for your goals, target market, and growth objectives.',
-    icon: Lightbulb,
-  },
-  {
-    number: '03',
-    title: 'Execution',
-    description: 'AI-powered outreach across email, LinkedIn, and more — all personalized and automated.',
-    icon: Rocket,
-  },
-  {
-    number: '04',
-    title: 'Qualification',
-    description: 'Every lead is scored, vetted, and CRM-ready — only the best prospects reach your team.',
-    icon: Filter,
-  },
-  {
-    number: '05',
-    title: 'Handoff',
-    description: 'Booked calls, qualified prospects, or raw data — delivered in your preferred format.',
-    icon: Handshake,
-  },
-]
-
 export function ProcessSection() {
   return (
-    <section id="how-it-works" className="section-padding bg-white">
-      <Container>
-        <SectionHeading
-          eyebrow="Our Process"
-          title="How We Work"
-          subtitle="A proven, repeatable process that delivers results from week one."
-        />
+    <section id="process" className="py-24 bg-[#F3F1EA]">
+      <div className="max-w-[1180px] mx-auto px-8">
+        {/* Section header */}
+        <div className="max-w-[680px] mx-auto text-center mb-14">
+          <div className="inline-flex items-center gap-2 bg-[#E3F0E9] text-[#0A4A38] px-4 py-2 rounded-full text-xs font-semibold font-mono tracking-wide mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0B6E4F] inline-block" />
+            HOW WE WORK
+          </div>
+          <h2 className="text-[clamp(28px,3.4vw,40px)] font-bold text-[#191A17] tracking-tight leading-tight mb-4">
+            From kickoff to qualified pipeline.
+          </h2>
+          <p className="text-base text-[#3C3D38]">
+            A structured rollout so channels launch in the right order and compound instead of competing for the same budget.
+          </p>
+        </div>
 
-        {/* Desktop View - Horizontal Timeline */}
-        <div className="hidden lg:block relative mt-16">
-          {/* Timeline connector line */}
-          <div className="absolute top-20 left-0 right-0 h-1 bg-gradient-to-r from-[var(--brand-primary)] via-[var(--brand-accent)] to-[var(--brand-primary)]" />
-
-          <div className="grid grid-cols-5 gap-8">
-            {processSteps.map((step) => (
-              <div
-                key={step.number}
-                className="relative"
-              >
-                {/* Timeline node */}
-                <div className="relative z-10 w-12 h-12 rounded-full bg-gradient-to-br from-[var(--brand-primary)] to-[var(--brand-accent)] flex items-center justify-center text-white font-bold mx-auto mb-8 shadow-lg">
-                  {step.number}
-                </div>
-
-                {/* Card */}
-                <div className="bg-[var(--brand-light)] rounded-xl p-6 hover:bg-[var(--brand-primary)]/5 transition-colors border border-transparent hover:border-[var(--brand-primary)]/20">
-                  {/* Icon */}
-                  <div className="w-12 h-12 rounded-xl bg-[var(--brand-primary)]/10 flex items-center justify-center mb-4 mx-auto">
-                    <step.icon className="w-6 h-6 text-[var(--brand-primary)]" />
-                  </div>
-
-                  {/* Content */}
-                  <h3 className="text-lg font-semibold text-[var(--brand-dark)] mb-2 text-center">
-                    {step.title}
-                  </h3>
-                  <p className="text-[var(--brand-gray)] text-sm text-center leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
+        {/* Process track — 4 steps */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-1 relative">
+          {[
+            { num: '1', title: 'Discovery & ICP mapping', body: 'We define your ideal customer profile, offer positioning and channel mix with ProspectIQ.' },
+            { num: '2', title: 'Build & launch', body: 'Sequences, landing pages and campaigns go live across your chosen channels within 2-3 weeks.' },
+            { num: '3', title: 'Optimize with AI', body: 'ScoreIQ and ConvertIQ tune targeting and conversion weekly based on live response data.' },
+            { num: '4', title: 'Scale & report', body: 'PipelineIQ tracks ROI end-to-end, and we scale the channels producing qualified pipeline.' },
+          ].map((step, idx) => (
+            <div key={step.num} className="relative px-6 pt-10">
+              {/* Horizontal connector line */}
+              {idx > 0 && (
+                <div className="absolute top-5 left-0 right-full h-0.5 bg-[#D6D0C0]" style={{ right: '50%' }} />
+              )}
+              {/* Number circle */}
+              <div className="w-10 h-10 rounded-full bg-[#0B6E4F] text-white flex items-center justify-center font-bold text-sm relative z-10 mb-5">
+                {step.num}
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Mobile/Tablet View - Vertical Timeline */}
-        <div className="lg:hidden mt-12">
-          <div className="relative">
-            {/* Vertical connector line */}
-            <div className="absolute top-0 bottom-0 left-6 w-1 bg-gradient-to-b from-[var(--brand-primary)] to-[var(--brand-accent)]" />
-
-            <div className="space-y-8">
-              {processSteps.map((step) => (
-                <div
-                  key={step.number}
-                  className="relative flex gap-6"
-                >
-                  {/* Timeline node */}
-                  <div className="relative z-10 w-12 h-12 rounded-full bg-gradient-to-br from-[var(--brand-primary)] to-[var(--brand-accent)] flex items-center justify-center text-white font-bold flex-shrink-0">
-                    {step.number}
-                  </div>
-
-                  {/* Card */}
-                  <div className="flex-1 bg-[var(--brand-light)] rounded-xl p-6 border border-[var(--border)]">
-                    <div className="flex items-start gap-4">
-                      {/* Icon */}
-                      <div className="w-12 h-12 rounded-xl bg-[var(--brand-primary)]/10 flex items-center justify-center flex-shrink-0">
-                        <step.icon className="w-6 h-6 text-[var(--brand-primary)]" />
-                      </div>
-
-                      {/* Content */}
-                      <div>
-                        <h3 className="text-lg font-semibold text-[var(--brand-dark)] mb-2">
-                          {step.title}
-                        </h3>
-                        <p className="text-[var(--brand-gray)] text-sm leading-relaxed">
-                          {step.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
+              <h3 className="text-[17px] font-semibold text-[#191A17] mb-3">{step.title}</h3>
+              <p className="text-sm text-[#3C3D38] leading-relaxed">{step.body}</p>
             </div>
-          </div>
+          ))}
         </div>
-      </Container>
+      </div>
     </section>
   )
 }

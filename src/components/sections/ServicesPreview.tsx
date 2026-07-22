@@ -1,83 +1,86 @@
-'use client'
-
-import Link from 'next/link'
-import { Container } from '@/components/ui/Container'
-import { SectionHeading } from '@/components/ui/SectionHeading'
-import { services } from '@/lib/constants'
-import { ArrowRight, Target, Calendar, Mail, Users, Search, FileText, Bot, Database, TrendingUp } from 'lucide-react'
-
-// Icon mapping for services
-const iconMap: Record<string, React.ElementType> = {
-  Target: Target,
-  Calendar: Calendar,
-  Mail: Mail,
-  Users: Users,
-  Search: Search,
-  FileText: FileText,
-  Bot: Bot,
-  Database: Database,
-  TrendingUp: TrendingUp,
-}
-
 export function ServicesPreview() {
-  // Only show first 6 services
-  const displayedServices = services.slice(0, 6)
-
   return (
-    <section className="section-padding bg-[var(--brand-light)]">
-      <Container>
-        <SectionHeading
-          eyebrow="Our Services"
-          title="Full-Stack Lead Generation, From Strategy to Pipeline"
-          subtitle="Comprehensive solutions to attract, engage, and convert your ideal B2B customers — powered by AI and proven outbound strategies."
-        />
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {displayedServices.map((service) => {
-            const IconComponent = iconMap[service.icon] || Target
-
-            return (
-              <Link
-                key={service.id}
-                href={`/services/${service.slug}`}
-                className="group block p-6 rounded-xl border border-[var(--border)] bg-white hover:border-[var(--brand-primary)] hover:shadow-xl transition-all duration-300 h-full"
-              >
-                {/* Icon */}
-                <div className="w-12 h-12 rounded-xl bg-[var(--brand-primary)]/10 flex items-center justify-center mb-4 group-hover:bg-[var(--brand-primary)] group-hover:scale-110 transition-all duration-300">
-                  <IconComponent className="w-6 h-6 text-[var(--brand-primary)] group-hover:text-white transition-colors" />
-                </div>
-
-                {/* Title */}
-                <h3 className="text-lg font-semibold text-[var(--brand-dark)] mb-2 group-hover:text-[var(--brand-primary)] transition-colors">
-                  {service.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-[var(--brand-gray)] text-sm mb-4 line-clamp-2">
-                  {service.shortDescription}
-                </p>
-
-                {/* Link */}
-                <div className="flex items-center text-[var(--brand-primary)] text-sm font-medium group-hover:gap-2 transition-all mt-auto">
-                  Learn more
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </div>
-              </Link>
-            )
-          })}
+    <section id="services" className="py-24 bg-[#191A17]">
+      <div className="max-w-[1180px] mx-auto px-8">
+        {/* Section header */}
+        <div className="max-w-[640px] mb-14">
+          <div className="inline-flex items-center gap-2 bg-white/8 text-white px-4 py-2 rounded-full text-xs font-semibold font-mono tracking-wide mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#12805C] inline-block" />
+            WHAT WE BUILD
+          </div>
+          <h2 className="text-[clamp(28px,3.4vw,40px)] font-bold text-white tracking-tight leading-tight mb-4">
+            One engine, four connected systems.
+          </h2>
+          <p className="text-base text-white/68">
+            Pick a single channel to start, or run the full stack — every system feeds the same pipeline and the same dashboard.
+          </p>
         </div>
 
-        {/* View All Link */}
-        <div className="mt-12 text-center">
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 text-[var(--brand-primary)] font-medium hover:gap-3 transition-all"
-          >
-            View All Services
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+        {/* Services grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {[
+            {
+              icon: '↗',
+              title: 'Outbound Engine',
+              items: [
+                'Cold email — list building, copywriting, deliverability',
+                'LinkedIn outreach & social selling',
+                'Cold calling & appointment setting',
+                'Account-based marketing (ABM) for target accounts',
+              ],
+            },
+            {
+              icon: '◎',
+              title: 'Inbound & Paid',
+              items: [
+                'SEO lead generation & organic capture',
+                'Content marketing — gated ebooks, whitepapers, webinars',
+                'Paid search (Google/Bing) landing campaigns',
+                'Paid social (Meta, LinkedIn, TikTok) lead forms',
+              ],
+            },
+            {
+              icon: '▣',
+              title: 'Conversion Infrastructure',
+              items: [
+                'Landing page design & CRO testing',
+                'Lead magnets — quizzes, calculators, trials',
+                'Chatbot & live-chat capture',
+                'Webinar & event funnel management',
+              ],
+            },
+            {
+              icon: '↻',
+              title: 'Nurture & Qualification',
+              items: [
+                'Email nurture sequences & drip campaigns',
+                'Lead scoring — MQL to SQL qualification',
+                'CRM setup & automated lead routing',
+                'Retargeting for unconverted visitors',
+              ],
+            },
+          ].map((card) => (
+            <div
+              key={card.title}
+              className="bg-white/4 border border-white/10 rounded-[14px] p-8 hover:bg-white/7 hover:border-white/22 transition-colors"
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-11 h-11 rounded-[10px] bg-[#0B6E4F] flex items-center justify-center text-lg flex-shrink-0">
+                  {card.icon}
+                </div>
+                <h3 className="text-lg font-semibold text-white">{card.title}</h3>
+              </div>
+              <ul className="space-y-2.5">
+                {card.items.map((item) => (
+                  <li key={item} className="text-sm text-white/72 pl-5 relative before:absolute before:left-0 before:top-2.5 before:w-1.5 before:h-1.5 before:rounded-full before:bg-[#12805C]">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-      </Container>
+      </div>
     </section>
   )
 }
